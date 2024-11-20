@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "strictNullChecks": true,
+    "lib": ["es2015", "dom"],
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
