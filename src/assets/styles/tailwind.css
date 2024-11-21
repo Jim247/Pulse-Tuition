@@ -21,7 +21,10 @@
   .text-muted {
     color: var(--aw-color-text-muted);
   }
-}
+  .bg-footer-blue {
+    background-color: hwb(240 0% 0%); /* Change this to your desired blue color - bue 900 */
+  }
+  }
 
 @layer components {
   .btn {
@@ -93,4 +96,7 @@
 .dd *:first-child {
   margin-top: 0;
 }
-
+/* Footer */
+.footer {
+  @apply bg-page text-page;
+}
