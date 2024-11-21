@@ -12,7 +12,7 @@ export default {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
-        darkblue : 'blue',
+        darkblue: 'blue',
       },
       fontFamily: {
         sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
@@ -38,5 +38,5 @@ export default {
       addVariant('intersect', '&:not([no-intersect])');
     }),
   ],
-//  darkMode: 'class',//
+  //  darkMode: 'class',//
 };

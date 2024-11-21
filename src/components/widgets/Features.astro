@@ -20,30 +20,20 @@ const {
 } = Astro.props;
 ---
 
-<WidgetWrapper 
-  id={id} 
-  isDark={isDark} 
-  containerClass={`max-w-5xl ${classes?.container ?? ''} mb-8`} 
-  bg={bg}>
-  <Headline 
-    title={title} 
-    subtitle={subtitle} 
-    tagline={tagline} 
-    classes={classes?.headline as Record<string, string>} 
-  />
-  <div class="mt-8">
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''} mb-8`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+  <div class="mt-40">
     <ItemGrid
       items={items}
       columns={columns}
       defaultIcon={defaultIcon}
       classes={{
-        container: 'gap-7', /* Adjust gap between cards */
-        title: 'md:text-[1.3rem]',
-        description: 'md:text-lg',
-        icon: 'text-white bg-primary rounded-full w-10 h-10 p-2 md:w-12 md:h-12 md:p-3 mr-4 rtl:ml-4 rtl:mr-0',
+        container: 'gap-' /* Adjust gap between cards */,
+        title: 'md:text-[1.5rem]',
+        description: 'text-lg',
+        icon: 'text-white bg-primary rounded-full w-12 h-12 p-3 md:w-14 md:h-14 md:p-4 mr-4 rtl:ml-4 rtl:mr-0',
         ...((classes?.items as Record<string, never>) ?? {}),
       }}
     />
   </div>
 </WidgetWrapper>
-

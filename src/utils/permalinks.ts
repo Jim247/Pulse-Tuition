@@ -61,9 +61,9 @@ export const getPermalink = (slug = '', type = 'page'): string => {
       permalink = getBlogPermalink();
       break;
 
-      case 'lessons':
-        permalink = getBlogPermalink();
-        break;
+    case 'lessons':
+      permalink = getBlogPermalink();
+      break;
 
     case 'tag':
       permalink = createPath(TAG_BASE, trimSlash(slug));

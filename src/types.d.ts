@@ -100,7 +100,7 @@ export interface Video {
 
 export interface Widget {
   id?: string;
-  isDark?: false
+  isDark?: false;
   bg?: string;
   classes?: Record<string, string | Record<string, string>>;
 }
@@ -302,6 +302,5 @@ export interface StarTestimonialsProps {
   classes?: Record<string, string>;
   bg?: string;
 }
-
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}

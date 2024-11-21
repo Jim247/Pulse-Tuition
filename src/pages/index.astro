@@ -7,6 +7,8 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 import Prices from '~/components/widgets/prices.astro';
+import { Default } from 'astro-compress';
+
 const metadata = {
   title: 'Music Lessons in the Bristol Area',
   ignoreTitleTemplate: true,
@@ -25,9 +27,8 @@ const metadata = {
         target: '_blank',
         icon: 'tabler:download',
       },
-      { text: 'Learn more', href: '#features' },
     ]}
-    image={{ src: '~/assets/images/hero-image.jpg', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/hero-image.jpg', alt: 'Music Lessons Hero Image' }}
   >
     <Fragment slot="title">
       Music Lessons in the <span class="hidden xl:inline"></span>
@@ -36,8 +37,9 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">Bristol Music Lessons</span><br>
-         Find the best local music tutors</span>
+        <span class="font-semibold">Bristol Music Lessons</span><br />
+        Find the best local music tutors</span
+      >
     </Fragment>
   </Hero>
 
@@ -51,7 +53,7 @@ const metadata = {
     id="features"
     tagline="What We Offer"
     title="Learn Music Your Way"
-    subtitle="At our bristol based music school, we believe everyone has the potential to make beautiful music.' <br> Whether you're picking up an instrument for the first time or looking to refine your skills, we offer personalized lessons that cater to your unique goals. <br><br> Our experienced instructors teach a wide range of instruments and vocal styles, ensuring a fun and supportive learning environment for students of all ages and skill levels. Join us to explore your musical talents and take the next step in your musical journey.<br>"
+    subtitle="At our bristol based music school, we believe everyone has the potential to make beautiful music.' <br><br> Whether you're picking up an instrument for the first time or looking to refine your skills, we offer personalized lessons that cater to your unique goals. <br><br> Our experienced instructors teach a wide range of musical genres, instruments and vocal styles, ensuring a fun and supportive learning environment for students of all ages and skill levels. Join us to explore your musical talents and take the next step in your musical journey.<br>"
     items={[
       {
         title: 'Expert Musicians',
@@ -77,104 +79,102 @@ const metadata = {
           'Our tutors tailor our lessons to your musical interests, so you can learn the songs and styles you love.',
         icon: 'tabler:heart',
       },
-        ]}
-      />
+    ]}
+  />
 
-      <StarTestimonials
-        id="student-testimonials"
-        title="What Our Students Say"
-        subtitle="Real stories from our students and parents"
-        isDark={false}
-        testimonials={[
-        {
-          text: "My son really enjoyed his lessons with josh he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.",
-          name: "Katie",
-          role: "Parent - Bristol",
-          rating: 5,
-        },
-        {
-          text: "Adriana has been giving 121 lessons to our 9 year old daughter for the last couple of months. Adriana is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
-          name: "Oliver",
-          role: "Parent- Bristol",
-          rating: 5,
-        },
-      ]}
-    />
-  
+  <StarTestimonials
+    id="student-testimonials"
+    title="What Our Students Say"
+    subtitle="Real stories from our students and parents"
+    isDark={false}
+    testimonials={[
+      {
+        text: 'My son really enjoyed his lessons with josh he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
+        name: 'Katie',
+        role: 'Parent - Guitar - Bristol',
+        rating: 5,
+      },
+      {
+        text: "Adriana has been giving 121 lessons to our 9 year old daughter for the last couple of months. Adriana is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
+        name: 'Oliver',
+        role: 'Parent - Vocals - Bristol',
+        rating: 5,
+      },
+    ]}
+  />
 
-<Prices
-  id="prices"
-  tagline="Great Value"
-  title="Our Prices"
-  subtitle="Choose a plan that suits you best<br>Your first lesson includes 20 minutes for<strong> free</strong>"
-  priceDetails={[
-    { label: '30 minutes', price: '£17.50' },
-    { label: '60 minutes', price: '£35' },
-  ]}
-  
-/>
-    
+  <Prices
+    id="prices"
+    tagline="Great Value"
+    title="Our Prices"
+    icon=n
+    subtitle="Choose a plan that suits you best<br>Your first lesson includes 20 minutes, <strong> on us</strong>"
+    priceDetails={[
+      { label: '30 minutes', price: '£17.50' },
+      { label: '60 minutes', price: '£35' },
+    ]}
+  />
+
   <FAQs
     title="Frequently Asked Questions"
     subtitle="Find out more about our music lessons."
-    tagline="FAQs"  
+    tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
-       {
-    title: "I’m tone-deaf and have never even touched an instrument in my entire life. Do you think I can learn music?",
-    description: 
-      "Absolutely! Anyone can learn to play an instrument or sing, no matter their starting point. With structured lessons, encouragement, and consistent practice, you'll surprise yourself with how quickly you progress.",
-  },
-  {
-    title: "Do you teach children?",
-    description: 
-      "Yes! Our lessons are designed for both children and adults, adapting to the unique needs and learning styles of each age group.",
-  },
-  {
-    title: "How often should I attend music lessons?",
-    description: 
-      "For the best results, we recommend attending lessons at least once a week. Regular practice between sessions will also help you progress faster.",
-  },
-  {
-    title: "What types of music can I learn?",
-    description: 
-      "We offer lessons in a variety of genres, including classical, pop, jazz, and rock. Whatever your musical interests, we tailor the lessons to suit your preferences.",
-  },
-  {
-    title: "Do I need my own instrument to start music lessons?",
-    description: 
-      "While having your own instrument is ideal for practicing at home, we can guide you on choosing the right one. For beginners, we also provide recommendations for affordable rental or purchase options.",
-  },
-  {
-    title: "How long will it take me to learn to play an instrument or sing?",
-    description: 
-      "Progress varies depending on factors like practice, dedication, and prior experience. Many students start playing simple songs within weeks, but becoming proficient may take months to years.",
-  },
-  {
-    title: "Am I too old to start learning music?",
-    description: 
-      "Absolutely not! Music is for everyone, and many people start learning as adults. With the right approach, you'll make progress at any age.",
-  },
-  {
-    title: "What if I don’t know how to read sheet music?",
-    description: 
-      "No problem! We'll teach you the basics of reading sheet music and understanding music theory as part of your lessons.",
-  },
-  {
-    title: "How long are the lessons?",
-    description: 
-      "Lessons typically last 30 minutes to an hour, depending on your age, level, and goals.",
-  },
-  {
-    title: "Can I take lessons online?",
-    description: 
-      "Yes, we offer online lessons via video calls, which are as effective as in-person sessions.",
-  },
-  {
-    title: "Can I book a trial lesson?",
-    description: 
-      "Of course! We encourage new students, we offer 20 minutes of your first session for free to help you decide if our lessons are right for you.",
-  },
+      {
+        title:
+          'I’m tone-deaf and have never even touched an instrument in my entire life. Do you think I can learn music?',
+        description:
+          "Absolutely! Anyone can learn to play an instrument or sing, no matter their starting point. With structured lessons, encouragement, and consistent practice, you'll surprise yourself with how quickly you progress.",
+      },
+      {
+        title: 'Do you teach children?',
+        description:
+          'Yes! Our lessons are designed for both children and adults, adapting to the unique needs and learning styles of each age group.',
+      },
+      {
+        title: 'How often should I attend music lessons?',
+        description:
+          'For the best results, we recommend attending lessons at least once a week. Regular practice between sessions will also help you progress faster.',
+      },
+      {
+        title: 'What types of music can I learn?',
+        description:
+          'We offer lessons in a variety of genres, including classical, pop, jazz, and rock. Whatever your musical interests, we tailor the lessons to suit your preferences.',
+      },
+      {
+        title: 'Do I need my own instrument to start music lessons?',
+        description:
+          'While having your own instrument is ideal for practicing at home, we can guide you on choosing the right one. For beginners, we also provide recommendations for affordable rental or purchase options.',
+      },
+      {
+        title: 'How long will it take me to learn to play an instrument or sing?',
+        description:
+          'Progress varies depending on factors like practice, dedication, and prior experience. Many students start playing simple songs within weeks, but becoming proficient may take months to years.',
+      },
+      {
+        title: 'Am I too old to start learning music?',
+        description:
+          "Absolutely not! Music is for everyone, and many people start learning as adults. With the right approach, you'll make progress at any age.",
+      },
+      {
+        title: 'What if I don’t know how to read sheet music?',
+        description:
+          "No problem! We'll teach you the basics of reading sheet music and understanding music theory as part of your lessons.",
+      },
+      {
+        title: 'How long are the lessons?',
+        description: 'Lessons typically last 30 minutes to an hour, depending on your age, level, and goals.',
+      },
+      {
+        title: 'Can I take lessons online?',
+        description: 'Yes, we offer online lessons via video calls, which are as effective as in-person sessions.',
+      },
+      {
+        title: 'Can I book a trial lesson?',
+        description:
+          'Of course! We encourage new students, we offer 20 minutes of your first session for free to help you decide if our lessons are right for you.',
+      },
     ]}
   />
 
@@ -192,8 +192,7 @@ const metadata = {
     <Fragment slot="title">
       Bristol Music Lessons
 
-    <Fragment slot="subtitle">
-       Don't wait any longer, get the tuition you deserve from our expert tutors!
+      <Fragment slot="subtitle"> Don't wait any longer, get the tuition you deserve from our expert tutors! </Fragment>
     </Fragment>
   </CallToAction>
 </Layout>
