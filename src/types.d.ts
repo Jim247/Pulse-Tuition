@@ -167,6 +167,8 @@ export interface Input {
   label?: string;
   autocomplete?: string;
   placeholder?: string;
+  options?: { value: string; label: string }[];
+  required?: boolean;
 }
 
 export interface Textarea {
@@ -282,5 +284,24 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
   isAfterContent?: boolean;
   callToAction?: CallToAction;
 }
+
+export interface StarTestimonial {
+  text: string;
+  name: string;
+  role: string;
+  rating: number; // 1 to 5
+}
+
+export interface StarTestimonialsProps {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  testimonials: StarTestimonial[];
+  isDark?: boolean;
+  classes?: Record<string, string>;
+  bg?: string;
+}
+
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}

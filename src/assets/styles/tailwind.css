@@ -12,6 +12,9 @@
   .bg-light {
     background-color: var(--aw-color-bg-page);
   }
+  .bg-card {
+    background-color: white !important;
+  }
   .text-page {
     color: var(--aw-color-text-page);
   }
@@ -90,3 +93,4 @@
 .dd *:first-child {
   margin-top: 0;
 }
+

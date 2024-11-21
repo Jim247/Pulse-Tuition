@@ -19,8 +19,9 @@
     "check:prettier": "prettier --check .",
     "fix": "npm run fix:eslint && npm run fix:prettier",
     "fix:eslint": "eslint --fix .",
-    "fix:prettier": "prettier -w ."
-  },
+    "fix:prettier": "prettier -w .",
+    "build:watch": "astro build --watch"
+    },
   "dependencies": {
     "@astrojs/rss": "^4.0.8",
     "@astrojs/sitemap": "^3.2.0",
