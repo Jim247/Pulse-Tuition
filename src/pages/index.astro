@@ -6,6 +6,8 @@ import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Prices from '~/components/widgets/prices.astro';
 
 const metadata = {
   title: 'Music Lessons in the Bristol Area',
@@ -51,31 +53,31 @@ const metadata = {
     id="features"
     tagline="What We Offer"
     title="Learn Music Your Way"
-    subtitle="At our music school, we believe everyone has the potential to make beautiful music.' <br> Whether you're picking up an instrument for the first time or looking to refine your skills, we offer personalized lessons that cater to your unique goals. <br><br> Our experienced instructors teach a wide range of instruments and vocal styles, ensuring a fun and supportive learning environment for students of all ages and skill levels. Join us to explore your musical talents and take the next step in your musical journey!."
+    subtitle="At our music school, we believe everyone has the potential to make beautiful music.' <br> Whether you're picking up an instrument for the first time or looking to refine your skills, we offer personalized lessons that cater to your unique goals. <br><br> Our experienced instructors teach a wide range of instruments and vocal styles, ensuring a fun and supportive learning environment for students of all ages and skill levels. Join us to explore your musical talents and take the next step in your musical journey.<br>"
     items={[
       {
-        title: 'Expert Music Tutors',
+        title: 'Expert Musicians',
         description:
-          'Our tutors are experienced musicians who are passionate about sharing their knowledge and helping you reach your full potential.',
-        icon: 'tabler:brand-tailwind',
+          'Our tutors are experienced, real life musicians who are passionate about sharing their knowledge and helping you reach your full potential.',
+        icon: 'tabler:school',
       },
       {
         title: 'Book Your Lessons Online',
         description:
           'Our online booking and payment system makes it easy to schedule your lessons at a time that suits you.',
-        icon: 'tabler:components',
+        icon: 'tabler:device-laptop',
       },
       {
         title: 'Hand-Picked Tutors',
         description:
           'Our tutors are are associates, we pick the most skilled and experienced tutors to ensure you get the best tuition.',
-        icon: 'tabler:list-check',
+        icon: 'tabler:hand-finger-right',
       },
       {
         title: 'Learn the music you love',
         description:
           'Our tutors tailor our lessons to your musical interests, so you can learn the songs and styles you love.',
-        icon: 'tabler:rocket',
+        icon: 'tabler:heart',
       },
         ]}
       />
@@ -102,6 +104,18 @@ const metadata = {
     />
   
 
+<Prices
+  id="prices"
+  tagline="Great Value"
+  title="Our Prices"
+  subtitle="Choose a plan that suits you best<br>Your first lesson includes 20 minutes for<strong> free"
+  priceDetails={[
+    { label: '30 minutes', price: '£17.50' },
+    { label: '60 minutes', price: '£35' },
+  ]}
+  
+/>
+    
   <FAQs
     title="Frequently Asked Questions"
     subtitle="Find out more about our music lessons."

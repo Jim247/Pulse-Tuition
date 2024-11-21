@@ -157,8 +157,7 @@ const ContactForm = () => {
       <div>
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700"
-        >
+          className="w-full bg-blue-800 text-white py-2 rounded-md hover:bg-blue-900"        >
           Submit
         </button>
       </div>
