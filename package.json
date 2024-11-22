@@ -32,6 +32,7 @@
     "@headlessui/react": "^2.2.0",
     "@hookform/resolvers": "^3.9.1",
     "@tabler/icons": "^3.22.0",
+    "@tabler/icons-react": "^3.22.0",
     "astro": "^4.16.2",
     "astro-embed": "^0.7.4",
     "astro-icon": "^1.1.1",

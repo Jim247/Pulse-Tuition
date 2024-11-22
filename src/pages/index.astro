@@ -7,7 +7,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 import Prices from '~/components/widgets/prices.astro';
-import { Default } from 'astro-compress';
+import { IconGift } from '@tabler/icons-react';
 
 const metadata = {
   title: 'Music Lessons in the Bristol Area',
@@ -107,7 +107,7 @@ const metadata = {
     id="prices"
     tagline="Great Value"
     title="Our Prices"
-    icon=n
+    DefaultIcon={IconGift}
     subtitle="Choose a plan that suits you best<br>Your first lesson includes 20 minutes, <strong> on us</strong>"
     priceDetails={[
       { label: '30 minutes', price: '£17.50' },
@@ -191,8 +191,9 @@ const metadata = {
   >
     <Fragment slot="title">
       Bristol Music Lessons
-
-      <Fragment slot="subtitle"> Don't wait any longer, get the tuition you deserve from our expert tutors! </Fragment>
+    </Fragment>
+    <Fragment slot="subtitle"> 
+      Don't wait any longer, get the tuition you deserve from our expert tutors!
     </Fragment>
   </CallToAction>
 </Layout>
