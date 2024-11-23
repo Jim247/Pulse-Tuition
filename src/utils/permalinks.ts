@@ -22,6 +22,7 @@ export const cleanSlug = (text = '') =>
     .join('/');
 
 export const BLOG_BASE = cleanSlug(APP_BLOG?.list?.pathname);
+export const ABOUT = cleanSlug(APP_BLOG?.about?.pathname);
 export const CATEGORY_BASE = cleanSlug(APP_BLOG?.category?.pathname);
 export const TAG_BASE = cleanSlug(APP_BLOG?.tag?.pathname) || 'tag';
 
@@ -57,6 +58,10 @@ export const getPermalink = (slug = '', type = 'page'): string => {
       permalink = getHomePermalink();
       break;
 
+    case 'about':
+      permalink = get('about');
+      break;
+
     case 'blog':
       permalink = getBlogPermalink();
       break;
@@ -82,6 +87,8 @@ export const getHomePermalink = (): string => getPermalink('/');
 
 /** */
 export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
+
+export const getAboutPermalink = (): string => getPermalink(ABOUT);
 
 /** */
 export const getAsset = (path: string): string =>
