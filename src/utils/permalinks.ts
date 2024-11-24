@@ -23,6 +23,7 @@ export const cleanSlug = (text = '') =>
 
 export const BLOG_BASE = cleanSlug(APP_BLOG?.list?.pathname);
 export const ABOUT = cleanSlug(APP_BLOG?.about?.pathname);
+export const WORK = cleanSlug(APP_BLOG?.work?.pathname);
 export const CATEGORY_BASE = cleanSlug(APP_BLOG?.category?.pathname);
 export const TAG_BASE = cleanSlug(APP_BLOG?.tag?.pathname) || 'tag';
 
@@ -59,7 +60,7 @@ export const getPermalink = (slug = '', type = 'page'): string => {
       break;
 
     case 'about':
-      permalink = get('about');
+      permalink = getPermalink('about');
       break;
 
     case 'blog':
@@ -68,6 +69,10 @@ export const getPermalink = (slug = '', type = 'page'): string => {
 
     case 'lessons':
       permalink = getBlogPermalink();
+      break;
+
+    case 'work' :
+      permalink = getWorkPermalink();
       break;
 
     case 'tag':
@@ -86,7 +91,14 @@ export const getPermalink = (slug = '', type = 'page'): string => {
 export const getHomePermalink = (): string => getPermalink('/');
 
 /** */
-export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
+export const getBlogPermalink = (): string => getPermalink(BLOG_BASE)
+
+export const getWorkPermalink = (): string => {
+  const permalink = getPermalink('/work');
+  console.log('Work Permalink:', permalink);
+  return permalink;
+};
+
 
 export const getAboutPermalink = (): string => getPermalink(ABOUT);
 

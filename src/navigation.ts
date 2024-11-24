@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink } from './utils/permalinks';
+import { getPermalink, getBlogPermalink, getWorkPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -7,16 +7,12 @@ export const headerData = {
       href: getPermalink('/about'),
     },
     {
-      text: 'Landing',
-      href: getPermalink('/landing/lead-generation'),
+      text: 'Work With Us',
+      href: getWorkPermalink(), // Use the getWorkPermalink function
     },
     {
       text: 'Blog',
       href: getBlogPermalink(),
-    },
-    {
-      text: 'Widgets',
-      href: '#',
     },
   ],
   actions: [{ text: 'Book Now', href: '#', target: '_blank' }],
