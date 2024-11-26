@@ -33,7 +33,13 @@ export interface Props {
 const {
   id = 'header',
   links = [],
-  actions = [],
+  actions = [
+    {
+      text: 'Book Now',
+      href: '/contact', // Update this to the contact page
+      variant: 'primary',
+    },
+  ],
   isSticky = false,
   isDark = false,
   isFullWidth = false,
