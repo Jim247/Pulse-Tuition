@@ -1,9 +1,9 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
-/** 
+/**
  * Name attribute must be present in each input field
-*/
+ */
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm('xpwzybyo'); // Replace with your Formspree form ID
@@ -48,7 +48,7 @@ const ContactForm = () => {
           name="email" // Ensure name attribute is present
           required
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
-          placeholder='elton@john.com'
+          placeholder="elton@john.com"
         />
         <ValidationError prefix="Email" field="email" errors={state.errors} />
       </div>

@@ -8,7 +8,7 @@ export const headerData = {
     },
     {
       text: 'Work With Us',
-      href: getWorkPermalink(), 
+      href: getWorkPermalink(),
     },
     {
       text: 'Blog',

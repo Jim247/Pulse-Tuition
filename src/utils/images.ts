@@ -1,6 +1,7 @@
 import { isUnpicCompatible, unpicOptimizer, astroAsseetsOptimizer } from './images-optimization';
 import type { ImageMetadata } from 'astro';
 import type { OpenGraph } from '@astrolib/seo';
+import type { Image } from '~/types';
 
 const load = async function () {
   let images: Record<string, () => Promise<unknown>> | undefined = undefined;
@@ -71,7 +72,7 @@ export const adaptOpenGraphImages = async (
           };
         }
 
-        let _image;
+        let _image:Image;
 
         if (
           typeof resolvedImage === 'string' &&

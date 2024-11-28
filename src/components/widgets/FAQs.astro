@@ -18,7 +18,7 @@ const {
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
   <div class="space-y-4">
     {items.map((item: { title: string; description: string }, index: number) => (
-      <div class="faq-item border rounded-md overflow-hidden" key={index}>
+      <div class="faq-item border rounded-md overflow-hidden" data-key={index}>
         <!-- Title -->
         <button
           class="faq-button w-full text-left px-4 py-3 bg-gray-100 font-semibold flex justify-between items-center"
