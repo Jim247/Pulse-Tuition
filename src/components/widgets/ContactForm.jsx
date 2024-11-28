@@ -1,32 +1,39 @@
-import { useForm } from 'react-hook-form';
-import * as Yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-
-const validationSchema = Yup.object({
-  name: Yup.string().required('Name is required'),
-  email: Yup.string().email('Invalid email address').required('Email is required'),
-  phone: Yup.string()
-    .matches(/^\+44\s?7\d{3}\s?\d{3}\s?\d{3}$/, 'Invalid UK phone number')
-    .required('Phone number is required'),
-  instruments: Yup.array().min(1, 'Please select at least one instrument').required('Instrument selection is required'),
-  message: Yup.string().min(10, 'Message must be at least 10 characters').required('Message is required'),
-});
+import React, { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const ContactForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(validationSchema),
-  });
+  const [state, handleSubmit] = useForm("xpwzybyo"); // Replace with your Formspree form ID
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  if (state.succeeded) {
+    return <p>Thanks for your submission!</p>;
+  }
+
+  const onSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form behavior
+
+    // Log the form data before submission
+    const formData = new FormData(event.target);
+    console.log('Submit triggered');
+    const data = Object.fromEntries(formData.entries());
+    console.log('Form submission data:', data);  // Log form data
+
+    setLoading(true);
+    try {
+      await handleSubmit(event);
+      console.log('Form submission successful');
+    } catch (error) {
+      console.error("Form submission error", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 bg-white p-6 rounded-lg shadow-md max-w-xl mx-auto">
+    <form
+      onSubmit={onSubmit} // Use the custom onSubmit handler
+      className="space-y-6 bg-white p-6 rounded-lg shadow-md max-w-xl mx-auto"
+    >
       <h2 className="text-2xl font-bold text-center">Contact Us</h2>
 
       {/* Name Field */}
@@ -37,10 +44,14 @@ const ContactForm = () => {
         <input
           type="text"
           id="name"
-          {...register('name')}
+          name="name"
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
         />
-        {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>}
+        <ValidationError
+          prefix="Name"
+          field="name"
+          errors={state.errors}
+        />
       </div>
 
       {/* Email Field */}
@@ -51,11 +62,14 @@ const ContactForm = () => {
         <input
           type="email"
           id="email"
-          {...register('email')}
+          name="email"
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
-          placeholder="e.g: elton@john.com"
         />
-        {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>}
+        <ValidationError
+          prefix="Email"
+          field="email"
+          errors={state.errors}
+        />
       </div>
 
       {/* Phone Field */}
@@ -66,11 +80,15 @@ const ContactForm = () => {
         <input
           type="tel"
           id="phone"
-          {...register('phone')}
+          name="phone"
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
           placeholder="+44 7123 456 789"
         />
-        {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone.message}</p>}
+        <ValidationError
+          prefix="Phone"
+          field="phone"
+          errors={state.errors}
+        />
       </div>
 
       {/* Instruments Field */}
@@ -82,7 +100,7 @@ const ContactForm = () => {
               type="checkbox"
               id="vocals"
               value="vocals"
-              {...register('instruments')}
+              name="instruments"
               className="h-4 w-4 text-indigo-600 border-gray-300 rounded"
             />
             <label htmlFor="vocals" className="ml-2 text-sm">
@@ -94,7 +112,7 @@ const ContactForm = () => {
               type="checkbox"
               id="keys"
               value="keys"
-              {...register('instruments')}
+              name="instruments"
               className="h-4 w-4 text-indigo-600 border-gray-300 rounded"
             />
             <label htmlFor="keys" className="ml-2 text-sm">
@@ -106,7 +124,7 @@ const ContactForm = () => {
               type="checkbox"
               id="guitar"
               value="guitar"
-              {...register('instruments')}
+              name="instruments"
               className="h-4 w-4 text-indigo-600 border-gray-300 rounded"
             />
             <label htmlFor="guitar" className="ml-2 text-sm">
@@ -114,7 +132,11 @@ const ContactForm = () => {
             </label>
           </div>
         </div>
-        {errors.instruments && <p className="text-sm text-red-500 mt-1">{errors.instruments.message}</p>}
+        <ValidationError
+          prefix="Instruments"
+          field="instruments"
+          errors={state.errors}
+        />
       </div>
 
       {/* Message Field */}
@@ -124,18 +146,26 @@ const ContactForm = () => {
         </label>
         <textarea
           id="message"
-          {...register('message')}
+          name="message"
           rows={3}
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
-          placeholder="How can we help? Please include age, level, musical interests and goals..."
+          placeholder="How can we help? Please include age, level, musical interests, and goals..."
         />
-        {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>}
+        <ValidationError
+          prefix="Message"
+          field="message"
+          errors={state.errors}
+        />
       </div>
 
       {/* Submit Button */}
       <div>
-        <button type="submit" className="w-full bg-blue-800 text-white py-2 rounded-md hover:bg-blue-900">
-          Submit
+        <button
+          type="submit"
+          disabled={state.submitting || loading}
+          className={`w-full py-2 rounded-md ${state.submitting || loading ? 'bg-gray-400' : 'bg-blue-800 hover:bg-blue-900'}`}
+        >
+          {loading || state.submitting ? 'Submitting...' : 'Submit'}
         </button>
       </div>
     </form>
