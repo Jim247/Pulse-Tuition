@@ -34,7 +34,7 @@
     "@hookform/resolvers": "^3.9.1",
     "@tabler/icons": "^3.22.0",
     "@tabler/icons-react": "^3.22.0",
-    "astro": "^4.16.2",
+    "astro": "^5.0.3",
     "astro-embed": "^0.7.4",
     "astro-icon": "^1.1.1",
     "dotenv": "^16.4.5",
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^3.1.8",
+    "@astrojs/mdx": "^4.0.1",
     "@astrojs/partytown": "^2.1.2",
     "@astrojs/tailwind": "5.1.2",
     "@eslint/js": "^9.12.0",

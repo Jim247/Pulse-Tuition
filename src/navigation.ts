@@ -15,7 +15,7 @@ export const headerData = {
       href: getBlogPermalink(),
     },
   ],
-  actions: [{ text: 'Book Now', href: './contact', target: 'primary' }],
+  actions: [{ text: 'Book Now', href: '/contact', target: 'primary' }],
 };
 
 export const footerData = {
