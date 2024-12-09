@@ -34,16 +34,22 @@ const ConditionalForm = () => {
     },
   ];
 
+  // Location options for each instrument
+  const instrumentLocations = {
+    Guitar: ['Location 1', 'Location 2'],
+    Singing: ['Location 1'],
+    Piano: ['Location 2', 'Mobile'],
+  };
+
   // Handle form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Validate UK phone number
-  const isValidUKPhoneNumber = (phone) => {
-    const regex = /^(\+44\s?7\d{3}|\(?07\d{3}\)?|\+447\d{3})\s?\d{3}\s?\d{3}$/;
-    return regex.test(phone);
+  // Handle instrument selection
+  const handleInstrumentSelect = (instrument) => {
+    setFormData((prev) => ({ ...prev, instrument, location: '' })); // Reset location when instrument is selected
   };
 
   // Step navigation
@@ -67,10 +73,6 @@ const ConditionalForm = () => {
     if (step === 4) {
       if (!formData.name || !formData.email || !formData.phone) {
         alert('Please fill out all fields.');
-        return;
-      }
-      if (!isValidUKPhoneNumber(formData.phone)) {
-        alert('Please enter a valid UK phone number.');
         return;
       }
     }
@@ -110,40 +112,46 @@ const ConditionalForm = () => {
     <form className="space-y-6 bg-white p-6 rounded-lg shadow-md max-w-xl mx-auto">
       <h2 className="text-2xl font-bold text-center">Contact Us</h2>
 
+      {/* Step 1: Select Instrument */}
       {step === 1 && (
         <>
           <p className="text-center font-bold">Please select an Instrument</p>
-          <div>
+          <div className="flex flex-wrap justify-center gap-6">
             {['Guitar', 'Singing', 'Piano'].map((instrument) => (
               <button
                 key={instrument}
                 type="button"
-                onClick={() => setFormData((prev) => ({ ...prev, instrument }))}
-                className={`w-full py-2 rounded-md ${
+                onClick={() => handleInstrumentSelect(instrument)}
+                className={`w-40 h-40 flex flex-col items-center justify-center rounded-lg border-2 ${
                   formData.instrument === instrument
-                    ? 'bg-blue-600'
-                    : 'bg-blue-800'
-                } text-white mb-2 hover:bg-blue-700`}
+                    ? 'border-blue-900 text-blue-900 bg-transparent'
+                    : 'border-gray-300 text-gray-800 bg-white'
+                } shadow-sm hover:bg-blue-100 mb-4 transition-all duration-200 ease-in-out`}
               >
-                {instrument}
+                <div className="flex-grow flex items-center justify-center">
+                  {/* Icon for {instrument} */}
+                  <span className="text-5xl">{/* Icon for {instrument} */}</span>
+                </div>
+                <p className="font-bold text-lg mb-1">{instrument}</p>
               </button>
             ))}
           </div>
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700"
+            className="w-full py-2 rounded-md bg-blue-900 text-white hover:bg-blue-700"
           >
             Next
           </button>
         </>
       )}
 
+      {/* Step 2: Select Location */}
       {step === 2 && (
         <>
           <p className="text-center font-bold">Please select a Location</p>
           <div>
-            {['Location 1', 'Mobile'].map((location) => (
+            {instrumentLocations[formData.instrument]?.map((location) => (
               <button
                 key={location}
                 type="button"
@@ -161,7 +169,7 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700"
+            className="w-full py-2 rounded-md bg-blue-900 text-white hover:bg-blue-700"
           >
             Next
           </button>
@@ -175,6 +183,7 @@ const ConditionalForm = () => {
         </>
       )}
 
+      {/* Step 3: Enter Details */}
       {step === 3 && (
         <>
           <div>
@@ -207,6 +216,7 @@ const ConditionalForm = () => {
         </>
       )}
 
+      {/* Step 4: Enter Contact Info */}
       {step === 4 && (
         <>
           <div>
@@ -245,7 +255,7 @@ const ConditionalForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              placeholder="+44 7123 456789"
+              placeholder="+44 7123 456 789"
               className="w-full px-4 py-2 border border-gray-300 rounded-md"
             />
           </div>
@@ -266,6 +276,7 @@ const ConditionalForm = () => {
         </>
       )}
 
+      {/* Step 5: Show Available Tutors */}
       {step === 5 && availableTutors.length > 0 && (
         <>
           <p className="text-center font-bold">
@@ -284,6 +295,7 @@ const ConditionalForm = () => {
         </>
       )}
 
+      {/* Step 5: No Tutors Found */}
       {step === 5 && availableTutors.length === 0 && (
         <>
           <p className="text-center text-red-500">No tutors available for your selection.</p>
