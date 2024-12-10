@@ -12,7 +12,7 @@ export default {
         accent: 'var(--aw-color-accent)',        // Custom CSS variable
         default: 'var(--aw-color-text-default)', // Custom CSS variable
         muted: 'var(--aw-color-text-muted)',     // Custom CSS variable
-        darkblue: '#1e3a8a',                     // Tailwind's blue-900 as a hex value
+        darkblue: '#1e3a8a',                     // Tailwind's white as a hex value
         olivegreen: 'rgb(69, 77, 71)',    
         airblue: 'rgb(70, 120, 155)',
       },

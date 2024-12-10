@@ -154,7 +154,7 @@ const ContactForm = () => {
           type="submit"
           disabled={state.submitting}
           className={`w-full py-2 rounded-md ${
-            state.submitting ? 'bg-gray-400' : 'bg-blue-800 hover:bg-blue-900 text-white'
+            state.submitting ? 'bg-gray-400' : 'bg-white hover:bg-white text-white'
           }`}
         >
           {state.submitting ? 'Submitting...' : 'Submit'}

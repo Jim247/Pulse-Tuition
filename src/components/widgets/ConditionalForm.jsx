@@ -124,7 +124,7 @@ const ConditionalForm = () => {
                 onClick={() => handleInstrumentSelect(instrument)}
                 className={`w-40 h-40 flex flex-col items-center justify-center rounded-lg border-2 ${
                   formData.instrument === instrument
-                    ? 'border-blue-900 text-blue-900 bg-transparent'
+                    ? 'border-white text-white bg-transparent'
                     : 'border-gray-300 text-gray-800 bg-white'
                 } shadow-sm hover:bg-blue-100 mb-4 transition-all duration-200 ease-in-out`}
               >
@@ -139,7 +139,7 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-blue-900 text-white hover:bg-blue-700"
+            className="w-full py-2 rounded-md bg-white text-white hover:bg-blue-700"
           >
             Next
           </button>
@@ -159,7 +159,7 @@ const ConditionalForm = () => {
                 className={`w-full py-2 rounded-md ${
                   formData.location === location
                     ? 'bg-blue-600'
-                    : 'bg-blue-800'
+                    : 'bg-white'
                 } text-white mb-2 hover:bg-blue-700`}
               >
                 {location}
@@ -169,7 +169,7 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-blue-900 text-white hover:bg-blue-700"
+            className="w-full py-2 rounded-md bg-white text-white hover:bg-blue-700"
           >
             Next
           </button>
@@ -287,7 +287,7 @@ const ConditionalForm = () => {
               key={tutor.name}
               type="button"
               onClick={() => handleTutorSelect(tutor)}
-              className="w-full py-2 rounded-md bg-blue-800 text-white mb-2 hover:bg-blue-700"
+              className="w-full py-2 rounded-md bg-white text-white mb-2 hover:bg-blue-700"
             >
               {tutor.name} ({tutor.instruments.join(', ')})
             </button>
