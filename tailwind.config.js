@@ -7,17 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--aw-color-primary)',
-        secondary: 'var(--aw-color-secondary)',
-        accent: 'var(--aw-color-accent)',
-        default: 'var(--aw-color-text-default)',
-        muted: 'var(--aw-color-text-muted)',
-        darkblue: 'blue-900',
+        primary: 'var(--aw-color-primary)',      // Custom CSS variable
+        secondary: 'var(--aw-color-secondary)',  // Custom CSS variable
+        accent: 'var(--aw-color-accent)',        // Custom CSS variable
+        default: 'var(--aw-color-text-default)', // Custom CSS variable
+        muted: 'var(--aw-color-text-muted)',     // Custom CSS variable
+        darkblue: '#1e3a8a',                     // Tailwind's blue-900 as a hex value
+        olivegreen: 'rgb(69, 77, 71)',    
+        airblue: 'rgb(70, 120, 155)',
       },
       fontFamily: {
-        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
-        serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--aw-font-sans)', ...defaultTheme.fontFamily.sans],
+        serif: ['var(--aw-font-serif)', ...defaultTheme.fontFamily.serif],
+        heading: ['var(--aw-font-heading)', ...defaultTheme.fontFamily.sans],
       },
 
       animation: {

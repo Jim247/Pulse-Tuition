@@ -13,14 +13,14 @@ const {
 } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bgColor="#f5f5f5">
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bgColor='olivegreen'>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
   <div class="space-y-4">
     {items.map((item: { title: string; description: string }, index: number) => (
       <div class="faq-item border rounded-md overflow-hidden" data-key={index}>
         <!-- Title -->
         <button
-          class="faq-button w-full text-left px-4 py-3 bg-white font-semibold flex justify-between items-center"
+          class="faq-button w-full text-left text-gray-600 px-4 py-3 bg-white font-semibold flex justify-between items-center"
           data-index={index}
         >
           <span>{item.title}</span>
