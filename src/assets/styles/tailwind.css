@@ -4,6 +4,11 @@
 @tailwind utilities;
 
 
+@layer base {
+  html {
+    font-size: 18px; /* Adjust base font size */
+  }
+}
 
 @layer utilities {
   .bg-page {
