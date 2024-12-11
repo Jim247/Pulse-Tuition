@@ -125,7 +125,7 @@ const ContactForm = () => {
           name="message" // Ensure name attribute is present
           rows={6}
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
-          placeholder="How can we help? Please include age, level, singingal interests, and goals..."
+          placeholder="How can we help? Please include age, level, musical interests, and goals..."
         />
         <ValidationError prefix="Message" field="message" errors={state.errors} />
       </div>

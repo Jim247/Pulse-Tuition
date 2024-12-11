@@ -16,8 +16,8 @@ const ConditionalForm = () => {
   const tutors = [
     {
       name: 'Tutor A',
-      instruments: ['Guitar', 'Singing'],
-      locations: ['Location 1'],
+      instruments: ['Guitar', ''],
+      locations: ['Mobile'],
       calendly: 'https://bbc.co.uk',
     },
     {
@@ -29,15 +29,15 @@ const ConditionalForm = () => {
     {
       name: 'Tutor C',
       instruments: ['Guitar'],
-      locations: ['Location 1', 'Location 2'],
+      locations: ['Mobile', 'Location 2'],
       calendly: 'https://calendly.com/tutor-c',
     },
   ];
 
   // Location options for each instrument
   const instrumentLocations = {
-    Guitar: ['Location 1', 'Location 2'],
-    Singing: ['Location 1'],
+    Guitar: ['Mobile', 'Location 2'],
+    Singing : ['Mobile'],
     Piano: ['Location 2', 'Mobile'],
   };
 
@@ -109,7 +109,7 @@ const ConditionalForm = () => {
   };
 
   return (
-    <form className="space-y-6 bg-white p-6 rounded-lg shadow-md max-w-xl mx-auto">
+    <form className="space-y-6 p-6 rounded-lg shadow-md max-w-xl mx-auto" style={{ backgroundColor: 'transparent' }}>
       <h2 className="text-2xl font-bold text-center">Contact Us</h2>
 
       {/* Step 1: Select Instrument */}
@@ -117,16 +117,16 @@ const ConditionalForm = () => {
         <>
           <p className="text-center font-bold">Please select an Instrument</p>
           <div className="flex flex-wrap justify-center gap-6">
-            {['Guitar', 'Singing', 'Piano'].map((instrument) => (
+            {['Guitar', 'Singing ', 'Piano'].map((instrument) => (
               <button
                 key={instrument}
                 type="button"
                 onClick={() => handleInstrumentSelect(instrument)}
                 className={`w-40 h-40 flex flex-col items-center justify-center rounded-lg border-2 ${
                   formData.instrument === instrument
-                    ? 'border-white text-white bg-transparent'
-                    : 'border-gray-300 text-gray-800 bg-white'
-                } shadow-sm hover:bg-blue-100 mb-4 transition-all duration-200 ease-in-out`}
+                    ? 'border-gray-800 text-black bg-yellow-50'
+                    : 'border-grey-800 text-gray-800 bg-white shadow-lg'
+                } shadow-sm hover:bg-yellow-50 mb-4 transition-all duration-200 ease-in-out`}
               >
                 <div className="flex-grow flex items-center justify-center">
                   {/* Icon for {instrument} */}
@@ -139,7 +139,7 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-white text-white hover:bg-blue-700"
+            className="w-full py-2 rounded-md bg-cyan-800 text-white hover:bg-cyan-700"
           >
             Next
           </button>
@@ -150,33 +150,37 @@ const ConditionalForm = () => {
       {step === 2 && (
         <>
           <p className="text-center font-bold">Please select a Location</p>
-          <div>
+          <div className="flex flex-wrap justify-center gap-6">
             {instrumentLocations[formData.instrument]?.map((location) => (
               <button
                 key={location}
                 type="button"
                 onClick={() => setFormData((prev) => ({ ...prev, location }))}
-                className={`w-full py-2 rounded-md ${
+                className={`w-40 h-40 flex flex-col items-center justify-center rounded-lg border-2 ${
                   formData.location === location
-                    ? 'bg-blue-600'
-                    : 'bg-white'
-                } text-white mb-2 hover:bg-blue-700`}
+                    ? 'border-gray-800 text-black bg-yellow-50'
+                    : 'border-grey-200 text-gray-800 bg-white shadow-lg'
+                } shadow-sm hover:bg-yellow-50 mb-4 transition-all duration-200 ease-in-out`}
               >
-                {location}
+                <div className="flex-grow flex items-center justify-center">
+                  {/* Icon for {location} */}
+                  <span className="text-5xl">{/* Icon for {location} */}</span>
+                </div>
+                <p className="font-bold text-lg mb-1">{location}</p>
               </button>
             ))}
           </div>
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-white text-white hover:bg-blue-700"
+            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-700"
           >
             Next
           </button>
           <button
             type="button"
             onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-400 text-white mt-2 hover:bg-gray-500"
+            className="w-full py-2 rounded-md bg-gray-800 text-white mt-2 hover:bg-cyan-700"
           >
             Back
           </button>
@@ -196,20 +200,20 @@ const ConditionalForm = () => {
               value={formData.details}
               onChange={handleInputChange}
               rows="6"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              className="w-full px-4 py-2 border border-black rounded-md text-black"
             />
           </div>
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700"
+            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-700"
           >
             Next
           </button>
           <button
             type="button"
             onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-400 text-white mt-2 hover:bg-gray-500"
+            className="w-full py-2 rounded-md bg-gray-800 text-white mt-2 hover:bg-cyan-700"
           >
             Back
           </button>
@@ -229,7 +233,7 @@ const ConditionalForm = () => {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              className="w-full px-4 py-2 border border-black rounded-md text-black"
             />
           </div>
           <div>
@@ -242,7 +246,7 @@ const ConditionalForm = () => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              className="w-full px-4 py-2 border border-black rounded-md  text-black"
             />
           </div>
           <div>
@@ -256,20 +260,20 @@ const ConditionalForm = () => {
               value={formData.phone}
               onChange={handleInputChange}
               placeholder="+44 7123 456 789"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              className="w-full px-4 py-2 border border-black rounded-md  text-black"
             />
           </div>
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700"
+            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-700"
           >
             Next
           </button>
           <button
             type="button"
             onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-400 text-white mt-2 hover:bg-gray-500"
+            className="w-full py-2 rounded-md bg-gray-700 text-white mt-2 hover:bg-cyan-800"
           >
             Back
           </button>
@@ -287,7 +291,7 @@ const ConditionalForm = () => {
               key={tutor.name}
               type="button"
               onClick={() => handleTutorSelect(tutor)}
-              className="w-full py-2 rounded-md bg-white text-white mb-2 hover:bg-blue-700"
+              className="w-full py-2 rounded-md bg-cyan-800 text-white mb-2 hover:bg-cyan-700"
             >
               {tutor.name} ({tutor.instruments.join(', ')})
             </button>
@@ -302,7 +306,7 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleRestart}
-            className="w-full py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700"
+            className="w-full py-2 rounded-md bg-yellow-100 text-white hover:bg-cyan-700"
           >
             Return to Start
           </button>

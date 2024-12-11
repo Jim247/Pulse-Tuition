@@ -26,8 +26,8 @@
   .text-muted {
     color: var(--aw-color-text-muted);
   }
-  .bg-footer-blue {
-    background-color: 'olivegreen';
+  .bg-footer {
+    background-color: (--aw-color-footer-bg);
   }
 }
 
@@ -36,21 +36,22 @@
     @apply inline-flex items-center justify-center rounded-full bg-white font-medium text-center text-base text-black leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 cursor-pointer;
   }
   .btn-primary {
-    @apply btn bg-white text-black hover:bg-teal-700 hover:text-white;
+    @apply btn bg-cyan-700 text-white hover:bg-cyan-600 hover:text-white;
   }
 
   .btn-secondary {
-    @apply btn bg-white text-black hover:bg-teal-700 hover:text-white;
+    @apply btn bg-cyan-700 text-white hover:bg-cyan-600 hover:text-white;
   }
 
   .btn-tertiary {
-    @apply btn bg-white text-black hover:bg-teal-700 hover:text-white;
+    @apply btn bg-cyan-700 text-white hover:bg-cyan-600 hover:text-white;
   }
 }
 
 #header.scroll > div:first-child {
   @apply bg-page md:bg-page md:backdrop-blur-md; /* Changed from md:bg-white/90 to md:bg-page */
   box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
+  opacity: 0.9; /* Make slightly transparent when scroll */
 }
 .dark #header.scroll > div:first-child,
 #header.scroll.dark > div:first-child {
