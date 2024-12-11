@@ -3,8 +3,21 @@ import { getPermalink, getBlogPermalink, getWorkPermalink } from './utils/permal
 export const headerData = {
   links: [
     {
-      text: 'About Our Lessons',
-      href: getPermalink('/about'),
+      text: 'Lessons',
+      submenu: [
+      {
+        text: 'Guitar',
+        href: getPermalink('/guitar-lessons-bristol'),
+      },
+      {
+        text: 'Piano',
+        href: getPermalink('piano-lessons-bristol'),
+      },
+      {
+        text: 'Singing',
+        href: getPermalink('singing-lessons-bristol'),
+      },
+      ],
     },
     {
       text: 'Work With Us',

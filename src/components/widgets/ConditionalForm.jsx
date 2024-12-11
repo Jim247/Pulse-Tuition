@@ -139,7 +139,7 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-800 text-white hover:bg-cyan-700"
+            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
           >
             Next
           </button>
@@ -173,14 +173,14 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-700"
+            className="w-full py-2 rounded-md bg-cyan-800 text-white hover:bg-cyan-600"
           >
             Next
           </button>
           <button
             type="button"
             onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-800 text-white mt-2 hover:bg-cyan-700"
+            className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-cyan-600"
           >
             Back
           </button>
@@ -206,14 +206,14 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-700"
+            className="w-full py-2 rounded-md bg-cyan-800 text-white hover:bg-cyan-600"
           >
             Next
           </button>
           <button
             type="button"
             onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-800 text-white mt-2 hover:bg-cyan-700"
+            className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-cyan-600"
           >
             Back
           </button>
@@ -266,14 +266,14 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-700"
+            className="w-full py-2 rounded-md bg-cyan-800 text-white hover:bg-cyan-600"
           >
             Next
           </button>
           <button
             type="button"
             onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-700 text-white mt-2 hover:bg-cyan-800"
+            className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-cyan-600"
           >
             Back
           </button>
@@ -291,7 +291,7 @@ const ConditionalForm = () => {
               key={tutor.name}
               type="button"
               onClick={() => handleTutorSelect(tutor)}
-              className="w-full py-2 rounded-md bg-cyan-800 text-white mb-2 hover:bg-cyan-700"
+              className="w-full py-2 rounded-md bg-cyan-800 text-white mb-2 hover:bg-cyan-600"
             >
               {tutor.name} ({tutor.instruments.join(', ')})
             </button>
@@ -306,7 +306,7 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleRestart}
-            className="w-full py-2 rounded-md bg-yellow-100 text-white hover:bg-cyan-700"
+            className="w-full py-2 rounded-md bg-yellow-100 text-white hover:bg-cyan-600"
           >
             Return to Start
           </button>
