@@ -4,26 +4,29 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import guitarImage from '~/assets/images/guitar-lessons-bristol.jpeg';
+import pianoImage from '~/assets/images/piano-lessons-bristol.jpg';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import bristolBridge from '~/assets/images/bristol-bridge-photo.jpeg';
+import { IconGift } from '@tabler/icons-react';
+import Prices from '~/components/widgets/prices.astro';
+import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'Piano Lessons Bristol',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero tagline="About us" image={{ src: guitarImage, alt: 'About Our Lessons Hero Image' }}>
+  <Hero tagline="Piano Lessons Bristol" image={{ src: pianoImage, alt: 'Piano Lessons in Bristol Hero Image' }}>
     <Fragment slot="title">
-      Learn more about our <br />
-      <span class="text-white highlight"> Music Lessons</span>
+      Master the Art of the Piano <br />
+      <span class="text-highlight">with Expert Lessons</span>
     </Fragment>
     <Fragment slot="subtitle">
-      A music lesson in Bristol offers a personalized approach to developing your vocal abilities. Whether you're a beginner or an experienced singer, lessons include warm-ups, vocal exercises, and practice on specific songs.<br /><br />
-      Instructors focus on key skills such as breath control, pitch accuracy, vocal range, and expression. You'll also explore various vocal techniques, work on expanding your repertoire, and learn about music theory. The goal is to create a positive and supportive environment that encourages vocal growth and confidence.
+      Discover tailored Piano Lessons in Bristol. <br> Designed to help you unlock your musical potential.  Whether you're a complete beginner or looking to refine your skills, our lessons include personalized techniques, music theory, and a wide range of repertoire.<br /><br />
     </Fragment>
-    
   </Hero>
 
   <!-- Features3 Widget ************** -->
@@ -33,39 +36,39 @@ const metadata = {
     isAfterContent={true}
     items={[
       {
-        title: 'Technique',
+        title: 'Proper Technique',
         description:
-          'Focus on developing proper posture, hand positioning, and playing techniques for your instrument, ensuring you build a strong foundation for musical performance.',
+          'Learn correct posture, hand positioning, and piano playing techniques to establish a strong foundation for your musical journey.',
         icon: 'tabler:template',
       },
       {
         title: 'Music Theory',
         description:
-          'Learn the fundamentals of music theory, including reading music, scales, chords, and harmony, to deepen your understanding of how music is constructed.',
+          'Understand scales, chords, and harmony to deepen your knowledge and appreciation of music while playing the piano.',
         icon: 'tabler:template',
       },
       {
-        title: 'Sight Reading',
+        title: 'Repertoire Development',
         description:
-          'Improve your ability to read and perform music at first sight, developing skills to interpret sheet music quickly and accurately.',
+          'Explore classical, contemporary, and popular music pieces to build a versatile and enjoyable collection of piano repertoire.',
         icon: 'tabler:template',
       },
       {
         title: 'Improvisation',
         description:
-          'Explore the art of improvising, whether in jazz, rock, or classical styles, helping you become more creative and expressive in your music.',
+          'Learn to express yourself creatively by improvising in a variety of musical styles, from jazz to classical.',
         icon: 'tabler:template',
       },
       {
         title: 'Performance Skills',
         description:
-          'Prepare for live performances by focusing on stage presence, emotional expression, and confidence, ensuring you are ready to share your music with others.',
+          'Hone your confidence and stage presence while preparing for live performances and recitals.',
         icon: 'tabler:template',
       },
       {
         title: 'Composition & Songwriting',
         description:
-          'Learn how to compose original music and write your own songs, combining your knowledge of theory and creativity to create unique pieces of music.',
+          'Compose your own music and create original piano pieces, combining your creativity with structured theory.',
         icon: 'tabler:template',
       },
     ]}
@@ -74,50 +77,82 @@ const metadata = {
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="Our Teaching Philosophy"
+    subtitle="Our goal is to inspire a love for music while building strong technical skills. Learn piano in a supportive, structured, and engaging way that suits your goals and pace.       Develop essential skills such as finger strength, reading sheet music, and understanding musical dynamics. Our experienced instructors create a supportive environment, ensuring you gain confidence and enjoy your journey into piano mastery."
+
     items={[
       {
-        title: 'Customer-centric approach',
+        title: 'Student-Centered Lessons',
         description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
+          'Each lesson is tailored to the student’s needs and interests, fostering a positive and encouraging learning environment.',
       },
       {
-        title: 'Constant Improvement',
+        title: 'Continuous Growth',
         description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
+          'We believe in nurturing a lifelong appreciation for music through consistent improvement and practice.',
       },
       {
-        title: 'Ethical Practices',
+        title: 'Building Confidence',
         description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          'Our lessons focus on building both technical skill and musical confidence, empowering students to perform and enjoy music.',
       },
     ]}
   />
+  
+  <StarTestimonials
+  id="student-testimonials"
+  title="What Our Students Say"
+  subtitle="Real stories from our students and parents"
+  isDark={false}
+  testimonials={[
+    {
+      text: 'My son really enjoyed his lessons with josh he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
+      name: 'Katie',
+      role: 'Parent - Guitar - Bristol',
+      rating: 5,
+    },
+    {
+      text: "Adriana has been giving 121 lessons to our 9 year old daughter for the last couple of months. Adriana is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
+      name: 'Oliver',
+      role: 'Parent - Vocals - Bristol',
+      rating: 5,
+    },
+  ]}
+/>
 
+<Prices
+  id="prices"
+  tagline="Great Value"
+  title="Our Prices"
+  DefaultIcon={IconGift}
+  subtitle="Choose a plan that suits you best<br>Your first lesson includes 20 minutes, <strong> on us</strong>"
+  priceDetails={[
+    { label: '30 minutes', price: '£17.50' },
+    { label: '60 minutes', price: '£35' },
+  ]}
+/>
   <!-- Features2 Widget ************** -->
-
   <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
+    title="Where to Find Us"
+    tagline="Piano Lessons Near You in Bristol"
+    image={{ src: bristolBridge, alt: 'Bristol Bridge' }}
+    columns={1}
+    items={[]}
+  />
+
+  <CallToAction
+    actions={[
       {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
+        variant: 'primary',
+        text: 'BOOK NOW',
+        href: '/contact',
+        target: '_blank',
+        icon: 'tabler:download',
       },
     ]}
-  />
+  >
+    <Fragment slot="title">MUSIC LESSONS BRISTOL</Fragment>
+    <Fragment slot="subtitle">Don't wait any longer, get the tuition you deserve from our expert tutors!</Fragment>
+  </CallToAction>
+
 </Layout>

@@ -16,7 +16,7 @@ const ConditionalForm = () => {
   const tutors = [
     {
       name: 'Tutor A',
-      instruments: ['Guitar', ''],
+      instruments: ['Guitar'],
       locations: ['Mobile'],
       calendly: 'https://bbc.co.uk',
     },
@@ -37,7 +37,7 @@ const ConditionalForm = () => {
   // Location options for each instrument
   const instrumentLocations = {
     Guitar: ['Mobile', 'Location 2'],
-    Singing : ['Mobile'],
+    Singing: ['Mobile'],
     Piano: ['Location 2', 'Mobile'],
   };
 
@@ -109,83 +109,79 @@ const ConditionalForm = () => {
   };
 
   return (
-    <form className="space-y-6 p-6 rounded-lg shadow-md max-w-xl mx-auto" style={{ backgroundColor: 'transparent' }}>
+    <form className="space-y-6 p-4 sm:p-6 rounded-lg shadow-md max-w-md sm:max-w-xl mx-auto sticky top-0 bg-transparent">
       <h2 className="text-2xl font-bold text-center">Contact Us</h2>
 
       {/* Step 1: Select Instrument */}
-      {step === 1 && (
-        <>
-          <p className="text-center font-bold">Please select an Instrument</p>
-          <div className="flex flex-wrap justify-center gap-6">
-            {['Guitar', 'Singing ', 'Piano'].map((instrument) => (
-              <button
-                key={instrument}
-                type="button"
-                onClick={() => handleInstrumentSelect(instrument)}
-                className={`w-40 h-40 flex flex-col items-center justify-center rounded-lg border-2 ${
-                  formData.instrument === instrument
-                    ? 'border-gray-800 text-black bg-yellow-50'
-                    : 'border-grey-800 text-gray-800 bg-white shadow-lg'
-                } shadow-sm hover:bg-yellow-50 mb-4 transition-all duration-200 ease-in-out`}
-              >
-                <div className="flex-grow flex items-center justify-center">
-                  {/* Icon for {instrument} */}
-                  <span className="text-5xl">{/* Icon for {instrument} */}</span>
-                </div>
-                <p className="font-bold text-lg mb-1">{instrument}</p>
-              </button>
-            ))}
-          </div>
-          <button
-            type="button"
-            onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
-          >
-            Next
-          </button>
-        </>
-      )}
+{step === 1 && (
+  <>
+    <p className="text-center font-bold">Please select an Instrument</p>
+    <div className="grid grid-cols-1 gap-4">
+      {['Guitar', 'Singing', 'Piano'].map((instrument) => (
+        <button
+          key={instrument}
+          type="button"
+          onClick={() => handleInstrumentSelect(instrument)}
+          className={`w-full flex items-center justify-start space-x-4 py-4 px-6 rounded-lg border-2 ${
+            formData.instrument === instrument
+              ? 'border-gray-800 text-black bg-yellow-50'
+              : 'border-grey-800 text-gray-800 bg-white shadow-lg'
+          } shadow-sm hover:bg-yellow-50 transition-all duration-200 ease-in-out`}
+        >
+          {/* Icon for {instrument} */}
+          <span className="text-2xl">{/* Add your icon here */}</span>
+          <p className="font-bold text-lg">{instrument}</p>
+        </button>
+      ))}
+    </div>
+    <button
+      type="button"
+      onClick={handleNextStep}
+      className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600 mt-4"
+    >
+      Next
+    </button>
+  </>
+)}
 
-      {/* Step 2: Select Location */}
-      {step === 2 && (
-        <>
-          <p className="text-center font-bold">Please select a Location</p>
-          <div className="flex flex-wrap justify-center gap-6">
-            {instrumentLocations[formData.instrument]?.map((location) => (
-              <button
-                key={location}
-                type="button"
-                onClick={() => setFormData((prev) => ({ ...prev, location }))}
-                className={`w-40 h-40 flex flex-col items-center justify-center rounded-lg border-2 ${
-                  formData.location === location
-                    ? 'border-gray-800 text-black bg-yellow-50'
-                    : 'border-grey-200 text-gray-800 bg-white shadow-lg'
-                } shadow-sm hover:bg-yellow-50 mb-4 transition-all duration-200 ease-in-out`}
-              >
-                <div className="flex-grow flex items-center justify-center">
-                  {/* Icon for {location} */}
-                  <span className="text-5xl">{/* Icon for {location} */}</span>
-                </div>
-                <p className="font-bold text-lg mb-1">{location}</p>
-              </button>
-            ))}
-          </div>
-          <button
-            type="button"
-            onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-800 text-white hover:bg-cyan-600"
-          >
-            Next
-          </button>
-          <button
-            type="button"
-            onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-cyan-600"
-          >
-            Back
-          </button>
-        </>
-      )}
+{/* Step 2: Select Location */}
+{step === 2 && (
+  <>
+    <p className="text-center font-bold">Please select a Location</p>
+    <div className="grid grid-cols-1 gap-4">
+      {instrumentLocations[formData.instrument]?.map((location) => (
+        <button
+          key={location}
+          type="button"
+          onClick={() => setFormData((prev) => ({ ...prev, location }))}
+          className={`w-full flex items-center justify-start space-x-4 py-4 px-6 rounded-lg border-2 ${
+            formData.location === location
+              ? 'border-gray-800 text-black bg-yellow-50'
+              : 'border-grey-200 text-gray-800 bg-white shadow-lg'
+          } shadow-sm hover:bg-yellow-50 transition-all duration-200 ease-in-out`}
+        >
+          {/* Icon for {location} */}
+          <span className="text-2xl">{/* Add your icon here */}</span>
+          <p className="font-bold text-lg">{location}</p>
+        </button>
+      ))}
+    </div>
+    <button
+      type="button"
+      onClick={handleNextStep}
+      className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600 mt-4"
+    >
+      Next
+    </button>
+    <button
+      type="button"
+      onClick={handlePreviousStep}
+      className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-gray-600"
+    >
+      Back
+    </button>
+  </>
+)}
 
       {/* Step 3: Enter Details */}
       {step === 3 && (
@@ -206,14 +202,14 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-800 text-white hover:bg-cyan-600"
+            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
           >
             Next
           </button>
           <button
             type="button"
             onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-cyan-600"
+            className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-gray-600"
           >
             Back
           </button>
@@ -246,7 +242,7 @@ const ConditionalForm = () => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-black rounded-md  text-black"
+              className="w-full px-4 py-2 border border-black rounded-md text-black"
             />
           </div>
           <div>
@@ -260,20 +256,20 @@ const ConditionalForm = () => {
               value={formData.phone}
               onChange={handleInputChange}
               placeholder="+44 7123 456 789"
-              className="w-full px-4 py-2 border border-black rounded-md  text-black"
+              className="w-full px-4 py-2 border border-black rounded-md text-black"
             />
           </div>
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-800 text-white hover:bg-cyan-600"
+            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
           >
             Next
           </button>
           <button
             type="button"
             onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-cyan-600"
+            className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-gray-600"
           >
             Back
           </button>
@@ -291,7 +287,7 @@ const ConditionalForm = () => {
               key={tutor.name}
               type="button"
               onClick={() => handleTutorSelect(tutor)}
-              className="w-full py-2 rounded-md bg-cyan-800 text-white mb-2 hover:bg-cyan-600"
+              className="w-full py-2 rounded-md bg-cyan-700 text-white mb-2 hover:bg-cyan-600"
             >
               {tutor.name} ({tutor.instruments.join(', ')})
             </button>
@@ -306,7 +302,7 @@ const ConditionalForm = () => {
           <button
             type="button"
             onClick={handleRestart}
-            className="w-full py-2 rounded-md bg-yellow-100 text-white hover:bg-cyan-600"
+            className="w-full py-2 rounded-md bg-yellow-100 text-white hover:bg-gray-600"
           >
             Return to Start
           </button>
