@@ -4,26 +4,30 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import guitarImage from '~/assets/images/guitar-lessons-bristol.jpeg';
+import guitarImage from '~/assets/images/guitar-lessons-bristol.jpg';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import bristolBridge from '~/assets/images/bristol-bridge-photo.jpeg';
+import { IconGift } from '@tabler/icons-react';
+import Prices from '~/components/widgets/prices.astro';
+import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'Guitar Lessons Bristol',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero tagline="About us" image={{ src: guitarImage, alt: 'About Our Lessons Hero Image' }}>
+  <Hero tagline="Guitar Lessons Bristol" image={{ src: guitarImage, alt: 'Guitar Lessons in Bristol Hero Image' }}>
     <Fragment slot="title">
-      Learn more about our <br />
-      <span class="text-highlight"> Music Lessons</span>
+      Learn to Play Guitar <br />
+      <span class="text-highlight">with Expert Tutors</span>
     </Fragment>
     <Fragment slot="subtitle">
-      A music lesson in Bristol offers a personalized approach to developing your vocal abilities. Whether you're a beginner or an experienced singer, lessons include warm-ups, vocal exercises, and practice on specific songs.<br /><br />
-      Instructors focus on key skills such as breath control, pitch accuracy, vocal range, and expression. You'll also explore various vocal techniques, work on expanding your repertoire, and learn about music theory. The goal is to create a positive and supportive environment that encourages vocal growth and confidence.
+      Explore tailored **guitar lessons in Bristol** designed to help you master the instrument. Whether you're starting out or refining your skills, our lessons focus on personalized techniques, music theory, and repertoire building to unlock your full potential.<br /><br />
+      Join us for engaging lessons that combine creativity and structure, providing the foundation you need to thrive as a guitarist.
     </Fragment>
-    
   </Hero>
 
   <!-- Features3 Widget ************** -->
@@ -33,39 +37,39 @@ const metadata = {
     isAfterContent={true}
     items={[
       {
-        title: 'Technique',
+        title: 'Proper Technique',
         description:
-          'Focus on developing proper posture, hand positioning, and playing techniques for your instrument, ensuring you build a strong foundation for musical performance.',
+          'Develop essential guitar-playing skills, including hand positioning, using a plectrum/pick, strumming, and fingerpicking techniques.',
         icon: 'tabler:template',
       },
       {
         title: 'Music Theory',
         description:
-          'Learn the fundamentals of music theory, including reading music, scales, chords, and harmony, to deepen your understanding of how music is constructed.',
+          'Understand chords, scales, and harmony to deepen your knowledge and enhance your guitar playing.',
         icon: 'tabler:template',
       },
       {
-        title: 'Sight Reading',
+        title: 'Repertoire Development',
         description:
-          'Improve your ability to read and perform music at first sight, developing skills to interpret sheet music quickly and accurately.',
+          'Learn to play your favorite songs while exploring contemporary, and popular guitar styles.',
         icon: 'tabler:template',
       },
       {
         title: 'Improvisation',
         description:
-          'Explore the art of improvising, whether in jazz, rock, or classical styles, helping you become more creative and expressive in your music.',
+          'Express your creativity through improvisation in rock, jazz, or blues, gaining confidence in your musical expression.',
         icon: 'tabler:template',
       },
       {
         title: 'Performance Skills',
         description:
-          'Prepare for live performances by focusing on stage presence, emotional expression, and confidence, ensuring you are ready to share your music with others.',
+          'Enhance your confidence and stage presence, preparing for live performances or jam sessions.',
         icon: 'tabler:template',
       },
       {
         title: 'Composition & Songwriting',
         description:
-          'Learn how to compose original music and write your own songs, combining your knowledge of theory and creativity to create unique pieces of music.',
+          'Combine creativity with theory to compose your own guitar pieces, improvise your own music or write original songs.',
         icon: 'tabler:template',
       },
     ]}
@@ -74,50 +78,82 @@ const metadata = {
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="Our Teaching Philosophy"
+    subtitle="At the core of our lessons is a belief in personalized, supportive learning. Develop essential guitar-playing skills such as finger strength, rhythm, and musical dynamics, all in an encouraging environment tailored to your pace and goals."
+
     items={[
       {
-        title: 'Customer-centric approach',
+        title: 'Student-Centered Lessons',
         description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
+          'We tailor every lesson to the unique needs and goals of each student, fostering growth and creativity.',
       },
       {
-        title: 'Constant Improvement',
+        title: 'Continuous Growth',
         description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
+          'Through consistent practice and learning, we help students achieve their musical potential and enjoy the journey.',
       },
       {
-        title: 'Ethical Practices',
+        title: 'Building Confidence',
         description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          'Our lessons focus on building technical skills and confidence, empowering students to enjoy and share their music.',
       },
     ]}
   />
+  
+  <StarTestimonials
+  id="student-testimonials"
+  title="What Our Students Say"
+  subtitle="Hear from students and parents who love our guitar lessons"
+  isDark={false}
+  testimonials={[
+    {
+      text: 'My son really enjoyed his lessons with Josh. He made the sessions fun and ensured my son understood everything being taught. Highly recommend Josh for guitar lessons in Bristol.',
+      name: 'Katie',
+      role: 'Parent - Guitar - Bristol',
+      rating: 5,
+    },
+    {
+      text: "Adriana has been amazing teaching my 9-year-old daughter guitar. She's professional, friendly, and very knowledgeable. We've seen great progress. Highly recommended!",
+      name: 'Oliver',
+      role: 'Parent - Guitar - Bristol',
+      rating: 5,
+    },
+  ]}
+/>
 
+<Prices
+  id="prices"
+  tagline="Affordable Guitar Lessons"
+  title="Our Prices"
+  DefaultIcon={IconGift}
+  subtitle="Select the lesson plan that fits your needs<br>Your first session includes 20 minutes, <strong>on us</strong>"
+  priceDetails={[
+    { label: '30 minutes', price: '£17.50' },
+    { label: '60 minutes', price: '£35' },
+  ]}
+/>
   <!-- Features2 Widget ************** -->
-
   <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
+    title="Where to Find Us"
+    tagline="Guitar Lessons Near You in Bristol"
+    image={{ src: bristolBridge, alt: 'Bristol Bridge' }}
+    columns={1}
+    items={[]}
+  />
+
+  <CallToAction
+    actions={[
       {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
+        variant: 'primary',
+        text: 'BOOK NOW',
+        href: '/contact',
+        target: '_blank',
+        icon: 'tabler:download',
       },
     ]}
-  />
+  >
+    <Fragment slot="title">GUITAR LESSONS BRISTOL</Fragment>
+    <Fragment slot="subtitle">Get started with expert tuition and unlock your guitar-playing potential today!</Fragment>
+  </CallToAction>
+
 </Layout>

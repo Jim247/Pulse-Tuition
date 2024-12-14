@@ -4,26 +4,26 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import guitarImage from '~/assets/images/guitar-lessons-bristol.jpeg';
+import singingImage from '~/assets/images/singing-lessons-bristol.jpeg';
+import bristolBridge from '~/assets/images/bristol-bridge-photo.jpeg';
 
 const metadata = {
-  title: 'About us',
+  title: 'About Us - Singing Lessons Bristol',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero tagline="About us" image={{ src: guitarImage, alt: 'About Our Lessons Hero Image' }}>
+  <Hero tagline="About Us" image={{ src: singingImage, alt: 'Singing Lessons Bristol Hero Image' }}>
     <Fragment slot="title">
-      Learn more about our <br />
-      <span class="text-highlight"> Music Lessons</span>
+      Discover the Joy of Singing <br />
+      <span class="text-highlight">With Expert Guidance</span>
     </Fragment>
     <Fragment slot="subtitle">
-      A music lesson in Bristol offers a personalized approach to developing your vocal abilities. Whether you're a beginner or an experienced singer, lessons include warm-ups, vocal exercises, and practice on specific songs.<br /><br />
-      Instructors focus on key skills such as breath control, pitch accuracy, vocal range, and expression. You'll also explore various vocal techniques, work on expanding your repertoire, and learn about music theory. The goal is to create a positive and supportive environment that encourages vocal growth and confidence.
+      Singing Lessons Bristol offers a personalized approach to unlocking your vocal potential. Whether you're a beginner or an experienced singer, our lessons include warm-ups, tailored vocal exercises, and practice on songs of your choice. <br /><br />
+      Key areas of focus include breath control, pitch accuracy, expanding vocal range, and developing expressive performance skills. Our supportive environment is designed to help you grow as a singer, boost your confidence, and achieve your musical goals.
     </Fragment>
-    
   </Hero>
 
   <!-- Features3 Widget ************** -->
@@ -33,39 +33,39 @@ const metadata = {
     isAfterContent={true}
     items={[
       {
-        title: 'Technique',
+        title: 'Vocal Technique',
         description:
-          'Focus on developing proper posture, hand positioning, and playing techniques for your instrument, ensuring you build a strong foundation for musical performance.',
+          'Master breath control, vocal placement, and posture to build a strong foundation for healthy and effective singing.',
         icon: 'tabler:template',
       },
       {
         title: 'Music Theory',
         description:
-          'Learn the fundamentals of music theory, including reading music, scales, chords, and harmony, to deepen your understanding of how music is constructed.',
+          'Understand the basics of music theory, including scales, intervals, and harmony, to enhance your vocal skills.',
         icon: 'tabler:template',
       },
       {
-        title: 'Sight Reading',
+        title: 'Repertoire Building',
         description:
-          'Improve your ability to read and perform music at first sight, developing skills to interpret sheet music quickly and accurately.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Improvisation',
-        description:
-          'Explore the art of improvising, whether in jazz, rock, or classical styles, helping you become more creative and expressive in your music.',
+          'Expand your vocal repertoire by exploring genres such as classical, pop, jazz, and musical theatre.',
         icon: 'tabler:template',
       },
       {
         title: 'Performance Skills',
         description:
-          'Prepare for live performances by focusing on stage presence, emotional expression, and confidence, ensuring you are ready to share your music with others.',
+          'Develop stage presence, emotional expression, and confidence to shine during live performances or auditions.',
         icon: 'tabler:template',
       },
       {
-        title: 'Composition & Songwriting',
+        title: 'Improvisation',
         description:
-          'Learn how to compose original music and write your own songs, combining your knowledge of theory and creativity to create unique pieces of music.',
+          'Learn to experiment with your voice and improvise confidently across various musical styles.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Ear Training',
+        description:
+          'Improve your pitch accuracy and musical sensitivity with exercises designed to sharpen your listening skills.',
         icon: 'tabler:template',
       },
     ]}
@@ -74,50 +74,36 @@ const metadata = {
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="Our Values"
+    subtitle="We believe in creating a supportive and inspiring learning environment that fosters creativity, growth, and a lifelong love for music."
     items={[
       {
-        title: 'Customer-centric approach',
+        title: 'Personalized Lessons',
         description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
+          'Every student is unique, and we tailor lessons to match individual goals and aspirations.',
       },
       {
-        title: 'Constant Improvement',
+        title: 'Continuous Improvement',
         description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
+          'We encourage consistent practice and provide constructive feedback to help students achieve their full potential.',
       },
       {
-        title: 'Ethical Practices',
+        title: 'Inspiring Confidence',
         description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          'Our goal is to help students build confidence in their abilities, both in singing and in life.',
       },
     ]}
   />
 
   <!-- Features2 Widget ************** -->
 
-  <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
+<!-- Features2 Widget ************** -->
+<Features2
+title="Where to Find Us"
+tagline="Piano Lessons Near You in Bristol"
+image={{ src: bristolBridge, alt: 'Bristol Bridge' }}
+columns={1}
+items={[]}
+/>
+
 </Layout>
