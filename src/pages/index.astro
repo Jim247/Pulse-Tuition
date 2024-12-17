@@ -7,6 +7,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 import Prices from '~/components/widgets/prices.astro';
 import { IconGift } from '@tabler/icons-react';
+import Instruments from '~/components/widgets/Instruments.astro';
 
 const metadata = {
   title: 'music Lessons in the Bristol Area',
@@ -43,6 +44,34 @@ const metadata = {
     </Fragment>
   </Hero>
 
+  <Instruments
+    id="instruments"
+    tagline="Instruments We Teach"
+    title="Learn to Play Your Favourite Instrument"
+    subtitle="Our experienced tutors offer lessons in a wide range of instruments, including:"
+    items={[
+      {
+        title: 'Guitar',
+        description: 'Learn to play the guitar with our expert tutors.',
+        icon: '',
+      },
+      {
+        title: 'Piano',
+        description: 'Master the piano with our experienced instructors.',
+        icon: '',
+      },
+      {
+        title: 'Vocals',
+        description: 'Improve your singing with our professional vocal coaches.',
+        icon: '',
+      },
+      {
+        title: 'Bass Guitar',
+        description: 'Learn to play the guitar with our expert tutors.',
+        icon: '',
+      },
+    ]}
+  />
 
   <!-- Features Widget *************** -->
 
