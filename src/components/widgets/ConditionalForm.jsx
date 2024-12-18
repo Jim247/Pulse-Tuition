@@ -9,90 +9,97 @@ const ConditionalForm = () => {
     instrument: '',
     location: '',
     tutor: '',
-    details: '', // Added field for details
+    details: '',
   });
 
-  // Tutors data
+  const instruments = [
+    { title: 'Acoustic Guitar', icon: '/src/assets/custom-icons/acoustic-guitar.png', iconClass: 'w-25 h-25' },
+    { title: 'Piano/Keyboard', icon: '/src/assets/custom-icons/piano.png', iconClass: 'w-20 h-20' },
+    { title: 'Electric Guitar', icon: '/src/assets/custom-icons/electric-guitar.png', iconClass: 'w-25 h-25' },
+    { title: 'Singing', icon: '/src/assets/custom-icons/microphone.png', iconClass: 'w-20 h-20' },
+    { title: 'Bass Guitar', icon: '/src/assets/custom-icons/bass-guitar.png', iconClass: 'w-25 h-25' },
+  ];
+
   const tutors = [
     {
       name: 'Tutor A',
-      instruments: ['Guitar'],
+      instruments: ['Acoustic Guitar'],
       locations: ['Mobile'],
       calendly: 'https://bbc.co.uk',
     },
     {
       name: 'Tutor B',
-      instruments: ['Piano'],
+      instruments: ['Piano/Keyboard'],
       locations: ['Location 2', 'Mobile'],
       calendly: 'https://calendly.com/tutor-b',
     },
     {
       name: 'Tutor C',
-      instruments: ['Guitar'],
+      instruments: ['Electric Guitar'],
       locations: ['Mobile', 'Location 2'],
       calendly: 'https://calendly.com/tutor-c',
     },
+    {
+      name: 'Tutor D',
+      instruments: ['Singing'],
+      locations: ['Mobile'],
+      calendly: 'https://calendly.com/tutor-d',
+    },
+    {
+      name: 'Tutor E',
+      instruments: ['Bass Guitar'],
+      locations: ['Location 2'],
+      calendly: 'https://calendly.com/tutor-e',
+    },
   ];
 
-  // Location options for each instrument
-  const instrumentLocations = {
-    Guitar: ['Mobile', 'Location 2'],
-    Singing: ['Mobile'],
-    Piano: ['Location 2', 'Mobile'],
-  };
+  const instrumentLocations = tutors.reduce((acc, tutor) => {
+    tutor.instruments.forEach((instrument) => {
+      if (!acc[instrument]) {
+        acc[instrument] = new Set();
+      }
+      tutor.locations.forEach((location) => {
+        acc[instrument].add(location);
+      });
+    });
+    return acc;
+  }, {});
 
-  // Handle form input changes
+  Object.keys(instrumentLocations).forEach((instrument) => {
+    instrumentLocations[instrument] = Array.from(instrumentLocations[instrument]);
+  });
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle instrument selection
   const handleInstrumentSelect = (instrument) => {
-    setFormData((prev) => ({ ...prev, instrument, location: '' })); // Reset location when instrument is selected
+    setFormData((prev) => ({ ...prev, instrument, location: '' }));
   };
 
-  // Step navigation
   const handleNextStep = () => {
-    if (step === 1) {
-      if (!formData.instrument) {
-        alert('Please select an instrument.');
-        return;
-      }
+    if (step === 1 && !formData.instrument) {
+      alert('Please select an instrument.');
+      return;
     }
-    if (step === 2) {
-      if (!formData.location) {
-        alert('Please select a location.');
-        return;
-      }
+    if (step === 2 && !formData.location) {
+      alert('Please select a location.');
+      return;
     }
     if (step === 3 && !formData.details) {
       alert('Please provide more details about the student.');
       return;
     }
-    if (step === 4) {
-      if (!formData.name || !formData.email || !formData.phone) {
-        alert('Please fill out all fields.');
-        return;
-      }
+    if (step === 4 && (!formData.name || !formData.email || !formData.phone)) {
+      alert('Please fill out all fields.');
+      return;
     }
     setStep(step + 1);
   };
 
   const handlePreviousStep = () => {
     setStep(step - 1);
-  };
-
-  // Filter tutors based on selections
-  const availableTutors = tutors.filter(
-    (tutor) =>
-      tutor.instruments.includes(formData.instrument) &&
-      tutor.locations.includes(formData.location)
-  );
-
-  const handleTutorSelect = (tutor) => {
-    setFormData((prev) => ({ ...prev, tutor: tutor.name }));
-    window.location.href = tutor.calendly; // Redirect to Calendly
   };
 
   const handleRestart = () => {
@@ -103,209 +110,191 @@ const ConditionalForm = () => {
       instrument: '',
       location: '',
       tutor: '',
-      details: '', // Reset additional details
+      details: '',
     });
-    setStep(1); // Restart from the first step
+    setStep(1);
   };
+
+  // Find the tutor based on instrument and location
+  const matchedTutor = tutors.find(
+    (tutor) =>
+      tutor.instruments.includes(formData.instrument) &&
+      tutor.locations.includes(formData.location)
+  );
 
   return (
     <form className="space-y-6 p-4 sm:p-6 rounded-lg shadow-md max-w-md sm:max-w-xl mx-auto sticky top-0 bg-transparent">
       <h2 className="text-2xl font-bold text-center">Contact Us</h2>
 
-      {/* Step 1: Select Instrument */}
-{step === 1 && (
-  <>
-    <p className="text-center font-bold">Please select an Instrument</p>
-    <div className="grid grid-cols-1 gap-4">
-      {['Guitar', 'Singing', 'Piano'].map((instrument) => (
-        <button
-          key={instrument}
-          type="button"
-          onClick={() => handleInstrumentSelect(instrument)}
-          className={`w-full flex items-center justify-start space-x-4 py-4 px-6 rounded-lg border-2 ${
-            formData.instrument === instrument
-              ? 'border-gray-800 text-black bg-yellow-50'
-              : 'border-grey-800 text-gray-800 bg-white shadow-lg'
-          } shadow-sm hover:bg-yellow-50 transition-all duration-200 ease-in-out`}
-        >
-          {/* Icon for {instrument} */}
-          <span className="text-2xl">{/* Add your icon here */}</span>
-          <p className="font-bold text-lg">{instrument}</p>
-        </button>
-      ))}
-    </div>
-    <button
-      type="button"
-      onClick={handleNextStep}
-      className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600 mt-4"
-    >
-      Next
-    </button>
-  </>
-)}
+      {step === 1 && (
+        <>
+          <p className="text-center font-bold">Please select an Instrument</p>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {instruments.map((instrument) => (
+              <button
+                key={instrument.title}
+                type="button"
+                onClick={() => handleInstrumentSelect(instrument.title)}
+                className={`w-full flex flex-col items-center justify-center space-y-4 py-4 px-6 rounded-lg border-2 ${
+                  formData.instrument === instrument.title
+                    ? 'border-cyan-800 text-black bg-cyan-50'
+                    : 'border-grey-800 text-gray-800 bg-white shadow-lg'
+                } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
+              >
+                <img
+                  src={instrument.icon}
+                  alt={instrument.title}
+                  className={`${instrument.iconClass || 'w-25 h-25'} max-w-full`}
+                />
+                <p className="font-bold text-lg text-center">{instrument.title}</p>
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={handleNextStep}
+            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600 mt-4"
+          >
+            Next
+          </button>
+        </>
+      )}
 
-{/* Step 2: Select Location */}
-{step === 2 && (
-  <>
-    <p className="text-center font-bold">Please select a Location</p>
-    <div className="grid grid-cols-1 gap-4">
-      {instrumentLocations[formData.instrument]?.map((location) => (
-        <button
-          key={location}
-          type="button"
-          onClick={() => setFormData((prev) => ({ ...prev, location }))}
-          className={`w-full flex items-center justify-start space-x-4 py-4 px-6 rounded-lg border-2 ${
-            formData.location === location
-              ? 'border-gray-800 text-black bg-yellow-50'
-              : 'border-grey-200 text-gray-800 bg-white shadow-lg'
-          } shadow-sm hover:bg-yellow-50 transition-all duration-200 ease-in-out`}
-        >
-          {/* Icon for {location} */}
-          <span className="text-2xl">{/* Add your icon here */}</span>
-          <p className="font-bold text-lg">{location}</p>
-        </button>
-      ))}
-    </div>
-    <button
-      type="button"
-      onClick={handleNextStep}
-      className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600 mt-4"
-    >
-      Next
-    </button>
-    <button
-      type="button"
-      onClick={handlePreviousStep}
-      className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-gray-600"
-    >
-      Back
-    </button>
-  </>
-)}
+      {step === 2 && (
+        <>
+          <p className="text-center font-bold">Please select a Location</p>
+          <div className="grid grid-cols-1 gap-4">
+            {instrumentLocations[formData.instrument]?.map((location) => (
+              <button
+                key={location}
+                type="button"
+                onClick={() => setFormData((prev) => ({ ...prev, location }))}
+                className={`w-full py-2 rounded-md ${
+                  formData.location === location
+                    ? 'bg-cyan-600 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-cyan-200'
+                }`}
+              >
+                {location}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={handleNextStep}
+            className="w-full py-2 mt-4 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
+          >
+            Next
+          </button>
+          <button
+            type="button"
+            onClick={handlePreviousStep}
+            className="w-full py-2 mt-4 rounded-md bg-slate-300 text-black hover:bg-cyan-200"
+          >
+            Back
+          </button>
+        </>
+      )}
 
-      {/* Step 3: Enter Details */}
       {step === 3 && (
         <>
-          <div>
-            <label htmlFor="details" className="block text-sm font-medium mb-1">
-              Please tell us more about yourself or the student (level, genres, interests, goals)
-            </label>
-            <textarea
-              id="details"
-              name="details"
-              value={formData.details}
-              onChange={handleInputChange}
-              rows="6"
-              className="w-full px-4 py-2 border border-black rounded-md text-black"
-            />
-          </div>
+          <p className="text-center font-bold">Please provide details</p>
+          <textarea
+            name="details"
+            value={formData.details}
+            onChange={handleInputChange}
+            placeholder="Please provide additional details about your student..."
+            rows="4"
+            className="w-full p-2 border rounded-md mt-2"
+          />
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
+            className="w-full py-2 mt-4 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
           >
             Next
           </button>
           <button
             type="button"
             onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-gray-600"
+            className="w-full py-2 mt-4 rounded-md bg-slate-300 text-black hover:bg-cyan-200"
           >
             Back
           </button>
         </>
       )}
 
-      {/* Step 4: Enter Contact Info */}
       {step === 4 && (
         <>
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-black rounded-md text-black"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-black rounded-md text-black"
-            />
-          </div>
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium mb-1">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              placeholder="+44 7123 456 789"
-              className="w-full px-4 py-2 border border-black rounded-md text-black"
-            />
-          </div>
+          <p className="text-center font-bold">Please enter your contact details</p>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            placeholder="Full Name"
+            className="w-full p-2 border rounded-md mt-2"
+          />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            placeholder="Email Address"
+            className="w-full p-2 border rounded-md mt-2"
+          />
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            placeholder="Phone Number"
+            className="w-full p-2 border rounded-md mt-2"
+          />
           <button
             type="button"
             onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
+            className="w-full py-2 mt-4 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
           >
-            Next
+            Submit
           </button>
           <button
             type="button"
             onClick={handlePreviousStep}
-            className="w-full py-2 rounded-md bg-gray-500 text-white mt-2 hover:bg-gray-600"
+            className="w-full py-2 mt-4 rounded-md bg-slate-300 text-black hover:bg-cyan-200"
           >
             Back
           </button>
         </>
       )}
 
-      {/* Step 5: Show Available Tutors */}
-      {step === 5 && availableTutors.length > 0 && (
+      {step === 5 && matchedTutor && (
         <>
-          <p className="text-center font-bold">
-            Thank you! The following tutors match your requirements. Please book via their calendar.
-          </p>
-          {availableTutors.map((tutor) => (
-            <button
-              key={tutor.name}
-              type="button"
-              onClick={() => handleTutorSelect(tutor)}
-              className="w-full py-2 rounded-md bg-cyan-700 text-white mb-2 hover:bg-cyan-600"
+          <p className="text-center font-bold">You are matched with</p>
+          <div className="text-center mt-4">
+            <h3 className="text-xl">{matchedTutor.name}</h3>
+            <a
+              href={matchedTutor.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 mt-4 rounded-md bg-green-700 text-white hover:bg-green-600 text-xl font-semibold flex items-center justify-center space-x-2"
             >
-              {tutor.name} ({tutor.instruments.join(', ')})
-            </button>
-          ))}
-        </>
-      )}
-
-      {/* Step 5: No Tutors Found */}
-      {step === 5 && availableTutors.length === 0 && (
-        <>
-          <p className="text-center text-red-500">No tutors available for your selection.</p>
-          <button
-            type="button"
-            onClick={handleRestart}
-            className="w-full py-2 rounded-md bg-yellow-100 text-white hover:bg-gray-600"
-          >
-            Return to Start
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-white"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M20 12H4"></path>
+                <path d="M12 4v16"></path>
+              </svg>
+              <span>Book Now</span>
+            </a>
+          </div>
         </>
       )}
     </form>

@@ -1,9 +1,15 @@
 ---
 const items = [
   { 
-    icon: '/src/assets/custom-icons/bass-guitar.png',
-    title: 'Bass Guitar',
-    description: 'Slap, pop, and pluck the bass guitar',
+    icon: '/src/assets/custom-icons/microphone.png',
+    title: 'Singing/Vocal Skills',
+    description: 'Become the main vocalist and soar high',
+  },
+  { 
+    icon: '/src/assets/custom-icons/piano.png',
+    title: 'Piano/Keyboard',
+    description: 'Play melodies, harmonies, and chords',
+    iconClass: 'w-24 h-24', // Smaller size for the piano icon
   },
   { 
     icon: '/src/assets/custom-icons/electric-guitar.png',
@@ -11,26 +17,39 @@ const items = [
     description: 'Solo, shred, and play chords',
   },
   { 
-    icon: '/src/assets/custom-icons/microphone.png',
-    title: 'Singing/Vocal Skills',
-    description: 'Become the main vocalist and soar high',
+    icon: '/src/assets/custom-icons/acoustic-guitar.png',
+    title: 'Acoustic Guitar',
+    description: 'Strum, fingerpick, maybe even sing along',
+  },
+  { 
+    icon: '/src/assets/custom-icons/bass-guitar.png',
+    title: 'Bass Guitar',
+    description: 'Slap, pop, and pluck the bass guitar',
   },
 ];
 ---
+
 <!-- Instrument List Section -->
 <div class="instruments mt-8 m-4 mb-15 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-  <div class="text-center">
+  <div class="text-center text-lg">
     <slot name="headline"></slot>
   </div>
-  <h2 class="text-center text-lg mb-3">We Teach These Instruments</h2>
+  <h2 class="text-center text-2xl mb-3">We Teach These Instruments</h2>
   <slot name="subtitle"></slot>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
     {items.map((item) => (
-      <div class="instrument-item">
-        <img src={item.icon} alt={item.title} class="w-32 h-32 mx-auto" />
-        <h3 class="text-center mt-4 text-xl">{item.title}</h3>
-        <p class="text-center text-lg">{item.description}</p>
+      <div class="instrument-item flex flex-col justify-center items-center text-center">
+        <!-- Apply custom class for piano icon -->
+        <img src={item.icon} alt={item.title} class={`mx-auto ${item.iconClass || 'w-32 h-32'}`} />
+        <h3 class="mt-4 text-xl">{item.title}</h3>
+        <p class="text-lg">{item.description}</p>
       </div>
     ))}
   </div>
 </div>
+
+<style>
+  .instrument-item {
+    min-height: 100px; /* Ensure all items have the same minimum height */
+  }
+</style>
