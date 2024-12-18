@@ -25,7 +25,7 @@ const ConditionalForm = () => {
       name: 'Tutor A',
       instruments: ['Acoustic Guitar'],
       locations: ['Mobile'],
-      calendly: 'https://bbc.co.uk',
+      calendly: 'https://calendly.com/tutor-a',
     },
     {
       name: 'Tutor B',
