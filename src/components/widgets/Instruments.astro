@@ -1,39 +1,36 @@
 ---
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import ItemGrid from '~/components/ui/ItemGrid.astro';
-import Headline from '~/components/ui/Headline.astro';
-import type { Features as Props } from '~/types';
-
-const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
-  tagline = await Astro.slots.render('tagline'),
-  items = [],
-  columns = 2,
-  defaultIcon,
-  id,
-  isDark = false,
-  classes = {},
-  bg = await Astro.slots.render('bg'),
-} = Astro.props;
+const items = [
+  { 
+    icon: '/src/assets/custom-icons/bass-guitar.png',
+    title: 'Bass Guitar',
+    description: 'Slap, pop, and pluck the bass guitar',
+  },
+  { 
+    icon: '/src/assets/custom-icons/electric-guitar.png',
+    title: 'Electric Guitar',
+    description: 'Solo, shred, and play chords',
+  },
+  { 
+    icon: '/src/assets/custom-icons/microphone.png',
+    title: 'Singing/Vocal Skills',
+    description: 'Become the main vocalist and soar high',
+  },
+];
 ---
-
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''} mb-8`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
-  <div class="mt-20">
-    <ItemGrid
-      items={items}
-      columns={columns}
-      defaultIcon={defaultIcon}
-      classes={{
-        container: 'grid gap-10 grid-cols-1 sm:grid-cols-3 md:grid-cols-1' /* Adjust grid layout */,
-        item: 'flex items-center' /* Ensure items are aligned centrally vertically */,
-        icon: 'text-cyan-800 bg-white border-2 border-cyan-800 rounded-full w-20 h-20 p-6 md:w-24 md:h-24 md:p-8 mr-4 rtl:ml-4 rtl:mr-0',
-        content: 'flex flex-col' /* Group title and description together */,
-        title: 'md:text-[1.5rem]',
-        description: 'text',
-        ...((classes?.items as Record<string, never>) ?? {}),
-      }}
-    />
+<!-- Instrument List Section -->
+<div class="instruments mt-8 m-4 mb-15 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+  <div class="text-center">
+    <slot name="headline"></slot>
   </div>
-</WidgetWrapper>
+  <h2 class="text-center text-lg mb-3">We Teach These Instruments</h2>
+  <slot name="subtitle"></slot>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    {items.map((item) => (
+      <div class="instrument-item">
+        <img src={item.icon} alt={item.title} class="w-32 h-32 mx-auto" />
+        <h3 class="text-center mt-4 text-xl">{item.title}</h3>
+        <p class="text-center text-lg">{item.description}</p>
+      </div>
+    ))}
+  </div>
+</div>
