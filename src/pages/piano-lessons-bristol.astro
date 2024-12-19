@@ -10,6 +10,7 @@ import bristolBridge from '~/assets/images/bristol-bridge-photo.jpeg';
 import { IconGift } from '@tabler/icons-react';
 import Prices from '~/components/widgets/prices.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
   title: 'Piano Lessons Bristol',
@@ -131,6 +132,66 @@ const metadata = {
     { label: '60 minutes', price: '£35' },
   ]}
 />
+
+<FAQs
+    title="Frequently Asked Questions"
+    tagline="Piano and Keyboard Lessons in Bristol"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title:
+          'I’ve never played piano or keyboard before. Can I still learn?',
+        description:
+          "Absolutely! Whether you're a complete beginner or have never touched a piano or keyboard, our lessons are designed to guide you step-by-step. With consistent practice and support, you'll be playing your first tunes in no time.",
+      },
+      {
+        title: 'Do you teach children?',
+        description:
+          'Yes! We offer piano and keyboard lessons for both children and adults, tailoring our teaching style to suit different ages and learning preferences.',
+      },
+      {
+        title: 'How often should I attend piano or keyboard lessons?',
+        description:
+          'For the best progress, we recommend attending lessons at least once a week. Practicing regularly between lessons is also key to improving your skills.',
+      },
+      {
+        title: 'What types of music can I learn on piano or keyboard?',
+        description:
+          'You can learn a variety of styles, including classical, pop, jazz, blues, and more. We customize lessons to match your musical tastes and goals.',
+      },
+      {
+        title: 'How long will it take me to learn to play piano or keyboard?',
+        description:
+          'The time it takes depends on factors like your practice habits, dedication, and goals. Many beginners can play simple pieces within weeks, while achieving proficiency may take months or years.',
+      },
+      {
+        title: 'Am I too old to start learning piano or keyboard?',
+        description:
+          "Not at all! It's never too late to learn. Our lessons are designed to suit learners of all ages, ensuring a rewarding and enjoyable experience.",
+      },
+      {
+        title: 'What if I don’t know how to read sheet music?',
+        description:
+          "No problem! We'll teach you the basics of reading sheet music and understanding music theory as part of your piano or keyboard lessons.",
+      },
+      {
+        title: 'How long are the lessons?',
+        description:
+          'Lessons typically last between 30 minutes and an hour, depending on your age, skill level, and personal goals.',
+      },
+      {
+        title: 'Can I take piano or keyboard lessons online?',
+        description:
+          'Yes, we offer online lessons via video calls, providing the same high-quality instruction as in-person sessions.',
+      },
+      {
+        title: 'Can I book a trial lesson?',
+        description:
+          'Of course! We offer a free 20-minute trial session for new students to help you decide if our piano and keyboard lessons are the right fit for you.',
+      },
+    ]}
+/>
+
   <!-- Features2 Widget ************** -->
   <Features2
     title="Where to Find Us"

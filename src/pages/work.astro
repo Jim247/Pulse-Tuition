@@ -16,34 +16,26 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero tagline="Work With Us" image={{ src: guitarImage, alt: 'About Our Lessons Hero Image' }}>
-    <Fragment slot="title text-center">
+    <Fragment slot="title">
       Freelance Music Tutor
-      <span class="text-accent text-center dark:text-white highlight"> Apply Now</span>
+      <span class="text-accent text-center dark:text-white highlight"><br> Apply Today</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       Are you a skilled musician ready to share your passion? Explore music tutor jobs that fit your schedule, whether
       you're teaching piano, guitar, or voice. From flexible hours to rewarding experiences, music tutoring is your
-      pathway to inspiring the next generation of talent.
+      pathway to inspiring the next generation of talent. <br><br>
+
+      We are looking for dedicated and skilled instrumental and vocal tutors to join our platform. If you are passionate about music and have availability for lessons in the Bristol area, apply today.
     </Fragment>
+
   </Hero>
 
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
-    ]}
-  />
-
+  
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="What We Offer Our Franchisees"
+    title="What We Offer Our Contractors"
     subtitle="Tailored solutions to help music tutors succeed with ease. Our platform simplifies scheduling, payments, and teaching management."
     columns={3}
     isBeforeContent={true}
@@ -51,135 +43,37 @@ const metadata = {
       {
         title: 'Top the Rankings',
         description:
-          'Boost your visibility and attract more students with a platform that prioritizes local SEO, ensuring you stand out to prospective learners in your area.',
-        icon: 'tabler:template',
+          'Boost your visibility and attract more students with a platform that prioritizes local SEO, ensuring you stand out to prospective students in your area.',
+        icon: 'tabler:seo',
       },
       {
         title: 'Freedom to Teach Your Way',
         description:
           'Whether you teach piano, guitar, or vocals, our platform lets you customize your schedule, lesson plans, and teaching style. You have complete control.',
-        icon: 'tabler:template',
+        icon: 'tabler:school',
       },
       {
         title: 'No More Paperwork',
         description:
           'Manage payments, lesson scheduling, and student communications seamlessly with our integrated calendar and payment solutions. Say goodbye to manual tracking and focus more on teaching.',
-        icon: 'tabler:template',
+        icon: 'tabler:device-mobile',
       },
       {
         title: 'Build Your Reputation',
         description:
           'Leverage reviews and testimonials from your students to build a strong online reputation. Our platform helps you showcase your expertise and attract new clients with ease.',
-        icon: 'tabler:template',
+        icon: 'tabler:carambola',
       },
       {
         title: 'Dedicated Support',
         description:
           'Receive continuous support from our team. Whether you need help with technical issues or guidance on optimizing your profile, we’re here to ensure your success.',
-        icon: 'tabler:template',
+        icon: 'tabler:help',
       },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
-
+  
   <!-- Features2 Widget ************** -->
 
   <Features2

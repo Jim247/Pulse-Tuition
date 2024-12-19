@@ -3,43 +3,38 @@ const items = [
   { 
     icon: '/src/assets/custom-icons/microphone.png',
     title: 'Singing/Vocal Skills',
-    description: 'Become the main vocalist and soar high',
     iconClass: 'w-24 h-24', // Reduced size for the microphone icon
   },
   { 
     icon: '/src/assets/custom-icons/piano.png',
-    title: 'Piano/Keyboard',
-    description: 'Play melodies, harmonies, and chords like a master',
+    title: 'Piano/Keyboard',   
     iconClass: 'w-24 h-24', // Increased size for the piano icon
   },
   { 
     icon: '/src/assets/custom-icons/electric-guitar.png',
     title: 'Electric Guitar',
-    description: 'Solo, shred, and play new chords',
     iconClass: 'w-28 h-28', // Increased size for the electric guitar icon
   },
   { 
     icon: '/src/assets/custom-icons/acoustic-guitar.png',
     title: 'Acoustic Guitar',
-    description: 'Strum, fingerpick, sing along',
     iconClass: 'w-28 h-28', // Increased size for the acoustic guitar icon
   },
   { 
     icon: '/src/assets/custom-icons/bass-guitar.png',
     title: 'Bass Guitar',
-    description: 'Slap, pop, and pluck. Feel the groove',
     iconClass: 'w-28 h-28', // Increased size for the bass guitar icon
   },
 ];
 ---
 <!-- Instrument List Section -->
-<div class="instruments mt-8 m-4 mb-15 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+<div class="instruments mt-8 m-4 mb-15 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-7xl mx-auto">
   <div class="text-center text-lg">
     <slot name="headline"></slot>
   </div>
   <h2 class="text-center text-2xl mb-3">We Teach These Instruments</h2>
   <slot name="subtitle"></slot>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-10">
     {items.map((item) => (
       <div class="instrument-item flex flex-col justify-center items-center text-center">
         <div class="image-container w-40 h-40 flex items-center justify-center bg-white p-2">
@@ -50,7 +45,6 @@ const items = [
           />
         </div>
         <h3 class="mt-4 text-xl">{item.title}</h3>
-        <p class="text-lg mt-2">{item.description}</p>
       </div>
     ))}
   </div>

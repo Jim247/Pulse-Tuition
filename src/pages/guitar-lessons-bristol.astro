@@ -10,6 +10,7 @@ import bristolBridge from '~/assets/images/bristol-bridge-photo.jpeg';
 import { IconGift } from '@tabler/icons-react';
 import Prices from '~/components/widgets/prices.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
   title: 'Guitar Lessons Bristol',
@@ -132,6 +133,72 @@ const metadata = {
     { label: '60 minutes', price: '£35' },
   ]}
 />
+
+<FAQs
+    title="Frequently Asked Questions"
+    tagline="Guitar Lessons in Bristol"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title:
+          'I’ve never played guitar before. Can I still learn?',
+        description:
+          "Absolutely! Whether you're a complete beginner or have never picked up a guitar, our lessons are designed to help you learn step-by-step. With practice and guidance, you'll be playing your first chords in no time.",
+      },
+      {
+        title:
+          'Do I need an acoustic guitar or an electric guitar?',
+        description:
+          'Both acoustic and electric guitars are suitable for beginners. We can help you choose the right guitar based on your interests and goals.',
+      },
+      {
+        title: 'Do you teach children?',
+        description:
+          'Yes! We offer guitar lessons for both children and adults, adapting our teaching style to suit the needs and abilities of each age group.',
+      },
+      {
+        title: 'How often should I attend guitar lessons?',
+        description:
+          'For steady progress, we recommend attending lessons once a week. Regular practice between sessions is also essential to improve your skills.',
+      },
+      {
+        title: 'What types of music can I learn on guitar?',
+        description:
+          'You can learn a wide range of genres, including rock, pop, blues, jazz, classical, and more. Lessons are customized to match your musical interests and goals.',
+      },
+      {
+        title: 'How long will it take me to learn to play guitar?',
+        description:
+          'The time it takes varies depending on your goals, practice habits, and prior experience. Most beginners can play simple chords and songs within a few weeks, while becoming proficient may take months to years.',
+      },
+      {
+        title: 'Am I too old to start learning guitar?',
+        description:
+          "Not at all! It's never too late to start learning guitar. Many adults find it a rewarding hobby, and we'll ensure lessons are suited to your pace and interests.",
+      },
+      {
+        title: 'What if I don’t know how to read music?',
+        description:
+          "No worries! Reading sheet music isn't necessary to start learning guitar. We'll teach you everything you need, including chord charts, tabs, and basic music theory.",
+      },
+      {
+        title: 'How long are the guitar lessons?',
+        description:
+          'Lessons typically range from 30 minutes to an hour, depending on your preference and availability.',
+      },
+      {
+        title: 'Can I take guitar lessons online?',
+        description:
+          'Yes, we offer online guitar lessons via video calls, providing the same high-quality instruction as in-person sessions.',
+      },
+      {
+        title: 'Can I book a trial lesson?',
+        description:
+          'Absolutely! We offer a free 20-minute trial session for new students to help you decide if our guitar lessons are the right fit for you.',
+      },
+    ]}
+/>
+
   <!-- Features2 Widget ************** -->
   <Features2
     title="Where to Find Us"
