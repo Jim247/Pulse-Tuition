@@ -135,43 +135,44 @@ const ConditionalForm = () => {
 
   return (
     <form className="space-y-6 p-4 sm:p-6 rounded-lg shadow-md max-w-md sm:max-w-xl mx-auto bg-transparent">
-      <h2 className="text-2xl font-bold text-center">Contact Us</h2>
+      <h2 className="text-2xl font-bold text-center">Make a Booking</h2>
 
       {step === 1 && (
-        <>
-          <p className="text-center font-bold">Please select an Instrument</p>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center">
-            {instruments.map((instrument) => (
-              <button
-                key={instrument.title}
-                type="button"
-                onClick={() => handleInstrumentSelect(instrument.title)}
-                className={`w-full flex flex-col items-center justify-center space-y-4 py-4 px-6 rounded-lg border-2 ${
-                  formData.instrument === instrument.title
-                    ? 'border-cyan-800 text-black bg-cyan-50'
-                    : 'border-cyan-800 text-gray-800 bg-white shadow-lg'
-                } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
-              >
-                <img
-                  src={instrument.icon}
-                  alt={instrument.title}
-                  className={`${instrument.iconClass || 'w-25 h-25'} max-w-full`}
-                />
-                <p className="font-bold text-lg text-center">{instrument.title}</p>
-              </button>
-            ))}
-          </div>
-          <div className="flex justify-end gap-4 mt-4">
-            <button
-              type="button"
-              onClick={handleNextStep}
-              className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
-            >
-              Next
-            </button>
-          </div>
-        </>
-      )}
+  <>
+    <p className="text-center font-bold">Please select an Instrument</p>
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center">
+      {instruments.map((instrument) => (
+        <button
+          key={instrument.title}
+          type="button"
+          onClick={() => handleInstrumentSelect(instrument.title)}
+          className={`w-full flex flex-col items-center justify-center space-y-4 py-4 px-6 rounded-lg border-2 ${
+            formData.instrument === instrument.title
+              ? 'border-cyan-800 text-black bg-cyan-50'
+              : 'border-cyan-800 text-gray-800 bg-white shadow-lg'
+          } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
+        >
+          <img
+            src={instrument.icon}
+            alt={instrument.title}
+            className={`w-20 h-20 max-w-full`} // Ensuring all icons are the same size
+          />
+          <p className="font-bold text-lg text-center">{instrument.title}</p>
+        </button>
+      ))}
+    </div>
+    <div className="flex justify-end gap-4 mt-4">
+      <button
+        type="button"
+        onClick={handleNextStep}
+        className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
+      >
+        Next
+      </button>
+    </div>
+  </>
+)}
+
 
       {step === 2 && (
         <>
@@ -188,13 +189,11 @@ const ConditionalForm = () => {
                     : 'border-cyan-800 text-gray-800 bg-white shadow-lg'
                 } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
               >
-{
-  location === 'Mobile' ? (
-    <IconCar className="w-20 h-20 text-cyan-800" style={{ strokeWidth: 0.5 }} />
-  ) : (
-    <IconHome className="w-20 h-20 text-cyan-800" style={{ strokeWidth: 0.5 }} />
-  )
-}
+                {location === 'Mobile' ? (
+                  <IconCar className="w-20 h-20 text-cyan-800" style={{ strokeWidth: 0.5 }} />
+                ) : (
+                  <IconHome className="w-20 h-20 text-cyan-800" style={{ strokeWidth: 0.5 }} />
+                )}
                 <p className="font-bold text-lg text-center">{location}</p>
               </button>
             ))}
