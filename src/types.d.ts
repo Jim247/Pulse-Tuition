@@ -109,6 +109,7 @@ export interface Headline {
   title?: string;
   subtitle?: string;
   tagline?: string;
+  link?: string;
   classes?: Record<string, string>;
 }
 
@@ -268,6 +269,7 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
     title: string;
     description?: string;
     icon?: string;
+    link?: string;
     classes?: Record<string, string>;
   }>;
   callToAction?: string | CallToAction;

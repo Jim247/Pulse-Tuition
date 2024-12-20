@@ -3,9 +3,10 @@ import type { Headline as Props } from '~/types';
 import { twMerge } from 'tailwind-merge';
 
 const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
+  title = Astro.slots.render('title'),
+  subtitle = Astro.slots.render('subtitle'),
   tagline,
+  link= Astro.slots.render('link'),
   classes = {},
 } = Astro.props;
 
@@ -30,6 +31,7 @@ const {
       )}
 
       {subtitle && <p class={twMerge('mt-4 text-muted', subtitleClass)} set:html={subtitle} />}
+      {link && <div class="mt-4" set:html={link} />}
     </div>
   )
 }

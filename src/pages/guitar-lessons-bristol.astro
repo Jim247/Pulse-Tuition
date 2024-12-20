@@ -11,6 +11,7 @@ import { IconGift } from '@tabler/icons-react';
 import Prices from '~/components/widgets/prices.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
+import Steps3 from '~/components/widgets/Steps3.astro';
 
 const metadata = {
   title: 'Guitar Lessons Bristol',
@@ -26,10 +27,17 @@ const metadata = {
       <span class="text-highlight">with Expert Tutors</span>
     </Fragment>
     <Fragment slot="subtitle">
-      Explore tailored **guitar lessons in Bristol** designed to help you master the instrument. Whether you're starting out or refining your skills, our lessons focus on personalized techniques, music theory, and repertoire building to unlock your full potential.<br /><br />
-      Join us for engaging lessons that combine creativity and structure, providing the foundation you need to thrive as a guitarist.
-    </Fragment>
-  </Hero>
+      1:1 Bespoke Guitar Tuition in Bristol: Guitar Lessons Bristol <br><br>
+      Are you looking for top-notch guitar lessons in Bristol? We offer personalized, one-on-one tuition tailored to your goals.
+      <br><br>
+      
+      Whether you're a beginner or an advanced player, our lessons focus on personalized techniques, music theory, and repertoire building to help you grow as a guitarist.
+      
+      We teach students of all ages (7+), blending creativity and structure to provide the tools you need to thrive. <br><br> Our tutors are experienced professionals with advanced qualifications and extensive performance backgrounds.
+      
+        Enjoy a free 20-minute trial to get started! Visit our FAQ page to learn more and begin your musical journey.
+      </Fragment>
+    </Hero>
 
   <!-- Features3 Widget ************** -->
 
@@ -199,14 +207,42 @@ const metadata = {
     ]}
 />
 
-  <!-- Features2 Widget ************** -->
+<Steps3
+  title="Helpful Links"
+  subtitle="Here are some useful links and resources for people learning guitar."
+
+  items={[
+    {
+      title: 'Ultimate Guitar',
+      description:
+        'Find thousands of guitar tabs, chord sheets, and music to practice with, tailored for all skill levels.',
+      link: 'https://www.ultimate-guitar.com',
+    },
+    {
+      title: 'Justin Guitar',
+      description:
+        'Comprehensive free guitar lessons, courses, and tutorials by Justin Sandercoe, suitable for beginners to advanced players.',
+      link: 'https://www.justinguitar.com',
+      
+    },
+    {
+      title: 'Fender Play',
+      description:
+        'Interactive lessons with a focus on learning popular songs while developing foundational skills.',
+      link: 'https://www.fender.com/play',
+    },
+  ]}
+/>
+
+
+  <!-- Features2 Widget ************** 
   <Features2
     title="Where to Find Us"
     tagline="Guitar Lessons Near You in Bristol"
     image={{ src: bristolBridge, alt: 'Bristol Bridge' }}
     columns={1}
     items={[]}
-  />
+  /> -->
 
   <CallToAction
     actions={[

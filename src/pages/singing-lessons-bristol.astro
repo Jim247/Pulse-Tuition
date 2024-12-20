@@ -7,6 +7,8 @@ import Layout from '~/layouts/PageLayout.astro';
 import singingImage from '~/assets/images/singing-lessons-bristol.jpeg';
 import bristolBridge from '~/assets/images/bristol-bridge-photo.jpeg';
 import FAQs from '~/components/widgets/FAQs.astro';
+import Steps3 from '~/components/widgets/Steps3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'About Us - Singing Lessons Bristol',
@@ -164,9 +166,35 @@ const metadata = {
   ]}
 />
 
-  <!-- Features2 Widget ************** -->
+<!------- Steps 3 Widget ******** -->
+<Steps3
+  title="Helpful Links for Singing"
+  subtitle="Here are some useful links and resources for people learning to sing."
 
-<!-- Features2 Widget ************** -->
+  items={[
+    {
+      title: 'Sing Up',
+      description:
+        'A site with free vocal exercises, tutorials, and tips for improving your singing voice.',
+      link: 'https://www.singup.org',
+    },
+    {
+      title: 'Vocal Coach',
+      description:
+        'Vocal coaching platform offering structured lessons, warm-ups, and performance tips for singers of all levels.',
+      link: 'https://www.vocalcoach.com',
+    },
+    {
+      title: 'The Vocalist Studio',
+      description:
+        'An online platform offering vocal training courses, including a range of techniques for professional singers.',
+      link: 'https://www.thevocaliststudio.com',
+    },
+  ]}
+/>
+
+
+<!-- Features2 Widget ************** 
 <Features2
 title="Where to Find Us"
 tagline="Piano Lessons Near You in Bristol"
@@ -174,5 +202,18 @@ image={{ src: bristolBridge, alt: 'Bristol Bridge' }}
 columns={1}
 items={[]}
 />
+-->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'BOOK NOW',
+        href: '/contact',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+  />
 
 </Layout>

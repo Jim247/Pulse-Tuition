@@ -12,6 +12,7 @@ const {
   callToAction = await Astro.slots.render('callToAction'),
   items = [],
   isReversed = false,
+  link = await Astro.slots.render('link'),
 
   id,
   isDark = false,
@@ -26,6 +27,7 @@ const {
       <Headline
         title={title}
         subtitle={subtitle}
+        link={link}
         tagline={tagline}
         classes={{
           container: 'text-center md:text-left rtl:md:text-right mb-4 md:mb-8',

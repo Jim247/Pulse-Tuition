@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { IconHome, IconCar } from '@tabler/icons-react';
 
 const ConditionalForm = () => {
   const [step, setStep] = useState(1);
@@ -10,6 +11,8 @@ const ConditionalForm = () => {
     location: '',
     tutor: '',
     details: '',
+    ageRange: '',
+    ability: '',
   });
 
   const instruments = [
@@ -87,11 +90,17 @@ const ConditionalForm = () => {
       alert('Please select a location.');
       return;
     }
-    if (step === 3 && !formData.details) {
-      alert('Please provide more details about the student.');
+    if (
+      step === 3 &&
+      (!formData.ageRange || !formData.ability || !formData.details)
+    ) {
+      alert('Please provide age range, ability, and additional details.');
       return;
     }
-    if (step === 4 && (!formData.name || !formData.email || !formData.phone)) {
+    if (
+      step === 4 &&
+      (!formData.name || !formData.email || !formData.phone)
+    ) {
       alert('Please fill out all fields.');
       return;
     }
@@ -111,6 +120,8 @@ const ConditionalForm = () => {
       location: '',
       tutor: '',
       details: '',
+      ageRange: '',
+      ability: '',
     });
     setStep(1);
   };
@@ -123,7 +134,8 @@ const ConditionalForm = () => {
   );
 
   return (
-<form className="space-y-6 p-4 sm:p-6 rounded-lg shadow-md max-w-md sm:max-w-xl mx-auto sticky top-0 bg-transparent">      <h2 className="text-2xl font-bold text-center">Contact Us</h2>
+    <form className="space-y-6 p-4 sm:p-6 rounded-lg shadow-md max-w-md sm:max-w-xl mx-auto bg-transparent">
+      <h2 className="text-2xl font-bold text-center">Contact Us</h2>
 
       {step === 1 && (
         <>
@@ -149,78 +161,126 @@ const ConditionalForm = () => {
               </button>
             ))}
           </div>
-          <button
-            type="button"
-            onClick={handleNextStep}
-            className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600 mt-4"
-          >
-            Next
-          </button>
+          <div className="flex justify-end gap-4 mt-4">
+            <button
+              type="button"
+              onClick={handleNextStep}
+              className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
+            >
+              Next
+            </button>
+          </div>
         </>
       )}
 
-{step === 2 && (
-  <>
-<p className="text-center font-bold">Please select a Location</p>
-<div className="grid grid-cols-2 sm:grid-cols-2 gap-4 justify-center justify-items-center">      {instrumentLocations[formData.instrument]?.map((location) => (
-        <button
-          key={location}
-          type="button"
-          onClick={() => setFormData((prev) => ({ ...prev, location }))}
-          className={`w-full flex flex-col items-center justify-center space-y-4 py-4 px-6 rounded-lg border-2 ${
-            formData.location === location
-              ? 'border-cyan-800 text-black bg-cyan-50'
-              : 'border-cyan-800 text-gray-800 bg-white shadow-lg'
-          } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
-        >
-          <span className="text-4xl">🌍</span>
-          <p className="font-bold text-lg text-center">{location}</p>
-        </button>
-      ))}
-    </div>
-    <div className="flex justify-between gap-4 mt-4">
-      <button
-        type="button"
-        onClick={handlePreviousStep}
-        className="w-full py-2 rounded-md bg-slate-300 text-black hover:bg-cyan-200"
-      >
-        Back
-      </button>
-      <button
-        type="button"
-        onClick={handleNextStep}
-        className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
-      >
-        Next
-      </button>
-    </div>
-  </>
-)}
+      {step === 2 && (
+        <>
+          <p className="text-center font-bold">Please select a Location</p>
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 justify-center">
+            {instrumentLocations[formData.instrument]?.map((location) => (
+              <button
+                key={location}
+                type="button"
+                onClick={() => setFormData((prev) => ({ ...prev, location }))}
+                className={`w-full flex flex-col items-center justify-center space-y-4 py-4 px-6 rounded-lg border-2 ${
+                  formData.location === location
+                    ? 'border-cyan-800 text-black bg-cyan-50'
+                    : 'border-cyan-800 text-gray-800 bg-white shadow-lg'
+                } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
+              >
+{
+  location === 'Mobile' ? (
+    <IconCar className="w-20 h-20 text-cyan-800" style={{ strokeWidth: 0.5 }} />
+  ) : (
+    <IconHome className="w-20 h-20 text-cyan-800" style={{ strokeWidth: 0.5 }} />
+  )
+}
+                <p className="font-bold text-lg text-center">{location}</p>
+              </button>
+            ))}
+          </div>
+          <div className="flex justify-between gap-4 mt-4">
+            <button
+              type="button"
+              onClick={handlePreviousStep}
+              className="w-full py-2 rounded-md bg-slate-300 text-black hover:bg-slate-200"
+            >
+              Back
+            </button>
+            <button
+              type="button"
+              onClick={handleNextStep}
+              className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
+            >
+              Next
+            </button>
+          </div>
+        </>
+      )}
+
       {step === 3 && (
         <>
           <p className="text-center font-bold">Please provide details</p>
-          <textarea
-            name="details"
-            value={formData.details}
-            onChange={handleInputChange}
-            placeholder="Please provide additional details about your student..."
-            rows="4"
-            className="w-full p-2 border rounded-md mt-2 focus:outline-none focus:ring-2 focus:ring-cyan-800"
-          />
-          <button
-            type="button"
-            onClick={handleNextStep}
-            className="w-full py-2 mt-4 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
-          >
-            Next
-          </button>
-          <button
-            type="button"
-            onClick={handlePreviousStep}
-            className="w-full py-2 mt-4 rounded-md bg-slate-300 text-black hover:bg-cyan-200"
-          >
-            Back
-          </button>
+
+          <label className="block mt-2">
+            Age Range:
+            <select
+              name="ageRange"
+              value={formData.ageRange}
+              onChange={handleInputChange}
+              className="w-full p-2 border rounded-md mt-1"
+            >
+              <option value="">Select Age Range</option>
+              <option value="7-11">7-11</option>
+              <option value="12-18">12-18</option>
+              <option value="18+">18+</option>
+            </select>
+          </label>
+
+          <label className="block mt-2">
+            Ability:
+            <select
+              name="ability"
+              value={formData.ability}
+              onChange={handleInputChange}
+              className="w-full p-2 border rounded-md mt-1"
+            >
+              <option value="">Select Ability Level</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="not sure">Not Sure</option>
+            </select>
+          </label>
+
+          <label className="block mt-2">
+            Please provide any additional details about you/the student:
+            <textarea
+              name="details"
+              value={formData.details}
+              onChange={handleInputChange}
+              placeholder="Goals, musical interests, any additional requirements..."
+              rows="4"
+              className="w-full p-2 border rounded-md mt-1 focus:outline-none focus:ring-2 focus:ring-cyan-800"
+            />
+          </label>
+
+          <div className="flex justify-between gap-4 mt-4">
+            <button
+              type="button"
+              onClick={handlePreviousStep}
+              className="w-full py-2 rounded-md bg-slate-300 text-black hover:bg-slate-200"
+            >
+              Back
+            </button>
+            <button
+              type="button"
+              onClick={handleNextStep}
+              className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
+            >
+              Next
+            </button>
+          </div>
         </>
       )}
 
@@ -251,20 +311,22 @@ const ConditionalForm = () => {
             placeholder="Phone Number"
             className="w-full p-2 border rounded-md mt-2"
           />
-          <button
-            type="button"
-            onClick={handleNextStep}
-            className="w-full py-2 mt-4 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
-          >
-            Submit
-          </button>
-          <button
-            type="button"
-            onClick={handlePreviousStep}
-            className="w-full py-2 mt-4 rounded-md bg-slate-300 text-black hover:bg-cyan-200"
-          >
-            Back
-          </button>
+          <div className="flex justify-between gap-4 mt-4">
+            <button
+              type="button"
+              onClick={handlePreviousStep}
+              className="w-full py-2 rounded-md bg-slate-300 text-black hover:bg-slate-200"
+            >
+              Back
+            </button>
+            <button
+              type="button"
+              onClick={handleNextStep}
+              className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
+            >
+              Submit
+            </button>
+          </div>
         </>
       )}
 
@@ -295,6 +357,13 @@ const ConditionalForm = () => {
               <span>Book Now</span>
             </a>
           </div>
+          <button
+            type="button"
+            onClick={handleRestart}
+            className="w-full py-2 mt-4 rounded-md bg-slate-300 text-black hover:bg-slate-200"
+          >
+            Restart
+          </button>
         </>
       )}
     </form>

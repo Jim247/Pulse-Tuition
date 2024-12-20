@@ -11,6 +11,7 @@ import { IconGift } from '@tabler/icons-react';
 import Prices from '~/components/widgets/prices.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
+import Steps3 from '~/components/widgets/Steps3.astro';
 
 const metadata = {
   title: 'Piano Lessons Bristol',
@@ -191,7 +192,7 @@ const metadata = {
       },
     ]}
 />
-
+{/*
   <!-- Features2 Widget ************** -->
   <Features2
     title="Where to Find Us"
@@ -200,6 +201,34 @@ const metadata = {
     columns={1}
     items={[]}
   />
+*/}
+
+  <Steps3
+  title="Helpful Links for Piano"
+  subtitle="Here are some useful links and resources for people learning piano."
+
+  items={[
+    {
+      title: 'PianoLessons.com',
+      description:
+        'A comprehensive resource with free lessons, tips, and tutorials for pianists of all levels.',
+      link: 'https://www.pianolessons.com',
+    },
+    {
+      title: 'Simply Piano',
+      description:
+        'An app-based piano learning tool offering step-by-step lessons and interactive feedback.',
+      link: 'https://www.joytunes.com/simply-piano',
+    },
+    {
+      title: 'PlayPiano.com',
+      description:
+        'A site for learning piano with resources from beginners to advanced players, including sheet music and tutorials.',
+      link: 'https://www.playpiano.com',
+    },
+  ]}
+/>
+
 
   <CallToAction
     actions={[
