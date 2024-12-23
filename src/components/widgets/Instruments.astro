@@ -2,7 +2,7 @@
 const items = [
   { 
     icon: '/src/assets/custom-icons/microphone.png',
-    title: 'Singing/Vocal Skills',
+    title: 'Singing',
   },
   { 
     icon: '/src/assets/custom-icons/piano.png',
@@ -23,16 +23,16 @@ const items = [
 ];
 ---
 <!-- Instrument List Section -->
-<div class="instruments mt-8 m-4 mb-15 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-7xl mx-auto">
+<div class="instruments mt-8 m-4 mb-15 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-4xl mx-auto">
   <div class="text-center text-lg">
     <slot name="headline"></slot>
   </div>
-  <h2 class="text-center text-2xl mb-3">We Teach These Instruments</h2>
+  <h2 class="text-center text-2xl mb-10">We Teach These Instruments</h2>
   <slot name="subtitle"></slot>
-  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-10">
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-10">
     {items.map((item) => (
       <div class="instrument-item flex flex-col justify-center items-center text-center">
-        <div class="image-container w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 flex items-center justify-center bg-white ">
+        <div class="image-container w-20 h-20 sm:w-20 sm:h-20 md:w-20 md:h-20 flex items-center justify-center bg-white ">
           <img 
             src={item.icon} 
             alt={item.title} 
