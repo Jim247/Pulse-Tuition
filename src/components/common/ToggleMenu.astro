@@ -9,9 +9,11 @@ const {
   class: className = 'flex flex-col h-12 w-12 rounded justify-center items-center cursor-pointer group',
 } = Astro.props;
 ---
+
+<!--this is the hamburger menu button-->
 <button
   type="button"
-  class={`${className} bg-transparent dark:bg-gray-800`} 
+  class={`${className} bg-transparent`} 
   aria-label={label}
   data-aw-toggle-menu
 >

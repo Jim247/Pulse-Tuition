@@ -63,25 +63,25 @@ const {
   <div
     class:list={[
       'relative text-black py-3 px-3 md:px-6 mx-auto w-full text-center',
-      position !== 'center' 
-    ? 'md:flex md:justify-between' 
-    : 'md:grid md:grid-cols-[auto,1fr,auto] md:items-center',
+      position !== 'center'
+        ? 'md:flex md:justify-between'
+        : 'md:grid md:grid-cols-[auto,1fr,auto] md:items-center',
 
       !isFullWidth && 'max-w-7xl',
     ]}
-    >
+  >
     <!-- Logo and Mobile Toggle -->
     <div
       class:list={[
-      position === 'right' ? 'mr-auto rtl:mr-0 rtl:ml-auto' : '',
-      'flex justify-between',
+        position === 'right' ? 'mr-auto rtl:mr-0 rtl:ml-auto' : '',
+        'flex justify-between',
       ]}
-      >
+    >
       <a class="flex items-center text-black text-sm" href={getHomePermalink()}>
-      <Logo class="w-8 h-8" />
+        <Logo class="w-8 h-8" />
       </a>
       <div class="flex items-center md:hidden">
-      <ToggleMenu />
+        <ToggleMenu />
       </div>
     </div>
 
@@ -102,6 +102,7 @@ const {
                     class="hover:text-link py-4 items-center whitespace-wrap uppercase focus:outline-none hidden md:flex"
                     aria-haspopup="true"
                     aria-expanded="false"
+                    style="margin-right: 23px;" 
                   >
                     {text}
                     <Icon
@@ -110,21 +111,21 @@ const {
                     />
                   </button>
 
-                  <!-- Submenu for Desktop -->
-                  <ul
-  class="absolute left-1/2 top-full mt-1 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform -translate-x-1/2"
->
+                    <!-- Submenu for Desktop -->
+                    <ul
+                    class="absolute left-0 top-full mt-1 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                    >
                     {submenu.map(({ text: submenuText, href: submenuHref }) => (
                       <li>
-                        <a
-                          class="py-3 px-6 block whitespace-nowrap uppercase hover:text-link hover:bg-gray-100 focus:outline-none"
-                          href={submenuHref}
-                        >
-                          {submenuText}
-                        </a>
+                      <a
+                        class="py-3 px-6 block justify-start whitespace-nowrap uppercase hover:text-link hover:bg-gray-100 focus:outline-none"
+                        href={submenuHref}
+                      >
+                        {submenuText}
+                      </a>
                       </li>
                     ))}
-                  </ul>
+                    </ul>
                 </>
               ) : (
                 <a
@@ -137,16 +138,17 @@ const {
             </li>
 
             {/* Submenu items as main menu items for mobile */}
-            {submenu?.length && submenu.map(({ text: submenuText, href: submenuHref }) => (
-              <li class="md:hidden text-right">
-                <a
+            {submenu?.length &&
+              submenu.map(({ text: submenuText, href: submenuHref }) => (
+                <li class="md:hidden text-right">
+                  <a
                     class="hover:text-link hover:text-sky-800 px-6 py-4 flex items-center whitespace-nowrap uppercase text"
-                  href={submenuHref}
-                >
-                  {submenuText}
-                </a>
-              </li>
-            ))}
+                    href={submenuHref}
+                  >
+                    {submenuText}
+                  </a>
+                </li>
+              ))}
           </>
         ))}
       </ul>
@@ -161,11 +163,11 @@ const {
     >
       <div class="items-center flex justify-between w-full md:w-auto">
         {actions?.length && (
-<span class="ml-2 text-lg md:text-xl lg:text-2xl">
+          <span class="ml-2 text-lg md:text-xl lg:text-2xl">
             {actions.map((btnProps) => (
               <Button
                 {...btnProps}
-                class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none  hover:bg-sky-600 text-sm w-auto text-white"
+                class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none hover:bg-sky-600 text-sm w-auto text-white"
               />
             ))}
           </span>

@@ -41,6 +41,5 @@ export default {
       addVariant('intersect', '&:not([no-intersect])');
     }),
   ],
-    darkMode: false,//
 };
 

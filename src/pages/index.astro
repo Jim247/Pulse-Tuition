@@ -5,8 +5,6 @@ import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
-import Prices from '~/components/widgets/prices.astro';
-import { IconGift } from '@tabler/icons-react';
 import Instruments from '~/components/widgets/Instruments.astro';
 
 const metadata = {
@@ -104,18 +102,6 @@ const metadata = {
         role: 'Parent - Vocals - Bristol',
         rating: 5,
       },
-    ]}
-  />
-
-  <Prices
-    id="prices"
-    tagline="Great Value"
-    title="Our Prices"
-    DefaultIcon={IconGift}
-    subtitle="Choose a plan that suits you best<br>Your first lesson includes 20 minutes, <strong> on us</strong>"
-    priceDetails={[
-      { label: '30 minutes', price: '£17.50' },
-      { label: '60 minutes', price: '£35' },
     ]}
   />
 

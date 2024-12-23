@@ -1,13 +1,10 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import guitarImage from '~/assets/images/guitar-lessons-bristol.jpg';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { IconGift } from '@tabler/icons-react';
-import Prices from '~/components/widgets/prices.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Steps3 from '~/components/widgets/Steps3.astro';
@@ -129,17 +126,6 @@ const metadata = {
   ]}
 />
 
-<Prices
-  id="prices"
-  tagline="Affordable Guitar Lessons"
-  title="Our Prices"
-  DefaultIcon={IconGift}
-  subtitle="Select the lesson plan that fits your needs<br>Your first session includes 20 minutes, <strong>on us</strong>"
-  priceDetails={[
-    { label: '30 minutes', price: '£17.50' },
-    { label: '60 minutes', price: '£35' },
-  ]}
-/>
 
 <FAQs
     title="Frequently Asked Questions"
