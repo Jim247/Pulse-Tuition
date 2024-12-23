@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink, getWorkPermalink } from './utils/permalinks';
+import { getPermalink, getBlogPermalink, getWorkPermalink, getPricingPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -20,11 +20,15 @@ export const headerData = {
       ],
     },
     {
+      text: 'Pricing',
+      href: getPricingPermalink(),
+    },
+    {
       text: 'Work With Us',
       href: getWorkPermalink(),
     },
     {
-      text: 'Blog',
+      text: 'Insights',
       href: getBlogPermalink(),
     },
   ],

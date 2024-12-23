@@ -148,8 +148,8 @@ const ConditionalForm = () => {
           onClick={() => handleInstrumentSelect(instrument.title)}
           className={`w-full flex flex-col items-center justify-center space-y-4 py-4 px-6 rounded-lg border-2 ${
             formData.instrument === instrument.title
-              ? 'border-cyan-800 text-black bg-cyan-50'
-              : 'border-cyan-800 text-gray-800 bg-white shadow-lg'
+              ? 'border-sky-800 text-black bg-cyan-50'
+              : 'border-sky-800 text-gray-800 bg-white shadow-lg'
           } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
         >
           <img
@@ -162,13 +162,13 @@ const ConditionalForm = () => {
       ))}
     </div>
     <div className="flex justify-end gap-4 mt-4">
-      <button
-        type="button"
-        onClick={handleNextStep}
-        className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
-      >
-        Next
-      </button>
+    <button
+  type="button"
+  onClick={handleNextStep}
+  className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
+>
+  Next
+</button>
     </div>
   </>
 )}
@@ -185,14 +185,14 @@ const ConditionalForm = () => {
                 onClick={() => setFormData((prev) => ({ ...prev, location }))}
                 className={`w-full flex flex-col items-center justify-center space-y-4 py-4 px-6 rounded-lg border-2 ${
                   formData.location === location
-                    ? 'border-cyan-800 text-black bg-cyan-50'
-                    : 'border-cyan-800 text-gray-800 bg-white shadow-lg'
+                    ? 'border-sky-800 text-black bg-cyan-50'
+                    : 'border-sky-800 text-gray-800 bg-white shadow-lg'
                 } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
               >
                 {location === 'Mobile' ? (
-                  <IconCar className="w-20 h-20 text-cyan-800" style={{ strokeWidth: 0.5 }} />
+                  <IconCar className="w-20 h-20 text-sky-800" style={{ strokeWidth: 0.5 }} />
                 ) : (
-                  <IconHome className="w-20 h-20 text-cyan-800" style={{ strokeWidth: 0.5 }} />
+                  <IconHome className="w-20 h-20 text-sky-800" style={{ strokeWidth: 0.5 }} />
                 )}
                 <p className="font-bold text-lg text-center">{location}</p>
               </button>
@@ -207,12 +207,12 @@ const ConditionalForm = () => {
               Back
             </button>
             <button
-              type="button"
-              onClick={handleNextStep}
-              className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
-            >
-              Next
-            </button>
+  type="button"
+  onClick={handleNextStep}
+  className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
+>
+  Next
+</button>
           </div>
         </>
       )}
@@ -260,7 +260,7 @@ const ConditionalForm = () => {
               onChange={handleInputChange}
               placeholder="Goals, musical interests, any additional requirements..."
               rows="4"
-              className="w-full p-2 border rounded-md mt-1 focus:outline-none focus:ring-2 focus:ring-cyan-800"
+              className="w-full p-2 border rounded-md mt-1 focus:ring-2 focus:ring-sky-800"
             />
           </label>
 
@@ -273,12 +273,12 @@ const ConditionalForm = () => {
               Back
             </button>
             <button
-              type="button"
-              onClick={handleNextStep}
-              className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
-            >
-              Next
-            </button>
+  type="button"
+  onClick={handleNextStep}
+  className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
+>
+  Next
+</button>
           </div>
         </>
       )}
@@ -319,12 +319,12 @@ const ConditionalForm = () => {
               Back
             </button>
             <button
-              type="button"
-              onClick={handleNextStep}
-              className="w-full py-2 rounded-md bg-cyan-700 text-white hover:bg-cyan-600"
-            >
-              Submit
-            </button>
+  type="button"
+  onClick={handleNextStep}
+  className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
+>
+  Next
+</button>
           </div>
         </>
       )}

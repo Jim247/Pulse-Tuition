@@ -77,7 +77,7 @@ const {
       'flex justify-between',
       ]}
       >
-      <a class="flex items-center text-black text-sm mx-auto" href={getHomePermalink()}>
+      <a class="flex items-center text-black text-sm" href={getHomePermalink()}>
       <Logo class="w-8 h-8" />
       </a>
       <div class="flex items-center md:hidden">
@@ -128,7 +128,7 @@ const {
                 </>
               ) : (
                 <a
-                  class="hover:text-link  hover:text-cyan-800 px-6 py-4 flex items-center whitespace-nowrap uppercase"
+                  class="hover:text-link  hover:text-sky-800 px-6 py-4 flex items-center whitespace-nowrap uppercase"
                   href={href}
                 >
                   {text}
@@ -140,7 +140,7 @@ const {
             {submenu?.length && submenu.map(({ text: submenuText, href: submenuHref }) => (
               <li class="md:hidden text-right">
                 <a
-                    class="hover:text-link hover:text-cyan-800 px-6 py-4 flex items-center whitespace-nowrap uppercase text"
+                    class="hover:text-link hover:text-sky-800 px-6 py-4 flex items-center whitespace-nowrap uppercase text"
                   href={submenuHref}
                 >
                   {submenuText}
@@ -165,7 +165,7 @@ const {
             {actions.map((btnProps) => (
               <Button
                 {...btnProps}
-                class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none  hover:text-cyan-800 text-sm w-auto text-white"
+                class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none  hover:bg-sky-600 text-sm w-auto text-white"
               />
             ))}
           </span>

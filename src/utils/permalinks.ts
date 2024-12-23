@@ -26,6 +26,7 @@ export const ABOUT = cleanSlug(APP_BLOG?.about?.pathname);
 export const WORK = cleanSlug(APP_BLOG?.work?.pathname);
 export const CATEGORY_BASE = cleanSlug(APP_BLOG?.category?.pathname);
 export const TAG_BASE = cleanSlug(APP_BLOG?.tag?.pathname) || 'tag';
+export const PRICING = cleanSlug(APP_BLOG?.pricing?.pathname);
 
 export const POST_PERMALINK_PATTERN = trimSlash(APP_BLOG?.post?.permalink || `${BLOG_BASE}/%slug%`);
 
@@ -95,11 +96,17 @@ export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
 
 export const getWorkPermalink = (): string => {
   const permalink = getPermalink('/work');
-  console.log('Work Permalink:', permalink);
+  return permalink;
+};
+
+export const getPricingPermalink = (): string => {
+  const permalink = getPermalink('/pricing');
   return permalink;
 };
 
 export const getAboutPermalink = (): string => getPermalink(ABOUT);
+
+
 
 /** */
 export const getAsset = (path: string): string =>
