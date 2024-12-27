@@ -15,7 +15,11 @@ const { id, isDark = false, containerClass = '', bg, as = 'section', bgColor = '
 const WrapperTag = as;
 ---
 
-<WrapperTag class={`relative not-prose scroll-mt-[50px] ${bg}`} {...id ? { id } : {}} style={`background-color: ${bgColor};`}>
+<WrapperTag
+  class={`relative not-prose scroll-mt-[50px] ${bg}`}
+  {...id ? { id } : {}}
+  style={`background-color: ${bgColor};`}
+>
   <div class="absolute inset-0 pointer-events-none -z-[1]" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : <Background isDark={isDark} />}

@@ -1,45 +1,47 @@
 ---
 const items = [
-  { 
+  {
     icon: '/src/assets/custom-icons/microphone.png',
     title: 'Singing',
   },
-  { 
+  {
     icon: '/src/assets/custom-icons/piano.png',
-    title: 'Piano/Keyboard',   
+    title: 'Piano/Keyboard',
   },
-  { 
+  {
     icon: '/src/assets/custom-icons/electric-guitar.png',
     title: 'Electric Guitar',
   },
-  { 
+  {
     icon: '/src/assets/custom-icons/acoustic-guitar.png',
     title: 'Acoustic Guitar',
   },
-  { 
+  {
     icon: '/src/assets/custom-icons/bass-guitar.png',
     title: 'Bass Guitar',
   },
 ];
 ---
+
 <!-- Instrument List Section -->
-<div class="instruments mt-8 m-4 mb-15 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-4xl mx-auto">
+<div
+  class="instruments mt-8 m-4 mb-15 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade max-w-4xl mx-auto"
+>
   <div class="text-center text-lg">
-    <slot name="headline"></slot>
+    <slot name="headline" />
   </div>
   <h2 class="text-center text-2xl mb-10">We Teach These Instruments</h2>
-  <slot name="subtitle"></slot>
+  <slot name="subtitle" />
   <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-10">
-    {items.map((item) => (
-      <div class="instrument-item flex flex-col justify-center items-center text-center">
-        <div class="image-container w-20 h-20 sm:w-20 sm:h-20 md:w-20 md:h-20 flex items-center justify-center bg-white ">
-          <img 
-            src={item.icon} 
-            alt={item.title} 
-          />
+    {
+      items.map((item) => (
+        <div class="instrument-item flex flex-col justify-center items-center text-center">
+          <div class="image-container w-20 h-20 sm:w-20 sm:h-20 md:w-20 md:h-20 flex items-center justify-center bg-white ">
+            <img src={item.icon} alt={item.title} />
+          </div>
+          <h3 class="mt-4 text-xl">{item.title}</h3>
         </div>
-        <h3 class="mt-4 text-xl">{item.title}</h3>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </div>

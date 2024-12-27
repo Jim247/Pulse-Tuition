@@ -5,18 +5,18 @@ export const headerData = {
     {
       text: 'Lessons',
       submenu: [
-      {
-        text: 'Guitar',
-        href: getPermalink('/guitar-lessons-bristol'),
-      },
-      {
-        text: 'Piano',
-        href: getPermalink('piano-lessons-bristol'),
-      },
-      {
-        text: 'Singing',
-        href: getPermalink('singing-lessons-bristol'),
-      },
+        {
+          text: 'Guitar',
+          href: getPermalink('/guitar-lessons-bristol'),
+        },
+        {
+          text: 'Piano',
+          href: getPermalink('piano-lessons-bristol'),
+        },
+        {
+          text: 'Singing',
+          href: getPermalink('singing-lessons-bristol'),
+        },
       ],
     },
     {

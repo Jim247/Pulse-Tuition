@@ -23,7 +23,9 @@ const metadata = {
       <span class="text-highlight">with Expert Lessons</span>
     </Fragment>
     <Fragment slot="subtitle">
-      Discover tailored Piano Lessons in Bristol. <br> Designed to help you unlock your musical potential.  Whether you're a complete beginner or looking to refine your skills, our lessons include personalized techniques, music theory, and a wide range of repertoire.<br /><br />
+      Discover tailored Piano Lessons in Bristol. <br /> Designed to help you unlock your musical potential. Whether you're
+      a complete beginner or looking to refine your skills, our lessons include personalized techniques, music theory, and
+      a wide range of repertoire.<br /><br />
     </Fragment>
   </Hero>
 
@@ -59,8 +61,7 @@ const metadata = {
       },
       {
         title: 'Performance Skills',
-        description:
-          'Hone your confidence and stage presence while preparing for live performances and recitals.',
+        description: 'Hone your confidence and stage presence while preparing for live performances and recitals.',
         icon: 'tabler:template',
       },
       {
@@ -77,7 +78,6 @@ const metadata = {
   <Steps2
     title="Our Teaching Philosophy"
     subtitle="Our goal is to inspire a love for music while building strong technical skills. Learn piano in a supportive, structured, and engaging way that suits your goals and pace.       Develop essential skills such as finger strength, reading sheet music, and understanding musical dynamics. Our experienced instructors create a supportive environment, ensuring you gain confidence and enjoy your journey into piano mastery."
-
     items={[
       {
         title: 'Student-Centered Lessons',
@@ -96,36 +96,35 @@ const metadata = {
       },
     ]}
   />
-  
-  <StarTestimonials
-  id="student-testimonials"
-  title="What Our Students Say"
-  subtitle="Real stories from our students and parents"
-  isDark={false}
-  testimonials={[
-    {
-      text: 'My son really enjoyed his lessons with josh he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
-      name: 'Katie',
-      role: 'Parent - Guitar - Bristol',
-      rating: 5,
-    },
-    {
-      text: "Adriana has been giving 121 lessons to our 9 year old daughter for the last couple of months. Adriana is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
-      name: 'Oliver',
-      role: 'Parent - Vocals - Bristol',
-      rating: 5,
-    },
-  ]}
-/>
 
-<FAQs
+  <StarTestimonials
+    id="student-testimonials"
+    title="What Our Students Say"
+    subtitle="Real stories from our students and parents"
+    isDark={false}
+    testimonials={[
+      {
+        text: 'My son really enjoyed his lessons with josh he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
+        name: 'Katie',
+        role: 'Parent - Guitar - Bristol',
+        rating: 5,
+      },
+      {
+        text: "Adriana has been giving 121 lessons to our 9 year old daughter for the last couple of months. Adriana is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
+        name: 'Oliver',
+        role: 'Parent - Vocals - Bristol',
+        rating: 5,
+      },
+    ]}
+  />
+
+  <FAQs
     title="Frequently Asked Questions"
     tagline="Piano and Keyboard Lessons in Bristol"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title:
-          'I’ve never played piano or keyboard before. Can I still learn?',
+        title: 'I’ve never played piano or keyboard before. Can I still learn?',
         description:
           "Absolutely! Whether you're a complete beginner or have never touched a piano or keyboard, our lessons are designed to guide you step-by-step. With consistent practice and support, you'll be playing your first tunes in no time.",
       },
@@ -175,8 +174,9 @@ const metadata = {
           'Of course! We offer a free 20-minute trial session for new students to help you decide if our piano and keyboard lessons are the right fit for you.',
       },
     ]}
-/>
-{/*
+  />
+  {
+    /*
   <!-- Features2 Widget ************** -->
   <Features2
     title="Where to Find Us"
@@ -185,34 +185,31 @@ const metadata = {
     columns={1}
     items={[]}
   />
-*/}
+*/
+  }
 
   <Steps3
-  title="Helpful Links for Piano"
-  subtitle="Here are some useful links and resources for people learning piano."
-
-  items={[
-    {
-      title: 'PianoLessons.com',
-      description:
-        'A comprehensive resource with free lessons, tips, and tutorials for pianists of all levels.',
-      link: 'https://www.pianolessons.com',
-    },
-    {
-      title: 'Simply Piano',
-      description:
-        'An app-based piano learning tool offering step-by-step lessons and interactive feedback.',
-      link: 'https://www.joytunes.com/simply-piano',
-    },
-    {
-      title: 'PlayPiano.com',
-      description:
-        'A site for learning piano with resources from beginners to advanced players, including sheet music and tutorials.',
-      link: 'https://www.playpiano.com',
-    },
-  ]}
-/>
-
+    title="Helpful Links for Piano"
+    subtitle="Here are some useful links and resources for people learning piano."
+    items={[
+      {
+        title: 'PianoLessons.com',
+        description: 'A comprehensive resource with free lessons, tips, and tutorials for pianists of all levels.',
+        link: 'https://www.pianolessons.com',
+      },
+      {
+        title: 'Simply Piano',
+        description: 'An app-based piano learning tool offering step-by-step lessons and interactive feedback.',
+        link: 'https://www.joytunes.com/simply-piano',
+      },
+      {
+        title: 'PlayPiano.com',
+        description:
+          'A site for learning piano with resources from beginners to advanced players, including sheet music and tutorials.',
+        link: 'https://www.playpiano.com',
+      },
+    ]}
+  />
 
   <CallToAction
     actions={[
@@ -228,5 +225,4 @@ const metadata = {
     <Fragment slot="title">MUSIC LESSONS BRISTOL</Fragment>
     <Fragment slot="subtitle">Don't wait any longer, get the tuition you deserve from our expert tutors!</Fragment>
   </CallToAction>
-
 </Layout>

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   html {
     font-size: 18px; /* Adjust base font size */
@@ -73,7 +72,6 @@
   padding: 0 5px;
 }
 
-
 [astro-icon].icon-light > * {
   stroke-width: 1.2;
 }
@@ -109,8 +107,6 @@
   z-index: 10; /* Optional: to ensure it's on top of other content */
 }
 
-
 .faq-description.open {
   max-height: 1000px; /* Arbitrary large value for expansion */
 }
-

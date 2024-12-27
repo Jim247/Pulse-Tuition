@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { IconHome, IconCar } from '@tabler/icons-react';
+import React, { useState, useMemo, useCallback } from 'react';
+import { IoHomeOutline } from "react-icons/io5";
+import { IoCarOutline } from "react-icons/io5";
+
 
 const ConditionalForm = () => {
   const [step, setStep] = useState(1);
@@ -15,12 +17,13 @@ const ConditionalForm = () => {
     ability: '',
   });
 
+  // Static Data
   const instruments = [
-    { title: 'Acoustic Guitar', icon: '/src/assets/custom-icons/acoustic-guitar.png', iconClass: 'w-25 h-25' },
-    { title: 'Piano/Keyboard', icon: '/src/assets/custom-icons/piano.png', iconClass: 'w-20 h-20' },
-    { title: 'Electric Guitar', icon: '/src/assets/custom-icons/electric-guitar.png', iconClass: 'w-25 h-25' },
-    { title: 'Singing', icon: '/src/assets/custom-icons/microphone.png', iconClass: 'w-20 h-20' },
-    { title: 'Bass Guitar', icon: '/src/assets/custom-icons/bass-guitar.png', iconClass: 'w-25 h-25' },
+    { title: 'Acoustic Guitar', icon: '/src/assets/custom-icons/acoustic-guitar.png' },
+    { title: 'Piano/Keyboard', icon: '/src/assets/custom-icons/piano.png' },
+    { title: 'Electric Guitar', icon: '/src/assets/custom-icons/electric-guitar.png' },
+    { title: 'Singing', icon: '/src/assets/custom-icons/microphone.png' },
+    { title: 'Bass Guitar', icon: '/src/assets/custom-icons/bass-guitar.png' },
   ];
 
   const tutors = [
@@ -56,32 +59,46 @@ const ConditionalForm = () => {
     },
   ];
 
-  const instrumentLocations = tutors.reduce((acc, tutor) => {
-    tutor.instruments.forEach((instrument) => {
-      if (!acc[instrument]) {
-        acc[instrument] = new Set();
-      }
-      tutor.locations.forEach((location) => {
-        acc[instrument].add(location);
+  // Memoize instrumentLocations
+  const instrumentLocations = useMemo(() => {
+    const acc = {};
+    tutors.forEach((tutor) => {
+      tutor.instruments.forEach((instrument) => {
+        if (!acc[instrument]) {
+          acc[instrument] = new Set();
+        }
+        tutor.locations.forEach((location) => {
+          acc[instrument].add(location);
+        });
       });
     });
+    // Convert Sets to Arrays
+    Object.keys(acc).forEach((instrument) => {
+      acc[instrument] = Array.from(acc[instrument]);
+    });
     return acc;
-  }, {});
+  }, [tutors]);
 
-  Object.keys(instrumentLocations).forEach((instrument) => {
-    instrumentLocations[instrument] = Array.from(instrumentLocations[instrument]);
-  });
+  // Memoize matchedTutor
+  const matchedTutor = useMemo(() => {
+    return tutors.find(
+      (tutor) =>
+        tutor.instruments.includes(formData.instrument) &&
+        tutor.locations.includes(formData.location)
+    );
+  }, [formData.instrument, formData.location]);
 
-  const handleInputChange = (e) => {
+  // Optimized Event Handlers with useCallback
+  const handleInputChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  }, []);
 
-  const handleInstrumentSelect = (instrument) => {
+  const handleInstrumentSelect = useCallback((instrument) => {
     setFormData((prev) => ({ ...prev, instrument, location: '' }));
-  };
+  }, []);
 
-  const handleNextStep = () => {
+  const handleNextStep = useCallback(() => {
     if (step === 1 && !formData.instrument) {
       alert('Please select an instrument.');
       return;
@@ -104,14 +121,14 @@ const ConditionalForm = () => {
       alert('Please fill out all fields.');
       return;
     }
-    setStep(step + 1);
-  };
+    setStep((prev) => prev + 1);
+  }, [step, formData]);
 
-  const handlePreviousStep = () => {
-    setStep(step - 1);
-  };
+  const handlePreviousStep = useCallback(() => {
+    setStep((prev) => prev - 1);
+  }, []);
 
-  const handleRestart = () => {
+  const handleRestart = useCallback(() => {
     setFormData({
       name: '',
       email: '',
@@ -124,55 +141,47 @@ const ConditionalForm = () => {
       ability: '',
     });
     setStep(1);
-  };
-
-  // Find the tutor based on instrument and location
-  const matchedTutor = tutors.find(
-    (tutor) =>
-      tutor.instruments.includes(formData.instrument) &&
-      tutor.locations.includes(formData.location)
-  );
+  }, []);
 
   return (
     <form className="space-y-6 p-4 sm:p-6 rounded-lg shadow-md max-w-md sm:max-w-xl mx-auto bg-transparent">
       <h2 className="text-2xl font-bold text-center">Make a Booking</h2>
 
       {step === 1 && (
-  <>
-    <p className="text-center font-bold">Please select an Instrument</p>
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center">
-      {instruments.map((instrument) => (
-        <button
-          key={instrument.title}
-          type="button"
-          onClick={() => handleInstrumentSelect(instrument.title)}
-          className={`w-full flex flex-col items-center justify-center space-y-4 py-4 px-6 rounded-lg border-2 ${
-            formData.instrument === instrument.title
-              ? 'border-sky-800 text-black bg-cyan-50'
-              : 'border-sky-800 text-gray-800 bg-white shadow-lg'
-          } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
-        >
-          <img
-            src={instrument.icon}
-            alt={instrument.title}
-            className={`w-20 h-20 max-w-full`} // Ensuring all icons are the same size
-          />
-          <p className="font-bold text-lg text-center">{instrument.title}</p>
-        </button>
-      ))}
-    </div>
-    <div className="flex justify-end gap-4 mt-4">
-    <button
-  type="button"
-  onClick={handleNextStep}
-  className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
->
-  Next
-</button>
-    </div>
-  </>
-)}
-
+        <>
+          <p className="text-center font-bold">Please select an Instrument</p>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center">
+            {instruments.map((instrument) => (
+              <button
+                key={instrument.title}
+                type="button"
+                onClick={() => handleInstrumentSelect(instrument.title)}
+                className={`w-full flex flex-col items-center justify-center space-y-4 py-4 px-6 rounded-lg border-2 ${
+                  formData.instrument === instrument.title
+                    ? 'border-sky-800 text-black bg-cyan-50'
+                    : 'border-sky-800 text-gray-800 bg-white shadow-lg'
+                } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
+              >
+                <img
+                  src={instrument.icon}
+                  alt={instrument.title}
+                  className="w-20 h-20 max-w-full"
+                />
+                <p className="font-bold text-lg text-center">{instrument.title}</p>
+              </button>
+            ))}
+          </div>
+          <div className="flex justify-end gap-4 mt-4">
+            <button
+              type="button"
+              onClick={handleNextStep}
+              className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
+            >
+              Next
+            </button>
+          </div>
+        </>
+      )}
 
       {step === 2 && (
         <>
@@ -190,9 +199,9 @@ const ConditionalForm = () => {
                 } shadow-sm hover:bg-cyan-50 transition-all duration-200 ease-in-out`}
               >
                 {location === 'Mobile' ? (
-                  <IconCar className="w-20 h-20 text-sky-800" style={{ strokeWidth: 0.5 }} />
+                  <IoCarOutline className="w-20 h-20 text-sky-800" style={{ strokeWidth: 0.2 }} />
                 ) : (
-                  <IconHome className="w-20 h-20 text-sky-800" style={{ strokeWidth: 0.5 }} />
+                  <IoHomeOutline className="w-20 h-20 text-sky-800" style={{ strokeWidth: 0.2 }} />
                 )}
                 <p className="font-bold text-lg text-center">{location}</p>
               </button>
@@ -207,12 +216,12 @@ const ConditionalForm = () => {
               Back
             </button>
             <button
-  type="button"
-  onClick={handleNextStep}
-  className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
->
-  Next
-</button>
+              type="button"
+              onClick={handleNextStep}
+              className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
+            >
+              Next
+            </button>
           </div>
         </>
       )}
@@ -273,12 +282,12 @@ const ConditionalForm = () => {
               Back
             </button>
             <button
-  type="button"
-  onClick={handleNextStep}
-  className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
->
-  Next
-</button>
+              type="button"
+              onClick={handleNextStep}
+              className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
+            >
+              Next
+            </button>
           </div>
         </>
       )}
@@ -319,12 +328,12 @@ const ConditionalForm = () => {
               Back
             </button>
             <button
-  type="button"
-  onClick={handleNextStep}
-  className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
->
-  Next
-</button>
+              type="button"
+              onClick={handleNextStep}
+              className="w-full py-2 rounded-md bg-sky-800 text-white hover:bg-sky-600"
+            >
+              Next
+            </button>
           </div>
         </>
       )}

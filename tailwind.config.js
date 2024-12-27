@@ -7,14 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--aw-color-primary)',      // Custom CSS variable
-        secondary: 'var(--aw-color-secondary)',  // Custom CSS variable
-        accent: 'var(--aw-color-accent)',        // Custom CSS variable
+        primary: 'var(--aw-color-primary)', // Custom CSS variable
+        secondary: 'var(--aw-color-secondary)', // Custom CSS variable
+        accent: 'var(--aw-color-accent)', // Custom CSS variable
         default: 'var(--aw-color-text-default)', // Custom CSS variable
-        muted: 'var(--aw-color-text-muted)',     // Custom CSS variable
-        darkblue: '#1e3a8a',                     // Tailwind's white as a hex value
-        olivegreen: 'rgb(69, 77, 71)',   
-        grey:  'rgb(76, 86, 87)',
+        muted: 'var(--aw-color-text-muted)', // Custom CSS variable
+        darkblue: '#1e3a8a', // Tailwind's white as a hex value
+        olivegreen: 'rgb(69, 77, 71)',
+        grey: 'rgb(76, 86, 87)',
         airblue: 'rgb(70, 120, 155)',
       },
       fontFamily: {
@@ -42,4 +42,3 @@ export default {
     }),
   ],
 };
-

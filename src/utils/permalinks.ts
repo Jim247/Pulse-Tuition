@@ -21,7 +21,7 @@ export const cleanSlug = (text = '') =>
     .map((slug) => slugify(slug))
     .join('/');
 
-export const BLOG_BASE = cleanSlug(APP_BLOG?.list?.pathname);
+export const BLOG_BASE = cleanSlug(APP_BLOG?.list?.pathname) || 'blog';
 export const ABOUT = cleanSlug(APP_BLOG?.about?.pathname);
 export const WORK = cleanSlug(APP_BLOG?.work?.pathname);
 export const CATEGORY_BASE = cleanSlug(APP_BLOG?.category?.pathname);
@@ -61,14 +61,10 @@ export const getPermalink = (slug = '', type = 'page'): string => {
       break;
 
     case 'about':
-      permalink = getPermalink('about');
+      permalink = getAboutPermalink();
       break;
 
     case 'blog':
-      permalink = getBlogPermalink();
-      break;
-
-    case 'lessons':
       permalink = getBlogPermalink();
       break;
 
@@ -105,8 +101,6 @@ export const getPricingPermalink = (): string => {
 };
 
 export const getAboutPermalink = (): string => getPermalink(ABOUT);
-
-
 
 /** */
 export const getAsset = (path: string): string =>

@@ -34,9 +34,7 @@ export default defineConfig({
     icon({
       include: {
         tabler: ['*'],
-        'flat-color-icons': [
-          'template',
-        ],
+        'flat-color-icons': ['template'],
       },
     }),
 
