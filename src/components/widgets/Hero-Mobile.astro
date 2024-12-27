@@ -1,0 +1,89 @@
+---
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+
+import type { Hero as Props } from '~/types';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+
+  content = await Astro.slots.render('content'),
+  actions = await Astro.slots.render('actions'),
+  image = await Astro.slots.render('image'),
+
+  id,
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<section
+  class="relative w-full min-h-screen overflow-hidden flex items-center justify-center"
+  {...(id ? { id } : {})}
+>
+  <!-- Background Slot -->
+  <div class="absolute inset-0 pointer-events-none z-[-2]" aria-hidden="true">
+    <slot name="bg">
+      {bg ? <Fragment set:html={bg} /> : null}
+    </slot>
+  </div>
+
+  <!-- Background Image -->
+  <div class="absolute inset-0 pointer-events-none z-[-1]">
+    {image && (
+      <Image
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+        width={1920}   <!-- Adjust as needed for responsiveness -->
+        height={1080}  <!-- Adjust as needed for responsiveness -->
+        {...image}
+      />
+    )}
+  </div>
+
+  <!-- Content Wrapper -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
+    <div class="flex flex-col items-center">
+      {tagline && (
+        <p class="text-lg text-primary-500 font-bold uppercase tracking-widest mb-6">
+          {tagline}
+        </p>
+      )}
+
+      {title && (
+        <h1
+          class="text-5xl md:text-6xl font-bold mb-4 leading-tight tracking-tight"
+          set:html={title}
+        />
+      )}
+
+      {subtitle && (
+        <p
+          class="text-xl text-muted mb-6"
+          set:html={subtitle}
+        />
+      )}
+
+      {actions && (
+        <div class="flex flex-col sm:flex-row sm:justify-center sm:gap-4">
+          {Array.isArray(actions) ? (
+            actions.map((action) => (
+              <div class="w-full sm:w-auto">
+                <Button {...(action || {})} class="w-full sm:w-auto" />
+              </div>
+            ))
+          ) : (
+            <Fragment set:html={actions} />
+          )}
+        </div>
+      )}
+
+      {content && (
+        <div class="mt-8">
+          <Fragment set:html={content} />
+        </div>
+      )}
+    </div>
+  </div>
+</section>
