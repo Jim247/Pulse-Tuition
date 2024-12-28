@@ -139,14 +139,15 @@ const {
             {/* Submenu items as main menu items for mobile */}
             {submenu?.length &&
               submenu.map(({ text: submenuText, href: submenuHref }) => (
-                <li class="md:hidden text-right">
-                  <a
-                    class="hover:text-sky-300 text-white bg-sky-900 hover:bg-sky-700 px-6 py-4 flex items-center whitespace-nowrap uppercase"
-                    href={submenuHref}
-                  >
-                    {submenuText}
-                  </a>
-                </li>
+              <li class="md:hidden text-right">
+  <a
+    class="text-white bg-sky-800  hover:text-sky-300 px-6 py-4 flex items-center whitespace-nowrap uppercase"
+    href={submenuHref}
+  >
+    {submenuText}
+  </a>
+</li>
+
               ))}
           </>
         ))}
@@ -174,4 +175,5 @@ const {
       </div>
     </div>
   </div>
+  
 </header>
