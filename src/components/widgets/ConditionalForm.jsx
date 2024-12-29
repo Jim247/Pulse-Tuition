@@ -145,7 +145,6 @@ const ConditionalForm = () => {
 
   return (
     <form className="space-y-6 p-4 sm:p-6 rounded-lg shadow-md max-w-md sm:max-w-xl mx-auto bg-transparent">
-      <h2 className="text-2xl font-bold text-center">Make a Booking</h2>
 
       {step === 1 && (
         <>

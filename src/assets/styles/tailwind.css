@@ -28,7 +28,7 @@
     color: var(--aw-color-accent);
   }
   .bg-footer {
-    background-color: (--aw-color-footer-bg);
+    background-color: var(--aw-color-footer-bg);
   }
 }
 
@@ -37,7 +37,7 @@
     @apply inline-flex items-center justify-center rounded-full bg-white font-medium text-center text-base text-black leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-sky-800 focus:ring-offset-sky-600 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 cursor-pointer;
   }
   .btn-primary {
-    @apply btn bg-sky-800 text-white border border-white hover:bg-sky-600 hover:text-white;
+    @apply btn bg-white text-black border border-white hover:bg-sky-600 hover:text-white;
   }
 
   .btn-secondary {
@@ -49,15 +49,14 @@
   }
 
   .header-scroll {
-    @apply bg-sky-900 md:backdrop-blur-md transition-all duration-300 ease-in-out;
+    @apply bg-sky-800 md:backdrop-blur-md transition-all duration-300 ease-in-out;
     box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
-    opacity: 0.9;
   }
 
 }
 
 #header.expanded > div.absolute {
-  background-color: var(--aw-color-footer-bg) !important;
+  background-color: var(--aw-color-footer-bg);
 }
 
 #header.scroll > div:first-child {
@@ -74,7 +73,6 @@
   top: 70px;
   left: 0;
   right: 0;
-  bottom: 70px !important;
   padding: 0 5px;
   background-color: var(--aw-color-footer-bg);
 }
@@ -116,4 +114,45 @@
 
 .faq-description.open {
   max-height: 1000px; /* Arbitrary large value for expansion */
+}
+
+.group {
+  position: relative; /* The parent container for positioning the dropdown */
+}
+
+.group ul {
+  position: absolute;
+  left: 50%; /* Center the dropdown horizontally relative to the parent */
+  transform: translateX(-50%); /* Adjust by half its width to truly center */
+  top: 100%; /* Position the dropdown directly below the button */
+  margin-top: 8px; /* Optional: Adds space between the button and dropdown */
+  border-radius: 5px; /* Smooth corners */
+  padding: 8px 0; /* Space inside the dropdown */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Initially hidden */
+  z-index: 1000; /* Ensure it appears above other elements */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth dropdown appearance */
+}
+
+.group:hover ul {
+  opacity: 1;
+  visibility: visible; /* Make the dropdown visible on hover */
+}
+
+.group ul li {
+  text-align: center; /* Center-aligns the text inside the dropdown */
+}
+
+.group ul li a {
+  display: block;
+  padding: 10px 20px;
+  color: #ffffff; /* White text */
+  text-decoration: none;
+  text-transform: uppercase; /* Matches the button style */
+}
+
+.group ul li a:hover {
+  background-color: #00629b; /* Highlight on hover */
+  color: #ffffff; /* Slightly lighter text color on hover */
 }
