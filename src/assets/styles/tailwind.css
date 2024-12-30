@@ -49,8 +49,7 @@
   }
 
   .header-scroll {
-    @apply bg-sky-800 md:backdrop-blur-md transition-all duration-300 ease-in-out;
-    box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
+    @apply bg-sky-900 md:backdrop-blur-md transition-all duration-300 ease-in-out;
   }
 
 }
@@ -155,4 +154,23 @@
 .group ul li a:hover {
   background-color: #00629b; /* Highlight on hover */
   color: #ffffff; /* Slightly lighter text color on hover */
+}
+
+.custom-shape-divider-top-1735572268 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.custom-shape-divider-top-1735572268 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 25px;
+  margin-top: -1px; 
+}
+
+.custom-shape-divider-top-1735572268 .shape-fill {
+  fill: #0C4A6E
 }

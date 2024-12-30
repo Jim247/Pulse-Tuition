@@ -6,6 +6,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 import Instruments from '~/components/widgets/Instruments.astro';
+import Divider from '~/components/ui/Divider.astro';
 
 const metadata = {
   title: 'Music Lessons in the Bristol Area',
@@ -39,7 +40,9 @@ const metadata = {
       <span class="hidden sm:inline"> Bristol's Music Tuition Platform. <br>   Find the best instrumental music tutors in Bristol</span>
     </Fragment>
   </Hero>
-
+ 
+  <Divider />
+  
   <Instruments />
 
   <!-- Features Widget *************** -->
