@@ -16,7 +16,7 @@
     background-color: var(--aw-color-bg-page);
   }
   .bg-card {
-    background-color: white !important;
+    background-color: #f1f1f1;
   }
   .text-page {
     color: var(--aw-color-text-page);
@@ -169,8 +169,4 @@
   width: calc(100% + 1.3px);
   height: 25px;
   margin-top: -1px; 
-}
-
-.custom-shape-divider-top-1735572268 .shape-fill {
-  fill: #0C4A6E
 }

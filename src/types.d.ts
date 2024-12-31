@@ -106,8 +106,10 @@ export interface Widget {
 }
 
 export interface Headline {
+  icon?: string;
   title?: string;
   subtitle?: string;
+  defaultIcon?: string;
   tagline?: string;
   link?: string;
   classes?: Record<string, string>;

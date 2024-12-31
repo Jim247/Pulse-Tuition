@@ -12,15 +12,12 @@ export default {
         accent: 'var(--aw-color-accent)', // Custom CSS variable
         default: 'var(--aw-color-text-default)', // Custom CSS variable
         muted: 'var(--aw-color-text-muted)', // Custom CSS variable
-        darkblue: '#1e3a8a', // Tailwind's white as a hex value
-        olivegreen: 'rgb(69, 77, 71)',
-        grey: 'rgb(76, 86, 87)',
-        airblue: 'rgb(70, 120, 155)',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans)', ...defaultTheme.fontFamily.sans],
         serif: ['var(--aw-font-serif)', ...defaultTheme.fontFamily.serif],
         heading: ['var(--aw-font-heading)', ...defaultTheme.fontFamily.sans],
+        logo: ['var(--aw-font-logo)', ...defaultTheme.fontFamily.sans],
       },
 
       animation: {
