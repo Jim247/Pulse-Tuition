@@ -62,34 +62,32 @@ const {
   <div class="absolute inset-0"></div>
   <div
     class:list={[
-      'relative py-3 px-3 md:px-6 mx-auto w-full text-center',
+      'relative py-3 px-3 md:px-6 mx-auto w-full',
       position !== 'center'
-        ? 'md:flex md:justify-between' // Adjust layout here for spacing
+        ? 'md:flex md:justify-between'
         : 'md:grid md:grid-cols-[auto,1fr,auto] md:items-center',
       !isFullWidth && 'max-w-7xl',
     ]}
   >
     <!-- Logo and Mobile Toggle -->
-    <div
-      class:list={[
-        'flex justify-between items-center md:justify-start',
-        'relative', // Ensures no interference with centering logic
-      ]}
+   <div class="flex items-center w-full relative">
+  <!-- A container that can flex-grow to center the logo on small screens -->
+  <div class="flex-1 flex justify-center md:justify-start">
+    <!-- Logo and Brand Name -->
+    <a
+      class="flex items-center text-white text-sm font-logo md:static md:left-auto md:transform-none"
+      href={getHomePermalink()}
     >
-      <!-- Logo and Brand Name -->
-      <a
-        class="absolute left-1/2 transform -translate-x-1/2 text-white text-sm font-logo md:static md:left-auto md:transform-none"
-        href={getHomePermalink()}
-      >
-        <Logo class="w-8 h-8 md:w-12 md:h-12" />
-        <div class="text-white font-bold py-2">PULSE TUITION</div>
-      </a>
+      <Logo />
+      <div class="text-white font-semibold text-xl text-center">PULSE TUITION</div>
+    </a>
+  </div>
 
-      <!-- Mobile Toggle (Small Screens Only) -->
-      <div class="flex items-center md:hidden ml-auto">
-        <ToggleMenu />
-      </div>
-    </div>
+  <!-- Mobile Toggle (Small Screens Only) -->
+  <div class="flex items-center md:hidden">
+    <ToggleMenu />
+  </div>
+</div>
 
     <!-- Navigation Links -->
     <nav
@@ -102,13 +100,12 @@ const {
             <li class="group relative">
               {submenu?.length ? (
                 <>
-                  <!-- Parent Menu Button for Desktop -->
+                  <!-- Parent Menu -->
                   <button
                     type="button"
                     class="hover:text-link py-4 items-center whitespace-wrap uppercase focus:outline-none hidden md:flex"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    style="margin-right: 23px;"
                   >
                     {text}
                     <Icon
@@ -117,9 +114,9 @@ const {
                     />
                   </button>
 
-                  <!-- Submenu for Desktop -->
+                  <!-- Submenu -->
                   <ul
-                    class="absolute left-0 top-full mt-1 w-48 bg-sky-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                    class="absolute left-0 top-full mt-1 w-48 bg-sky-900 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
                   >
                     {submenu.map(({ text: submenuText, href: submenuHref }) => (
                       <li>
@@ -142,13 +139,12 @@ const {
                 </a>
               )}
             </li>
-
             {/* Submenu items as main menu items for mobile */}
             {submenu?.length &&
               submenu.map(({ text: submenuText, href: submenuHref }) => (
                 <li class="md:hidden text-right">
                   <a
-                    class="text-white bg-sky-800 hover:text-sky-300 px-6 py-4 flex items-center whitespace-nowrap uppercase"
+                    class="text-white bg-sky-900 hover:text-sky-300 px-6 py-4 flex items-center whitespace-nowrap uppercase"
                     href={submenuHref}
                   >
                     {submenuText}
@@ -173,7 +169,7 @@ const {
             {actions.map((btnProps) => (
               <Button
                 {...btnProps}
-                class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none hover:bg-sky-300 hover:text-black text-sm w-auto text-white border border-white"
+                class="btn-primary"
               />
             ))}
           </span>
