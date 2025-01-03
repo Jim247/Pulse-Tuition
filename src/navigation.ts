@@ -32,7 +32,7 @@ export const headerData = {
       href: getBlogPermalink(),
     },
   ],
-  actions: [{ text: 'BOOK NOW ', href: '/contact', target: 'primary' }],
+  actions: [{ text: 'BOOK NOW ', href: '/booking', target: 'primary' }],
 };
 
 export const footerData = {
