@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import { IoHomeOutline, IoCarOutline } from "react-icons/io5";
 
 const ConditionalForm = () => {
   const [step, setStep] = useState(1);
