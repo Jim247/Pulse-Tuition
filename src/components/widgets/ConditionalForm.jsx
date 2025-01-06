@@ -1,5 +1,34 @@
+
 import React, { useState, useMemo, useCallback } from 'react';
-import { IoHomeOutline, IoCarOutline } from "react-icons/io5";
+import microphone from '/src/assets/custom-icons/microphone.png';
+import piano from '/src/assets/custom-icons/piano.png';
+import electricGuitar from '/src/assets/custom-icons/electric-guitar.png';
+import acousticGuitar from '/src/assets/custom-icons/acoustic-guitar.png';
+import bassGuitar from '/src/assets/custom-icons/bass-guitar.png';
+import Image from 'astro/components/Image.astro';
+
+const instruments = [
+  {
+    icon: microphone,
+    title: 'Singing',
+  },
+  {
+    icon: piano,
+    title: 'Piano/Keyboard',
+  },
+  {
+    icon: electricGuitar,
+    title: 'Electric Guitar',
+  },
+  {
+    icon: acousticGuitar,
+    title: 'Acoustic Guitar',
+  },
+  {
+    icon: bassGuitar,
+    title: 'Bass Guitar',
+  },
+];
 
 const ConditionalForm = () => {
   const [step, setStep] = useState(1);
@@ -13,14 +42,6 @@ const ConditionalForm = () => {
     ability: '',
     details: '',
   });
-
-  const instruments = [
-    { title: 'Acoustic Guitar', icon: '/src/assets/custom-icons/acoustic-guitar.png' },
-    { title: 'Piano/Keyboard', icon: '/src/assets/custom-icons/piano.png' },
-    { title: 'Electric Guitar', icon: '/src/assets/custom-icons/electric-guitar.png' },
-    { title: 'Singing', icon: '/src/assets/custom-icons/microphone.png' },
-    { title: 'Bass Guitar', icon: '/src/assets/custom-icons/bass-guitar.png' },
-  ];
 
   const tutors = [
     {
@@ -112,7 +133,7 @@ const ConditionalForm = () => {
                     : 'border-sky-900 bg-white'
                 }`}
               >
-                <img src={item.icon} alt={item.title} className="w-12 h-12 mb-2" />
+                <Image src={item.icon} alt={item.title} />
                 <p className="font-bold">{item.title}</p>
               </button>
             ))}

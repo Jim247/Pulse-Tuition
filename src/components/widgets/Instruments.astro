@@ -1,23 +1,30 @@
 ---
+import microphone from '/src/assets/custom-icons/microphone.png';
+import piano from '/src/assets/custom-icons/piano.png';
+import electricGuitar from '/src/assets/custom-icons/electric-guitar.png';
+import acousticGuitar from '/src/assets/custom-icons/acoustic-guitar.png';
+import bassGuitar from '/src/assets/custom-icons/bass-guitar.png';
+import Image from 'astro/components/Image.astro';
+
 const items = [
   {
-    icon: '/src/assets/custom-icons/microphone.png',
+    icon: microphone,
     title: 'Singing',
   },
   {
-    icon: '/src/assets/custom-icons/piano.png',
+    icon: piano,
     title: 'Piano/Keyboard',
   },
   {
-    icon: '/src/assets/custom-icons/electric-guitar.png',
+    icon: electricGuitar,
     title: 'Electric Guitar',
   },
   {
-    icon: '/src/assets/custom-icons/acoustic-guitar.png',
+    icon: acousticGuitar,
     title: 'Acoustic Guitar',
   },
   {
-    icon: '/src/assets/custom-icons/bass-guitar.png',
+    icon: bassGuitar,
     title: 'Bass Guitar',
   },
 ];
@@ -37,7 +44,7 @@ const items = [
       items.map((item) => (
         <div class="instrument-item flex flex-col justify-center items-center text-center">
           <div class="image-container w-20 h-20 sm:w-20 sm:h-20 md:w-20 md:h-20 flex items-center justify-center bg-white ">
-            <img src={item.icon} alt={item.title} />
+            <Image src={item.icon} alt={item.title} />
           </div>
           <h3 class="mt-4 text-xl">{item.title}</h3>
         </div>
