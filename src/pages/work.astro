@@ -4,6 +4,7 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import guitarImage from '~/assets/images/guitar-lessons-bristol.jpeg';
+import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
   title: 'Work with us',
@@ -46,7 +47,7 @@ const metadata = {
       {
         title: 'Competitive Fees',
         description:
-          'Other larger platforms have up to 30% fees for smaller bookings. We start at 25% and reduce with tutor loyalty- the most common type of bookings. We will compete with any other rates set locally, like-for-like.',
+          'Other larger platforms have up to 30% fees for smaller bookings. We compete with any other rates set locally by the big tuition companies, like-for-like. All the revenue generated goes back into growing the platform for local tutors.',
         icon: 'tabler:currency-pound',
       },
       {
@@ -76,25 +77,84 @@ const metadata = {
     ]}
   />
 
+  <FAQs
+  title="Frequently Asked Questions"
+  tagline="FAQs"
+  classes={{ container: 'max-w-6xl' }}
+  items={[
+    {
+      title: 'What instruments can I teach?',
+      description:
+        "You can teach any instrument you're qualified to instruct. Currently, we have tutors for piano, guitar, voice, violin, drums, and more. If you're skilled in an instrument not listed, don't hesitate to reach out—we're always looking for new talent.",
+    },
+    {
+      title: 'Do I need any special qualifications to apply?',
+      description:
+        "While formal qualifications like degrees or certifications can help, they're not required. We care more about your teaching ability, passion for music, and experience. If you have a strong portfolio and can demonstrate your skills, you're welcome to apply.",
+    },
+    {
+      title: 'What if I don\'t live in Bristol—can I still apply?',
+      description:
+        "Currently, we're focusing on tutors in the Bristol area. However, we do offer online lessons, and we may expand our reach in the future. If you're outside Bristol but still interested, please get in touch, and we can discuss options.",
+    },
+    {
+      title: 'How does payment work?',
+      description:
+        "Payments are processed securely through the platform. We pay our tutors monthly, within 3 working days of receiving a valid invoice. We ensure fair compensation with competitive fees and clear payment schedules.",
+    },
+    {
+      title: 'What happens if a student cancels a lesson?',
+      description:
+        "We have a cancellation policy in place that protects both tutors and students. If a student cancels within a specified time frame (usually 24 hours), you won’t be penalized. Check the platform for detailed terms and conditions.",
+    },
+    {
+      title: 'How much of a cut does the platform take?',
+      description:
+        "We believe in fair compensation for tutors. Our platform charges a fee between 20-25%, much lower than other larger tutoring platforms (typically up to 30%). This fee helps cover operational costs and ensures the platform’s growth for local tutors.",
+    },
+    {
+      title: 'Can I teach online lessons?',
+      description:
+        "Yes! The platform supports both in-person and online lessons. You can set your availability to teach remotely.",
+    },
+    {
+      title: 'What support does the platform offer?',
+      description:
+        "We offer continuous support to all tutors. Whether you need technical assistance, advice on improving your profile, or help navigating the platform, our dedicated support team is available to guide you through every step.",
+    },
+    {
+      title: 'How do I build my reputation on the platform?',
+      description:
+        "Your reputation is key to attracting new students. Encourage your students to leave reviews after each lesson. Positive testimonials can help you gain more visibility and establish trust with prospective clients.",
+    },
+    {
+      title: 'Can I teach full-time on the platform?',
+      description:
+        "While most tutors use our service to fill some available slots. You have the flexibility to set your hours and manage your workload. Tutors with the best reviews and response times tend to do better.",
+    },
+    {
+      title: 'What makes this platform different from other tutoring websites?',
+      description:
+        "Our platform is dedicated to serving local musicians in the Bristol area, with a focus on competitive rates, personalized teaching experiences, and a supportive community. We offer tailored solutions to make your teaching experience seamless, from scheduling to payments.",
+    },
+  ]}
+/>
+
+
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Technical Support"
-    tagline="Contact us"
+    title="Sign Up Today "
+    tagline="Start Your Tuition Journey"
     columns={2}
     items={[
       {
-        title: 'Chat with us',
+        title: 'Create Your Profile',
         description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
+          'Send us some basic information to assess your suitability, and we will be in touch to complete verification.',
         icon: 'tabler:messages',
       },
-      {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
-      },
+   
     ]}
   />
 </Layout>

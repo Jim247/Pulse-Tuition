@@ -8,12 +8,12 @@ const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
 
 const {
   container: containerClass = '',
-  // container: containerClass = "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
   panel: panelClass = '',
   title: titleClass = '',
   description: descriptionClass = '',
   icon: defaultIconClass = 'text-primary',
 } = classes;
+
 ---
 
 {
@@ -24,11 +24,11 @@ const {
           columns === 4
             ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
             : columns === 3
-              ? 'lg:grid-cols-3 sm:grid-cols-2'
-              : columns === 2
-                ? 'sm:grid-cols-2 '
-                : ''
-        }`,
+            ? 'lg:grid-cols-3 sm:grid-cols-2'
+            : columns === 2
+            ? 'sm:grid-cols-2'
+            : ''
+        } ${items.length === 1 ? 'lg:grid-cols-1 md:grid-cols-1 justify-center items-center w-full' : ''}`,
         containerClass
       )}
     >
@@ -37,15 +37,24 @@ const {
           class={twMerge(
             'relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
             panelClass,
-            itemClasses?.panel
+            itemClasses?.panel,
+            items.length === 1
+              ? 'max-w-xs lg:max-w-sm mx-auto p-4 w-full' // Center and make the item smaller
+              : ''
           )}
         >
           {(icon || defaultIcon) && (
-            <Icon name={icon || defaultIcon} class={twMerge('mb-2 w-10 h-10', defaultIconClass, itemClasses?.icon)} />
+            <Icon
+              name={icon || defaultIcon}
+              class={twMerge('mb-2 w-10 h-10', defaultIconClass, itemClasses?.icon)}
+            />
           )}
           <div class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
           {description && (
-            <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
+            <p
+              class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)}
+              set:html={description}
+            />
           )}
           {callToAction && (
             <div class="mt-2">
