@@ -73,7 +73,7 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
               <>
                 {' '}
                 · <Icon name="tabler:user" class="w-3.5 h-3.5 inline-block -mt-0.5 dark:text-gray-400" />
-                <span>{post.author.replaceAll('-', ' ')}</span>
+                <span>{post.author.replace(/-/g, ' ')}</span>
               </>
             )
           }
@@ -94,7 +94,7 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
         {
           link ? (
             <a
-              class="inline-block hover:text-primary dark:hover:text-blue-700 transition ease-in duration-200"
+              class="inline-block hover:text-primary dark:hover:text-sky-900 transition ease-in duration-200"
               href={link}
             >
               {post.title}

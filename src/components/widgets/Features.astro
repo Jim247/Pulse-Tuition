@@ -10,9 +10,7 @@ const {
   tagline = await Astro.slots.render('tagline'),
   items = [],
   columns = 2,
-
   defaultIcon,
-
   id,
   isDark = false,
   classes = {},
@@ -22,15 +20,21 @@ const {
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
-  <ItemGrid
-    items={items}
-    columns={columns}
-    defaultIcon={defaultIcon}
-    classes={{
-      container: '',
-      title: 'md:text-[1.5rem]',
-      icon: 'text-white bg-primary rounded-full w-10 h-10 p-2 md:w-12 md:h-12 md:p-3 mr-4 rtl:ml-4 rtl:mr-0',
-      ...((classes?.items as Record<string, never>) ?? {}),
-    }}
-  />
+  <div class="mb-25">
+    <ItemGrid
+      items={items}
+      columns={columns}
+      defaultIcon={defaultIcon}
+      classes={{
+        container: 'gap-10' /* Adjust gap between cards */,
+        item: 'flex items-center' /* Ensure items are aligned centrally vertically */,
+        icon: 'text-sky-900 bg-white border-2 border-sky-900 rounded-full w-16 h-16 p-4 md:w-20 md:h-20 md:p-6 mr-4 rtl:ml-4 rtl:mr-0',
+        content: 'flex flex-col' /* Group title and description together */,
+        title: 'md:text-[1.5rem]',
+        description: 'text',
+        ...((classes?.items as Record<string, never>) ?? {}),
+      }}
+    />
+  </div>
 </WidgetWrapper>
+

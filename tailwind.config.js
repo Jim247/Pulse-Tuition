@@ -7,17 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--aw-color-primary)',
-        secondary: 'var(--aw-color-secondary)',
-        accent: 'var(--aw-color-accent)',
-        default: 'var(--aw-color-text-default)',
-        muted: 'var(--aw-color-text-muted)',
-        darkblue : 'blue',
+        primary: 'var(--aw-color-primary)', // Custom CSS variable
+        secondary: 'var(--aw-color-secondary)', // Custom CSS variable
+        accent: 'var(--aw-color-accent)', // Custom CSS variable
+        default: 'var(--aw-color-text-default)', // Custom CSS variable
+        muted: 'var(--aw-color-text-muted)', // Custom CSS variable
       },
       fontFamily: {
-        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
-        serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--aw-font-sans)', ...defaultTheme.fontFamily.sans],
+        serif: ['var(--aw-font-serif)', ...defaultTheme.fontFamily.serif],
+        heading: ['var(--aw-font-heading)', ...defaultTheme.fontFamily.sans],
+        logo: ['var(--aw-font-logo)', ...defaultTheme.fontFamily.sans],
       },
 
       animation: {
@@ -38,5 +38,4 @@ export default {
       addVariant('intersect', '&:not([no-intersect])');
     }),
   ],
-  darkMode: 'class',
 };

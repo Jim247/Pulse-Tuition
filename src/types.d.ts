@@ -100,15 +100,18 @@ export interface Video {
 
 export interface Widget {
   id?: string;
-  isDark?: boolean;
+  isDark?: false;
   bg?: string;
   classes?: Record<string, string | Record<string, string>>;
 }
 
 export interface Headline {
+  icon?: string;
   title?: string;
   subtitle?: string;
+  defaultIcon?: string;
   tagline?: string;
+  link?: string;
   classes?: Record<string, string>;
 }
 
@@ -268,6 +271,7 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
     title: string;
     description?: string;
     icon?: string;
+    link?: string;
     classes?: Record<string, string>;
   }>;
   callToAction?: string | CallToAction;
@@ -302,6 +306,5 @@ export interface StarTestimonialsProps {
   classes?: Record<string, string>;
   bg?: string;
 }
-
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}

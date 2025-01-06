@@ -23,10 +23,8 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
                   id={name}
                   class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
                 >
-                  {options.map(option => (
-                    <option value={option.value}>
-                      {option.label}
-                    </option>
+                  {options.map((option) => (
+                    <option value={option.value}>{option.label}</option>
                   ))}
                 </select>
               ) : (

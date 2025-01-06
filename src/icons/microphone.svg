@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="500"
+    height="500"
+    viewBox="0 0 355.21568 355.21825"
+    version="1.1"
+    style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+>
+    <defs>
+        <style type="text/css">
+            <![CDATA[
+                .str0 {stroke:#1C73E8;stroke-width:0.95;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.61313}
+                .fil0 {fill:#1C73E8;fill-rule:nonzero}
+                .fil1 {fill:none}
+            ]]>
+        </style>
+    </defs>
+    <g transform="matrix(2.4341,0,0,2.4341,96.0412,21.3128)">
+        <g style="stroke:#0c4a6e;stroke-width:1.42;">
+            <path
+                class="fil0"
+                d="M33.51,0.96V0Z M23.97,23.02h-0.95V23l-0.09-1.16-0.2-1.13-0.26-1.11-0.31-1.09-0.36-1.07..."
+            />
+        </g>
+        <path
+            class="fil1 str0"
+            d="M66.54,50.1v13.14c0,18.17-14.86,33.03-33.03,33.03v0c-18.17,0-33.03-14.86-33.03-33.03V50.1h6.23v13.14..."
+        />
+    </g>
+</svg>

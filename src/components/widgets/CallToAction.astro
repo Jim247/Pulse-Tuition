@@ -24,19 +24,16 @@ const {
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 ---
-
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <div
-    class="max-w-3xl mx-auto text-center p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600"
-  >
+  <div class="max-w-3xl mx-auto text-center p-6 rounded-md">
     <Headline
       title={title}
       subtitle={subtitle}
       tagline={tagline}
       classes={{
         container: 'mb-0 md:mb-0',
-        title: 'text-4xl md:text-4xl font-bold tracking-tighter mb-4 font-heading',
-        subtitle: 'text-xl text-muted dark:text-slate-400',
+        title: 'text-3xl font-bold tracking-tighter mb-4 font-logo',
+        subtitle: 'text-xl text-muted dark:text-slate-800',
       }}
     />
     {
@@ -44,9 +41,9 @@ const {
         <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 mt-6">
           {Array.isArray(actions) ? (
             actions.map((action) => (
-              <div class="flex w-full sm:w-auto">
-                <Button {...(action || {})} class="w-full sm:mb-0" />
-              </div>
+                <div class="flex w-full sm:w-auto">
+                  <Button {...(action || {})} class="w-full sm:mb-0 btn-secondary" />
+                </div>
             ))
           ) : (
             <Fragment set:html={actions} />

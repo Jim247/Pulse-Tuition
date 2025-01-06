@@ -1,0 +1,230 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import guitarImage from '~/assets/images/guitar-lessons-bristol.jpg';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Steps3 from '~/components/widgets/Steps3.astro';
+import Divider from '~/components/ui/Divider.astro';
+
+const metadata = {
+  title: 'Guitar Lessons Bristol',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero tagline="Guitar Lessons Bristol" image={{ src: guitarImage, alt: 'Guitar Lessons in Bristol Hero Image' }}>
+    <Fragment slot="title">
+      Learn to Play Guitar <br />
+      <span class="text-highlight">with Expert Tutors</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      1:1 Bespoke Guitar Tuition in Bristol: Guitar Lessons Bristol <br /><br />
+      Are you looking for top-notch guitar lessons in Bristol? We offer personalized, one-on-one tuition tailored to your    </Fragment>
+  </Hero>
+
+  <Divider />
+  
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    columns={3}
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Proper Technique',
+        description:
+          'Develop essential guitar-playing skills, including hand positioning, using a plectrum/pick, strumming, and fingerpicking techniques.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Music Theory',
+        description: 'Understand chords, scales, and harmony to deepen your knowledge and enhance your guitar playing.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Repertoire Development',
+        description: 'Learn to play your favorite songs while exploring contemporary, and popular guitar styles.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Improvisation',
+        description:
+          'Express your creativity through improvisation in rock, jazz, or blues, gaining confidence in your musical expression.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Performance Skills',
+        description: 'Enhance your confidence and stage presence, preparing for live performances or jam sessions.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Composition & Songwriting',
+        description:
+          'Combine creativity with theory to compose your own guitar pieces, improvise your own music or write original songs.',
+        icon: 'tabler:template',
+      },
+    ]}
+  />
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Our Teaching Philosophy"
+    subtitle="At the core of our lessons is a belief in personalized, supportive learning. Develop essential guitar-playing skills such as finger strength, rhythm, and musical dynamics, all in an encouraging environment tailored to your pace and goals."
+    items={[
+      {
+        title: 'Student-Centered Lessons',
+        description:
+          'We tailor every lesson to the unique needs and goals of each student, fostering growth and creativity.',
+      },
+      {
+        title: 'Continuous Growth',
+        description:
+          'Through consistent practice and learning, we help students achieve their musical potential and enjoy the journey.',
+      },
+      {
+        title: 'Building Confidence',
+        description:
+          'Our lessons focus on building technical skills and confidence, empowering students to enjoy and share their music.',
+      },
+    ]}
+  />
+
+  <StarTestimonials
+    id="student-testimonials"
+    title="What Our Students Say"
+    subtitle="Hear from students and parents who love our guitar lessons"
+    isDark={false}
+    testimonials={[
+      {
+        text: 'My son really enjoyed his lessons with Josh. He made the sessions fun and ensured my son understood everything being taught. Highly recommend Josh for guitar lessons in Bristol.',
+        name: 'Katie',
+        role: 'Parent - Guitar - Bristol',
+        rating: 5,
+      },
+      {
+        text: "Adriana has been amazing teaching my 9-year-old daughter guitar. She's professional, friendly, and very knowledgeable. We've seen great progress. Highly recommended!",
+        name: 'Oliver',
+        role: 'Parent - Guitar - Bristol',
+        rating: 5,
+      },
+    ]}
+  />
+
+  <FAQs
+    title="Frequently Asked Questions"
+    tagline="Guitar Lessons in Bristol"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'I’ve never played guitar before. Can I still learn?',
+        description:
+          "Absolutely! Whether you're a complete beginner or have never picked up a guitar, our lessons are designed to help you learn step-by-step. With practice and guidance, you'll be playing your first chords in no time.",
+      },
+      {
+        title: 'Do I need an acoustic guitar or an electric guitar?',
+        description:
+          'Both acoustic and electric guitars are suitable for beginners. We can help you choose the right guitar based on your interests and goals.',
+      },
+      {
+        title: 'Do you teach children?',
+        description:
+          'Yes! We offer guitar lessons for both children and adults, adapting our teaching style to suit the needs and abilities of each age group.',
+      },
+      {
+        title: 'How often should I attend guitar lessons?',
+        description:
+          'For steady progress, we recommend attending lessons once a week. Regular practice between sessions is also essential to improve your skills.',
+      },
+      {
+        title: 'What types of music can I learn on guitar?',
+        description:
+          'You can learn a wide range of genres, including rock, pop, blues, jazz, classical, and more. Lessons are customized to match your musical interests and goals.',
+      },
+      {
+        title: 'How long will it take me to learn to play guitar?',
+        description:
+          'The time it takes varies depending on your goals, practice habits, and prior experience. Most beginners can play simple chords and songs within a few weeks, while becoming proficient may take months to years.',
+      },
+      {
+        title: 'Am I too old to start learning guitar?',
+        description:
+          "Not at all! It's never too late to start learning guitar. Many adults find it a rewarding hobby, and we'll ensure lessons are suited to your pace and interests.",
+      },
+      {
+        title: 'What if I don’t know how to read music?',
+        description:
+          "No worries! Reading sheet music isn't necessary to start learning guitar. We'll teach you everything you need, including chord charts, tabs, and basic music theory.",
+      },
+      {
+        title: 'How long are the guitar lessons?',
+        description:
+          'Lessons typically range from 30 minutes to an hour, depending on your preference and availability.',
+      },
+      {
+        title: 'Can I take guitar lessons online?',
+        description:
+          'Yes, we offer online guitar lessons via video calls, providing the same high-quality instruction as in-person sessions.',
+      },
+      {
+        title: 'Can I book a trial lesson?',
+        description:
+          'Absolutely! We offer a free 20-minute trial session for new students to help you decide if our guitar lessons are the right fit for you.',
+      },
+    ]}
+  />
+
+  <Steps3
+    title="Helpful Links"
+    subtitle="Here are some useful links and resources for people learning guitar."
+    items={[
+      {
+        title: 'Ultimate Guitar',
+        description:
+          'Find thousands of guitar tabs, chord sheets, and music to practice with, tailored for all skill levels.',
+        link: 'https://www.ultimate-guitar.com',
+      },
+      {
+        title: 'Justin Guitar',
+        description:
+          'Comprehensive free guitar lessons, courses, and tutorials by Justin Sandercoe, suitable for beginners to advanced players.',
+        link: 'https://www.justinguitar.com',
+      },
+      {
+        title: 'Fender Play',
+        description: 'Interactive lessons with a focus on learning popular songs while developing foundational skills.',
+        link: 'https://www.fender.com/play',
+      },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** 
+  <Features2
+    title="Where to Find Us"
+    tagline="Guitar Lessons Near You in Bristol"
+    image={{ src: bristolBridge, alt: 'Bristol Bridge' }}
+    columns={1}
+    items={[]}
+  /> -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'BOOK NOW',
+       href:'/booking',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+  >
+    <Fragment slot="title">GUITAR LESSONS BRISTOL</Fragment>
+    <Fragment slot="subtitle">Get started with expert tuition and unlock your guitar-playing potential today!</Fragment>
+  </CallToAction>
+</Layout>

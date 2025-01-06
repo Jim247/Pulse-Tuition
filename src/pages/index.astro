@@ -1,15 +1,18 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
+import Instruments from '~/components/widgets/Instruments.astro';
+import Divider from '~/components/ui/Divider.astro';
 
 const metadata = {
   title: 'Music Lessons in the Bristol Area',
   ignoreTitleTemplate: true,
+  description:
+    'Are you looking for an expert music tutor in Bristol? Our experienced instructors teach a wide range of musical genres, instruments and vocal styles, ensuring a fun and supportive learning environment for students of all ages and skill levels.',
 };
 ---
 
@@ -20,30 +23,27 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Book Now',
-        href: 'https://github.com/onwidget/astrowind',
+        text: 'BOOK NOW ',
+       href:'/booking',
         target: '_blank',
         icon: 'tabler:download',
       },
-      { text: 'Learn more', href: '#features' },
     ]}
-    image={{ src: '~/assets/images/hero-image.jpg', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/hero-image.jpg', alt: 'Music Lessons Bristol' }}
   >
     <Fragment slot="title">
-      Music Lessons in the <span class="hidden xl:inline"></span>
-      <span> Bristol</span> Area
+      MUSIC LESSONS IN THE <span class="hidden xl:inline"></span>
+      <span> BRISTOL </span> AREA
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">Bristol Music Lessons</span><br>
-         Find the best local music tutors</span>
+      <span class="hidden sm:inline"> Bristol's Music Tuition Platform. <br>   Find the best instrumental music tutors in Bristol</span>
     </Fragment>
   </Hero>
-
-  <!-- Note Widget - Philosophy part ******************* -->
-
-  <Note />
+ 
+  <Divider />
+  
+  <Instruments />
 
   <!-- Features Widget *************** -->
 
@@ -51,88 +51,109 @@ const metadata = {
     id="features"
     tagline="What We Offer"
     title="Learn Music Your Way"
-    subtitle="At our music school, we believe everyone has the potential to make beautiful music.' <br> Whether you're picking up an instrument for the first time or looking to refine your skills, we offer personalized lessons that cater to your unique goals. <br><br> Our experienced instructors teach a wide range of instruments and vocal styles, ensuring a fun and supportive learning environment for students of all ages and skill levels. Join us to explore your musical talents and take the next step in your musical journey!."
+    subtitle="At our locally-owned music education company, we believe everyone has the potential to make beautiful music.' <br><br> Whether you're picking up an instrument for the first time or looking to refine your skills, we offer personalized lessons that cater to your unique goals. <br><br> Our experienced instructors teach a wide range of musical genres, instruments and vocal styles, ensuring a fun and supportive learning environment for students of all ages and skill levels. Join us to explore your musical talents and take the next step in your musical journey."
     items={[
       {
-        title: 'Expert Music Tutors',
+        title: 'Expert Musicians',
         description:
-          'Our tutors are experienced musicians who are passionate about sharing their knowledge and helping you reach your full potential.',
-        icon: 'tabler:brand-tailwind',
+          'Our tutors are experienced, real life musicians who live in the Bristol area, and who are passionate about sharing their knowledge and helping you reach your full potential.',
+        icon: 'tabler:school',
       },
       {
         title: 'Book Your Lessons Online',
         description:
           'Our online booking and payment system makes it easy to schedule your lessons at a time that suits you.',
-        icon: 'tabler:components',
+        icon: 'tabler:device-laptop',
       },
       {
         title: 'Hand-Picked Tutors',
         description:
-          'Our tutors are are associates, we pick the most skilled and experienced tutors to ensure you get the best tuition.',
-        icon: 'tabler:list-check',
+          'Our tutors are associates, we pick the most skilled and experienced tutors in Bristol to ensure you get the best tuition.',
+        icon: 'tabler:hand-finger-right',
       },
       {
         title: 'Learn the music you love',
         description:
           'Our tutors tailor our lessons to your musical interests, so you can learn the songs and styles you love.',
-        icon: 'tabler:rocket',
+        icon: 'tabler:heart',
       },
-        ]}
-      />
+    ]}
+  />
 
-      <StarTestimonials
-        id="student-testimonials"
-        title="What Our Students Say"
-        subtitle="Real stories from our students and parents"
-        isDark={false}
-      testimonials={[
-        {
-          text: "Eliza is an amazing piano teacher. My son has learned so much in just a few months!",
-          name: "Jane Doe",
-          role: "Parent",
-          rating: 5,
-        },
-        {
-          text: "Patient, skilled, and incredibly supportive. I highly recommend!",
-          name: "Michael Johnson",
-          role: "Student",
-          rating: 4,
-        },
-      ]}
-    />
-  
+  <StarTestimonials
+    id="student-testimonials"
+    title="What Our Students Say"
+    subtitle="Real stories from our students and parents"
+    isDark={false}
+    testimonials={[
+      {
+        text: 'My son really enjoyed his lessons with josh he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
+        name: 'Katie',
+        role: 'Parent - Guitar - Bristol',
+        rating: 5,
+      },
+      {
+        text: "Adriana has been giving 121 lessons to our 9 year old daughter for the last couple of months. Adriana is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
+        name: 'Oliver',
+        role: 'Parent - Vocals - Bristol',
+        rating: 5,
+      },
+    ]}
+  />
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Find out more about our music lessons."
-    tagline="FAQs"  
+    tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
-       {
-    title: "I’m tone-deaf and have never even touched an instrument in my entire life. Do you think I can learn music?",
-    description: 
-      "Absolutely! Anyone can learn to play an instrument or sing, no matter their starting point. With structured lessons, encouragement, and consistent practice, you'll surprise yourself with how quickly you progress.",
-  },
-  {
-    title: "Do you teach children?",
-    description: 
-      "Yes! Our lessons are designed for both children and adults, adapting to the unique needs and learning styles of each age group.",
-  },
-  {
-    title: "How often should I attend music lessons?",
-    description: 
-      "For the best results, we recommend attending lessons at least once a week. Regular practice between sessions will also help you progress faster.",
-  },
-  {
-    title: "What types of music can I learn?",
-    description: 
-      "We offer lessons in a variety of genres, including classical, pop, jazz, and rock. Whatever your musical interests, we tailor the lessons to suit your preferences.",
-  },
-  {
-    title: "Do I need my own instrument to start music lessons?",
-    description: 
-      "While having your own instrument is ideal for practicing at home, we can guide you on choosing the right one. For beginners, we also provide recommendations for affordable rental or purchase options.",
-  },
+      {
+        title: 'I’m tone-deaf and have never sang in my entire life. Do you think I can learn music?',
+        description:
+          "Absolutely! Anyone can learn to play an instrument or sing, no matter their starting point. With structured lessons, encouragement, and consistent practice, you'll surprise yourself with how quickly you progress.",
+      },
+      {
+        title: 'Do you teach children?',
+        description:
+          'Yes! Our lessons are designed for both children and adults, adapting to the unique needs and learning styles of each age group.',
+      },
+      {
+        title: 'How often should I attend music lessons?',
+        description:
+          'For the best results, we recommend attending lessons at least once a week. Regular practice between sessions will also help you progress faster.',
+      },
+      {
+        title: 'What types of music can I learn?',
+        description:
+          'We offer lessons in a variety of genres, including classical, pop, jazz, and rock. Whatever your musical interests, we tailor the lessons to suit your preferences.',
+      },
+      {
+        title: 'How long will it take me to learn to learn to sing?',
+        description:
+          'Progress varies depending on factors like practice, dedication, and prior experience. Many students start playing simple songs within weeks, but becoming proficient may take months to years.',
+      },
+      {
+        title: 'Am I too old to start learning music?',
+        description:
+          "Absolutely not! Music is for everyone, and many people start learning as adults. With the right approach, you'll make progress at any age.",
+      },
+      {
+        title: 'What if I don’t know how to read sheet music?',
+        description:
+          "No problem! We'll teach you the basics of reading sheet music and understanding music theory as part of your lessons.",
+      },
+      {
+        title: 'How long are the lessons?',
+        description: 'Lessons typically last 30 minutes to an hour, depending on your age, level, and goals.',
+      },
+      {
+        title: 'Can I take lessons online?',
+        description: 'Yes, we offer online lessons via video calls, which are as effective as in-person sessions.',
+      },
+      {
+        title: 'Can I book a trial lesson?',
+        description:
+          'Of course! We encourage new students, we offer 20 minutes of your first session for free to help you decide if our lessons are right for you.',
+      },
     ]}
   />
 
@@ -140,19 +161,14 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Book Now',
-        href: '/contact',
+        text: 'BOOK NOW ',
+       href:'/booking',
         target: '_blank',
         icon: 'tabler:download',
       },
     ]}
   >
-    <Fragment slot="title">
-      Bristol Music Lessons</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-       Don't wait any longer, get the tuition you deserve from our expert tutors!
-    </Fragment>
+    <Fragment slot="title"> MUSIC LESSONS BRISTOL </Fragment>
+    <Fragment slot="subtitle"> Don't wait any longer, get the tuition you deserve from our expert tutors! </Fragment>
   </CallToAction>
 </Layout>

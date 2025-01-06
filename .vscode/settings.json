@@ -12,5 +12,5 @@
     "./.vscode/astrowind/config-schema.json": "/src/config.yaml"
   },
   "eslint.useFlatConfig": true,
-  "terminal.integrated.cwd": "/Users/jamesburgess/Documents/Tempo Website/Tempo2"
+  "terminal.integrated.cwd": ""
 }

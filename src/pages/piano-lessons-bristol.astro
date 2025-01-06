@@ -1,0 +1,231 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import pianoImage from '~/assets/images/piano-lessons-bristol.jpg';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Steps3 from '~/components/widgets/Steps3.astro';
+import Divider from '~/components/ui/Divider.astro';
+
+const metadata = {
+  title: 'Piano Lessons Bristol',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero tagline="Piano Lessons Bristol" image={{ src: pianoImage, alt: 'Piano Lessons in Bristol Hero Image' }}>
+    <Fragment slot="title">
+      Master the Art of the Piano <br />
+      <span class="text-">with Expert Lessons</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Discover tailored Piano Lessons in Bristol. <br /> Designed to help you unlock your musical potential. Whether you're
+      a complete beginner or looking to refine your skills, our lessons include personalized techniques, music theory, and
+      a wide range of repertoire.<br /><br />
+      We have the perfect piano tutor for you, offering a supportive and engaging environment to help you achieve your musical goals.
+    </Fragment>
+  </Hero>
+
+  <Divider />
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    columns={3}
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Proper Technique',
+        description:
+          'Learn correct posture, hand positioning, and piano playing techniques to establish a strong foundation for your musical journey.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Music Theory',
+        description:
+          'Understand scales, chords, and harmony to deepen your knowledge and appreciation of music while playing the piano.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Repertoire Development',
+        description:
+          'Explore classical, contemporary, and popular music pieces to build a versatile and enjoyable collection of piano repertoire.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Improvisation',
+        description:
+          'Learn to express yourself creatively by improvising in a variety of musical styles, from jazz to classical.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Performance Skills',
+        description: 'Hone your confidence and stage presence while preparing for live performances and recitals.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Composition & Songwriting',
+        description:
+          'Compose your own music and create original piano pieces, combining your creativity with structured theory.',
+        icon: 'tabler:template',
+      },
+    ]}
+  />
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Our Teaching Philosophy"
+    subtitle="Our goal is to inspire a love for music while building strong technical skills. Learn piano in a supportive, structured, and engaging way that suits your goals and pace.  Develop essential skills such as finger strength, reading sheet music, and understanding musical dynamics. Our experienced instructors create a supportive environment, ensuring you gain confidence and enjoy your journey into piano mastery."
+    items={[
+      {
+        title: 'Student-Centered Lessons',
+        description:
+          'Each lesson is tailored to the student’s needs and interests, fostering a positive and encouraging learning environment.',
+      },
+      {
+        title: 'Continuous Growth',
+        description:
+          'We believe in nurturing a lifelong appreciation for music through consistent improvement and practice.',
+      },
+      {
+        title: 'Building Confidence',
+        description:
+          'Our lessons focus on building both technical skill and musical confidence, empowering students to perform and enjoy music.',
+      },
+    ]}
+  />
+
+  <StarTestimonials
+    id="student-testimonials"
+    title="What Our Students Say"
+    subtitle="Real stories from our students and parents"
+    isDark={false}
+    testimonials={[
+      {
+        text: 'My son really enjoyed his lessons with josh he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
+        name: 'Katie',
+        role: 'Parent - Guitar - Bristol',
+        rating: 5,
+      },
+      {
+        text: "Adriana has been giving 121 lessons to our 9 year old daughter for the last couple of months. Adriana is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
+        name: 'Oliver',
+        role: 'Parent - Vocals - Bristol',
+        rating: 5,
+      },
+    ]}
+  />
+
+  <FAQs
+    title="Frequently Asked Questions"
+    tagline="Piano and Keyboard Lessons in Bristol"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'I’ve never played piano or keyboard before. Can I still learn?',
+        description:
+          "Absolutely! Whether you're a complete beginner or have never touched a piano or keyboard, our lessons are designed to guide you step-by-step. With consistent practice and support, you'll be playing your first tunes in no time.",
+      },
+      {
+        title: 'Do you teach children?',
+        description:
+          'Yes! We offer piano and keyboard lessons for both children and adults, tailoring our teaching style to suit different ages and learning preferences.',
+      },
+      {
+        title: 'How often should I attend piano or keyboard lessons?',
+        description:
+          'For the best progress, we recommend attending lessons at least once a week. Practicing regularly between lessons is also key to improving your skills.',
+      },
+      {
+        title: 'What types of music can I learn on piano or keyboard?',
+        description:
+          'You can learn a variety of styles, including classical, pop, jazz, blues, and more. We customize lessons to match your musical tastes and goals.',
+      },
+      {
+        title: 'How long will it take me to learn to play piano or keyboard?',
+        description:
+          'The time it takes depends on factors like your practice habits, dedication, and goals. Many beginners can play simple pieces within weeks, while achieving proficiency may take months or years.',
+      },
+      {
+        title: 'Am I too old to start learning piano or keyboard?',
+        description:
+          "Not at all! It's never too late to learn. Our lessons are designed to suit learners of all ages, ensuring a rewarding and enjoyable experience.",
+      },
+      {
+        title: 'What if I don’t know how to read sheet music?',
+        description:
+          "No problem! We'll teach you the basics of reading sheet music and understanding music theory as part of your piano or keyboard lessons.",
+      },
+      {
+        title: 'How long are the lessons?',
+        description:
+          'Lessons typically last between 30 minutes and an hour, depending on your age, skill level, and personal goals.',
+      },
+      {
+        title: 'Can I take piano or keyboard lessons online?',
+        description:
+          'Yes, we offer online lessons via video calls, providing the same high-quality instruction as in-person sessions.',
+      },
+      {
+        title: 'Can I book a trial lesson?',
+        description:
+          'Of course! We offer a free 20-minute trial session for new students to help you decide if our piano and keyboard lessons are the right fit for you.',
+      },
+    ]}
+  />
+  {
+    /*
+  <!-- Features2 Widget ************** -->
+  <Features2
+    title="Where to Find Us"
+    tagline="Piano Lessons Near You in Bristol"
+    image={{ src: bristolBridge, alt: 'Bristol Bridge' }}
+    columns={1}
+    items={[]}
+  />
+*/
+  }
+
+  <Steps3
+    title="Helpful Links for Piano"
+    subtitle="Here are some useful links and resources for people learning piano."
+    items={[
+      {
+        title: 'PianoLessons.com',
+        description: 'A comprehensive resource with free lessons, tips, and tutorials for pianists of all levels.',
+        link: 'https://www.pianolessons.com',
+      },
+      {
+        title: 'Simply Piano',
+        description: 'An app-based piano learning tool offering step-by-step lessons and interactive feedback.',
+        link: 'https://www.joytunes.com/simply-piano',
+      },
+      {
+        title: 'PlayPiano.com',
+        description:
+          'A site for learning piano with resources from beginners to advanced players, including sheet music and tutorials.',
+        link: 'https://www.playpiano.com',
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'BOOK NOW',
+       href:'/booking',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+  >
+    <Fragment slot="title">MUSIC LESSONS BRISTOL</Fragment>
+    <Fragment slot="subtitle">Don't wait any longer, get the tuition you deserve from our expert tutors!</Fragment>
+  </CallToAction>
+</Layout>
