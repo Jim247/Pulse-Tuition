@@ -72,7 +72,7 @@ export const adaptOpenGraphImages = async (
           };
         }
 
-        let _image: Image;
+        let _image: Image | undefined = undefined;
 
         if (
           typeof resolvedImage === 'string' &&
