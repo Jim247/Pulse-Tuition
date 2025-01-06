@@ -4,7 +4,8 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import GuitarLesson from '~/assets/images/guitar-lesson-portrait.jpeg';
+import GuitarLesson from '../assets/images/guitar-lesson-portrait.jpeg';
+import { Image } from 'astro:assets';
 
 const metadata = {
   title: 'Pricing',
@@ -12,6 +13,14 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <div class="relative w-full aspect-[4/3]">
+    <Image 
+      src={GuitarLesson.src} 
+      alt="Guitar Lesson"
+      inferSize
+      class="w-full h-full object-cover"
+    />
+  </div>
   <!-- HeroText Widget ******************* -->
 
   <HeroText tagline="Pricing" title="Excellent Value, the Best Tutors in Town" subtitle="" />
