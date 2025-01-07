@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import tutors from '/src/data/tutors.ts'
+import tutors from '../../data/tutors';
 
 // Import images at the top
 const instruments = [
@@ -40,7 +40,7 @@ const ConditionalForm = () => {
 
   // For Step 2, filter tutors by instrument
   const matchedTutors = useMemo(
-    () => tutors.filter((tutor) => tutor.instruments.includes(formData.instrument)),
+    () => tutors?.filter((tutor) => tutor.instruments.includes(formData.instrument)),
     [formData.instrument]
   );
 
@@ -71,9 +71,13 @@ const ConditionalForm = () => {
   }, [step, formData]);
 
   const handlePreviousStep = useCallback(() => {
+    if (step === 2) {
+      // Clear instrument selection when going back to step 1
+      setFormData(prev => ({ ...prev, instrument: '', tutor: '' }));
+    }
     setStep((prev) => prev - 1);
-  }, []);
-
+  }, [step]);
+  
   const handleRestart = useCallback(() => {
     setFormData({
       instrument: '',
@@ -89,7 +93,6 @@ const ConditionalForm = () => {
   }, []);
   return (
     <form className="space-y-6 p-4 sm:p-6 rounded-lg shadow-md max-w-md sm:max-w-xl mx-auto bg-transparent">
-      {/* Step 1: Instrument Selection */}
       {step === 1 && (
         <>
           <h2 className="text-center font-bold">Select Your Instrument</h2>
@@ -99,11 +102,12 @@ const ConditionalForm = () => {
                 key={item.title}
                 type="button"
                 onClick={() => handleInstrumentSelect(item.title)}
-                className={`flex flex-col items-center justify-between h-[180px] w-full p-4 border-2 rounded-md ${
-                  formData.instrument === item.title
-                    ? 'border-sky-900 bg-cyan-50'
-                    : 'border-sky-900 bg-white'
-                }`}
+                className={`flex flex-col items-center justify-between h-[180px] w-full p-4 border-2 rounded-md transition-all duration-200 ease-in-out
+                  ${
+                    formData.instrument === item.title
+                      ? 'border-sky-800 text-black bg-cyan-50'
+                      : 'border-sky-800 text-gray-800 bg-white hover:bg-cyan-50 shadow-lg'
+                  }`}
               >
                 <div className="flex items-center justify-center h-24">
                   <img
