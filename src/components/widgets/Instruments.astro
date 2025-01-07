@@ -1,31 +1,30 @@
 ---
-// Import images at the top of the file
-import microphoneIcon from '~/assets/images/custom-icons/microphone.png';
-import pianoIcon from '~/assets/images/custom-icons/piano.png';
-import electricGuitarIcon from '~/assets/images/custom-icons/electric-guitar.png';
-import acousticGuitarIcon from '~/assets/images/custom-icons/acoustic-guitar.png';
-import bassGuitarIcon from '~/assets/images/custom-icons/bass-guitar.png';
+import microphone from '/src/assets/custom-icons/microphone.png';
+import piano from '/src/assets/custom-icons/piano.png';
+import electricGuitar from '/src/assets/custom-icons/electric-guitar.png';
+import acousticGuitar from '/src/assets/custom-icons/acoustic-guitar.png';
+import bassGuitar from '/src/assets/custom-icons/bass-guitar.png';
+import Image from 'astro/components/Image.astro';
 
-// Update items array to use imported images
 const items = [
   {
-    icon: microphoneIcon,
+    icon: microphone,
     title: 'Singing',
   },
   {
-    icon: pianoIcon,
+    icon: piano,
     title: 'Piano/Keyboard',
   },
   {
-    icon: electricGuitarIcon,
+    icon: electricGuitar,
     title: 'Electric Guitar',
   },
   {
-    icon: acousticGuitarIcon,
+    icon: acousticGuitar,
     title: 'Acoustic Guitar',
   },
   {
-    icon: bassGuitarIcon,
+    icon: bassGuitar,
     title: 'Bass Guitar',
   },
 ];
@@ -45,7 +44,7 @@ const items = [
       items.map((item) => (
         <div class="instrument-item flex flex-col justify-center items-center text-center">
           <div class="image-container w-20 h-20 sm:w-20 sm:h-20 md:w-20 md:h-20 flex items-center justify-center bg-white ">
-            <img src={item.icon.src} alt={item.title} />
+            <Image src={item.icon} alt={item.title} />
           </div>
           <h3 class="mt-4 text-xl">{item.title}</h3>
         </div>

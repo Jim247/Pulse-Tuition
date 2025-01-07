@@ -11,7 +11,6 @@ const {
   tagline = await Astro.slots.render('tagline'),
   items = [],
   image = await Astro.slots.render('image'),
-  isReversed = false,
 
   id,
   isDark = false,
@@ -21,8 +20,9 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
-  <div class:list={['flex flex-col gap-8 md:gap-12', { 'md:flex-row-reverse': isReversed }, { 'md:flex-row': image }]}>
-    <div class:list={['md:py-4 md:self-center', { 'md:basis-1/2': image }, { 'w-full': !image }]}>
+  <div class="flex flex-col md:flex-row gap-8 md:gap-12">
+    {/* Left Column - Steps */}
+    <div class="w-full md:w-1/2 md:pr-6">
       <Headline
         title={title}
         subtitle={subtitle}
@@ -35,20 +35,22 @@ const {
       />
       <Timeline items={items} classes={classes?.items as Record<string, never>} />
     </div>
+
+    {/* Right Column - Image */}
     {image && (
-      <div class="relative md:basis-1/2">
+      <div class="w-full md:w-1/2">
         {typeof image === 'string' ? (
-          <Fragment set:html={image} />  <!-- This handles the case when `image` is a string -->
+          <Fragment set:html={image} />
         ) : (
           <Image
-            class="inset-0 object-cover object-top w-full h-auto max-w-full rounded-md shadow-lg md:absolute md:h-full bg-gray-400 dark:bg-slate-700"
+            class="w-full h-auto rounded-md shadow-lg object-cover"
             widths={[400, 768]}
-            sizes="(max-width: 768px) 100vw, 432px"
+            sizes="(max-width: 768px) 100vw, 50vw"
             width={432}
             height={768}
             layout="cover"
-            src={image.src} 
-            alt={image.alt || ''} 
+            src={image?.src || ''}
+            alt={image?.alt || ''}
           />
         )}
       </div>
