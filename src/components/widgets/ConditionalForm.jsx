@@ -1,33 +1,28 @@
-
 import React, { useState, useMemo, useCallback } from 'react';
-import microphone from '/src/assets/custom-icons/microphone.png';
-import piano from '/src/assets/custom-icons/piano.png';
-import electricGuitar from '/src/assets/custom-icons/electric-guitar.png';
-import acousticGuitar from '/src/assets/custom-icons/acoustic-guitar.png';
-import bassGuitar from '/src/assets/custom-icons/bass-guitar.png';
-import Image from 'astro/components/Image.astro';
+import tutors from '/src/data/tutors.ts'
 
+// Import images at the top
 const instruments = [
   {
-    icon: microphone,
+    icon: '/src/assets/images/custom-icons/microphone.png',
     title: 'Singing',
   },
   {
-    icon: piano,
+    icon: '/src/assets/images/custom-icons/piano.png',
     title: 'Piano/Keyboard',
   },
   {
-    icon: electricGuitar,
+    icon: '/src/assets/images/custom-icons/electric-guitar.png',
     title: 'Electric Guitar',
   },
   {
-    icon: acousticGuitar,
+    icon: '/src/assets/images/custom-icons/acoustic-guitar.png',
     title: 'Acoustic Guitar',
   },
   {
-    icon: bassGuitar,
+    icon: '/src/assets/images/custom-icons/bass-guitar.png',
     title: 'Bass Guitar',
-  },
+  }
 ];
 
 const ConditionalForm = () => {
@@ -42,28 +37,6 @@ const ConditionalForm = () => {
     ability: '',
     details: '',
   });
-
-  const tutors = [
-    {
-      name: 'Tutor A',
-      instruments: ['Acoustic Guitar', 'Electric Guitar'],
-      locations: ['Mobile'],
-      coverage: ['BS1', 'BS3'],
-      calendly: 'https://calendly.com/tutor-a',
-      bio: 'Experienced guitarist specializing in acoustic and rock styles.',
-      photo: '/src/assets/images/tutors/tutorA.jpg',
-    },
-    {
-      name: 'Tutor B',
-      instruments: ['Piano/Keyboard'],
-      locations: ['Mobile', 'Location 2'],
-      coverage: ['BS2', 'BS4'],
-      calendly: 'https://calendly.com/tutor-b',
-      bio: 'Classically trained pianist with a passion for modern pop.',
-      photo: '/src/assets/images/tutors/tutorB.jpg',
-    },
-    // ...additional tutors...
-  ];
 
   // For Step 2, filter tutors by instrument
   const matchedTutors = useMemo(
@@ -114,7 +87,6 @@ const ConditionalForm = () => {
     });
     setStep(1);
   }, []);
-
   return (
     <form className="space-y-6 p-4 sm:p-6 rounded-lg shadow-md max-w-md sm:max-w-xl mx-auto bg-transparent">
       {/* Step 1: Instrument Selection */}
@@ -127,14 +99,20 @@ const ConditionalForm = () => {
                 key={item.title}
                 type="button"
                 onClick={() => handleInstrumentSelect(item.title)}
-                className={`flex flex-col items-center p-4 border-2 rounded-md ${
+                className={`flex flex-col items-center justify-between h-[180px] w-full p-4 border-2 rounded-md ${
                   formData.instrument === item.title
                     ? 'border-sky-900 bg-cyan-50'
                     : 'border-sky-900 bg-white'
                 }`}
               >
-                <Image src={item.icon} alt={item.title} />
-                <p className="font-bold">{item.title}</p>
+                <div className="flex items-center justify-center h-24">
+                  <img
+                    src={item.icon}
+                    alt={item.title}
+                    className="w-16 h-16 object-contain"
+                  />
+                </div>
+                <p className="font-bold text-lg text-center mt-2">{item.title}</p>
               </button>
             ))}
           </div>
@@ -303,55 +281,39 @@ const ConditionalForm = () => {
           </div>
         </>
       )}
+{/* Step 5: Confirm/Submit */}
+{step === 5 && (
+  <>
+    <h2 className="text-center font-bold">Confirm Your Booking</h2>
+    <div className="text-center text-sm my-4 space-y-1">
+      {/* ...existing confirmation details... */}
+    </div>
+    <div className="flex justify-center gap-4">
+      <button
+        type="button"
+        onClick={() => {
+          const selectedTutor = tutors.find(t => t.name === formData.tutor);
+          if (selectedTutor?.calendly) {
+            window.location.href = selectedTutor.calendly;
+          } else {
+            alert('Booking link not available. Please try again later.');
+          }
+        }}
+        className="py-2 px-4 rounded-md bg-green-700 text-white hover:bg-green-600 text-sm font-medium"
+      >
+        Book Now
+      </button>
+      <button
+        type="button"
+        onClick={handleRestart}
+        className="py-2 px-4 rounded-md bg-slate-300 text-black hover:bg-slate-200 text-sm"
+      >
+        Restart
+      </button>
+    </div>
+  </>
+)}
 
-      {/* Step 5: Confirm/Submit */}
-      {step === 5 && (
-        <>
-          <h2 className="text-center font-bold">Confirm Your Booking</h2>
-          <div className="text-center text-sm my-4 space-y-1">
-            <p>
-              <strong>Instrument:</strong> {formData.instrument || 'N/A'}
-            </p>
-            <p>
-              <strong>Tutor:</strong> {formData.tutor || 'N/A'}
-            </p>
-            <p>
-              <strong>Name:</strong> {formData.name || 'N/A'}
-            </p>
-            <p>
-              <strong>Email:</strong> {formData.email || 'N/A'}
-            </p>
-            <p>
-              <strong>Phone:</strong> {formData.phone || 'N/A'}
-            </p>
-            <p>
-              <strong>Age Range:</strong> {formData.ageRange || 'N/A'}
-            </p>
-            <p>
-              <strong>Ability:</strong> {formData.ability || 'N/A'}
-            </p>
-            <p>
-              <strong>Details:</strong> {formData.details || 'N/A'}
-            </p>
-          </div>
-          <div className="flex justify-center gap-4">
-            <button
-              type="button"
-              onClick={() => alert('Booking Confirmed!')}
-              className="py-2 px-4 rounded-md bg-green-700 text-white hover:bg-green-600 text-sm font-medium"
-            >
-              Book Now
-            </button>
-            <button
-              type="button"
-              onClick={handleRestart}
-              className="py-2 px-4 rounded-md bg-slate-300 text-black hover:bg-slate-200 text-sm"
-            >
-              Restart
-            </button>
-          </div>
-        </>
-      )}
     </form>
   );
 };
