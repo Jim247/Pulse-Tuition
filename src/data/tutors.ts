@@ -18,7 +18,7 @@ const tutors = [
     coverage: ['BS1', 'BS3'],
     calendly: 'https://calendly.com/tutor-a',
     bio: 'Experienced guitarist specializing in acoustic and rock styles.',
-    photo: '/src/assets/images/tutors/tutorA.jpg',
+    photo: '/assets/images/tutors/tutorA.jpg',
   },
   {
     id: 'tutor-b',
@@ -28,7 +28,7 @@ const tutors = [
     coverage: ['BS2', 'BS4'],
     calendly: 'https://calendly.com/tutor-b',
     bio: 'Classically trained pianist with a passion for modern pop.',
-    photo: '/src/assets/images/tutors/tutorC.jpg',
+    photo: 'assets/images/tutors/tutorB.jpg',
   }
 ];
 

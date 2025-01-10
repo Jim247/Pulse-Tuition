@@ -1,26 +1,26 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import tutors from '../../data/tutors';
 
-// Import images at the top
+// Import images at the top (in public directory for React)
 const instruments = [
   {
-    icon: '/src/assets/images/custom-icons/microphone.png',
+    icon: '../assets/images/custom-icons/microphone.png',
     title: 'Singing',
   },
   {
-    icon: '/src/assets/images/custom-icons/piano.png',
+    icon: '../assets/images/custom-icons/piano.png',
     title: 'Piano/Keyboard',
   },
   {
-    icon: '/src/assets/images/custom-icons/electric-guitar.png',
+    icon: '../assets/images/custom-icons/electric-guitar.png',
     title: 'Electric Guitar',
   },
   {
-    icon: '/src/assets/images/custom-icons/acoustic-guitar.png',
+    icon: '../assets/images/custom-icons/acoustic-guitar.png',
     title: 'Acoustic Guitar',
   },
   {
-    icon: '/src/assets/images/custom-icons/bass-guitar.png',
+    icon: '../assets/images/custom-icons/bass-guitar.png',
     title: 'Bass Guitar',
   }
 ];
