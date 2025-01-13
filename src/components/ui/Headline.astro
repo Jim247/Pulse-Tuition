@@ -28,16 +28,20 @@ const {
         class="text-base text-secondary text-sky-900 font-bold tracking-wide uppercase"
         set:html={tagline}
       />
-    )}
+        )}
 
-    {/* If icon or defaultIcon are valid strings, use them. Otherwise skip. */}
-    {typeof icon === 'string' ? (
-      <Icon name={icon} class={twMerge('w-12 h-12 stroke-1', defaultIconClass)} />
-    ) : typeof defaultIcon === 'string' ? (
-      <Icon name={defaultIcon} class={twMerge('w-12 h-12 stroke-1', defaultIconClass)} />
-    ) : null}
+        {/* If icon or defaultIcon are valid strings, use them. Otherwise skip. */}
+        {typeof icon === 'string' ? (
+      <div class="flex justify-center">
+      <Icon name={icon} class={twMerge('w-16 h-16 stroke-1 text-sky-900 text-xl', defaultIconClass)} />
+      </div>
+        ) : typeof defaultIcon === 'string' ? (
+      <div class="flex justify-center">
+      <Icon name={defaultIcon} class={twMerge('w-16 h-16 stroke-1 text-sky-900', defaultIconClass)} />
+      </div>
+        ) : null}
 
-    {title && (
+        {title && (
       <h2
         class={twMerge(
           'font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl pt-5',

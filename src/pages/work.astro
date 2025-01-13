@@ -1,10 +1,10 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import guitarImage from '~/assets/images/guitar-lessons-bristol.jpeg';
 import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Work with us',
@@ -26,7 +26,7 @@ const metadata = {
       pathway to inspiring the next generation of talent. <br /><br />
 
       We are looking for dedicated and skilled instrumental and vocal tutors to join our platform. If you are passionate
-      about music and have availability for lessons in the Bristol area, apply today.
+      about music and have availability for lessons in the Bristol area. Become part of our growing network of professional tutors, apply today.
     </Fragment>
   </Hero>
 
@@ -45,7 +45,7 @@ const metadata = {
         icon: 'tabler:seo',
       },
       {
-        title: 'Competitive Fees',
+        title: 'Let\'s grow together',
         description:
           'Other larger platforms have up to 30% fees for smaller bookings. We compete with any other rates set locally by the big tuition companies, like-for-like. All the revenue generated goes back into growing the platform for local tutors.',
         icon: 'tabler:currency-pound',
@@ -140,21 +140,20 @@ const metadata = {
   ]}
 />
 
+<!-- CallToAction Widget ******************* -->
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Sign Up Today "
-    tagline="Start Your Tuition Journey"
-    columns={2}
-    items={[
-      {
-        title: 'Create Your Profile',
-        description:
-          'Send us some basic information to assess your suitability, and we will be in touch to complete verification.',
-        icon: 'tabler:messages',
-      },
-   
-    ]}
-  />
+<CallToAction
+actions={[
+  {
+    variant: 'primary',
+    text: 'Sign Up ',
+   href:'https://form.jotform.com/250052575896364',
+    target: '_blank',
+    icon: 'tabler:download',
+  },
+]}
+>
+<Fragment slot="title"> Join Us Today </Fragment>
+<Fragment slot="subtitle"> Make a profile, get verified, find new students </Fragment>
+</CallToAction>
 </Layout>

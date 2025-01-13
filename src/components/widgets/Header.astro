@@ -54,7 +54,7 @@ const {
       relative: !isSticky,
       dark: isDark,
     },
-    'top-0 z-40 flex-none mx-auto w-full border-b-4 border-gray-50/0 transition-opacity ease-in-out bg-sky-900',
+    'top-0 z-40 flex-none mx-auto w-full border-gray-50/0 transition-opacity ease-in-out bg-sky-900',
   ]}
   {...(isSticky && { 'data-aw-sticky-header': true })}
   {...(id && { id })}
@@ -69,22 +69,22 @@ const {
       !isFullWidth && 'max-w-7xl',
     ]}
   >
-    <!-- Logo and Mobile Toggle -->
-   <div class="flex items-center w-full relative">
-  <!-- A container that can flex-grow to center the logo on small screens -->
-  <div class="flex-1 flex justify-center md:justify-start">
-    <!-- Logo and Brand Name -->
-    <a
-      class="pt-2 flex items-center text-white text-sm font-logo md:static md:left-auto md:transform-none"
-      href={getHomePermalink()}
-    >
+<!-- Logo and Mobile Toggle -->
+<div class="flex items-center w-full relative">
+  <!-- Container with logo left, text center on mobile -->
+  <div class="flex-1 grid grid-cols-[1fr,auto,1fr] md:flex md:justify-start items-center">
+    <!-- Logo always left -->
+    <a href={getHomePermalink()} class="flex items-center">
       <Logo />
-      <div class="text-white font-semibold text-xl text-center">PULSE TUITION</div>
     </a>
+    <!-- Text centered on mobile, left on desktop -->
+    <div class="text-white text-xl font-logo align-middle text-center md:text-left md:ml-2 leading-none flex items-center">
+      PULSE TUITION
+    </div>
   </div>
 
-  <!-- Mobile Toggle (Small Screens Only) -->
-  <div class="flex items-center md:hidden">
+  <!-- Mobile Toggle positioned absolutely -->
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 md:hidden">
     <ToggleMenu />
   </div>
 </div>

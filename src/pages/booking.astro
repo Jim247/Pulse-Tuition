@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ConditionalForm from '~/components/widgets/ConditionalForm';
+import TutorSelect from '~/components/widgets/TutorSelect.jsx';
 
 const metadata = {
   title: 'Make a Booking',
@@ -14,6 +14,6 @@ const metadata = {
 
   <!-- Contact Form React Component ******************* -->
   <div>
-    <ConditionalForm client:load />
+    <TutorSelect client:load />
   </div>
 </Layout>

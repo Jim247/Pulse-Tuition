@@ -4,6 +4,7 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Image } from 'astro:assets';
 import GuitarLesson from '~/assets/images/guitar-lesson-portrait.jpeg';
 
 const metadata = {
@@ -12,9 +13,11 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+
   <!-- HeroText Widget ******************* -->
 
   <HeroText tagline="Pricing" title="Excellent Value, the Best Tutors in Town" subtitle="" />
+
 
   <!-- Pricing Widget ******************* -->
 
@@ -23,7 +26,7 @@ const metadata = {
       {
         title: 'Pay as you go',
         subtitle: 'from',
-        price: 18,
+        price: 20,
         period: 'per half-hour lesson',
         items: [
           { description: '30, 40 and 60 minute durations' },
@@ -39,7 +42,7 @@ const metadata = {
       {
         title: 'Block Booking',
         subtitle: 'from',
-        price: 17,
+        price: 18,
         period: 'Per half-hour lesson',
         items: [
           { description: '30, 40 and 60 minute durations' },
@@ -78,6 +81,8 @@ const metadata = {
       alt: 'Steps image',
     }}
   />
+</Fragment>
+  </Steps>
 
   <!-- CallToAction Widget *********** -->
 
