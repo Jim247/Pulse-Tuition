@@ -1,6 +1,8 @@
 ---
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import Headline from '../ui/Headline.astro';
+import Trustpilot from "/src/assets/images/trustpilot-1.svg"
+import { Image } from 'astro:assets';
 
 const {
   title = await Astro.slots.render('title'),
@@ -54,14 +56,14 @@ const {
   </div>
 
   <!-- Trustpilot Section -->
-  <div class="flex flex-col justify-center items-center my-6 p-2">
+  <div class="flex justify-center items-center my-6 p-2 lg:w-1/3 md:w-2/3 sm:w-1/3 mx-auto">
     <a href="https://uk.trustpilot.com/review/tempomobile.co.uk" target="_blank" class="flex items-center">
       <div class="p-5 bg-white border shadow-lg rounded-lg">
-        <p class="text-lg text-black text-center">
+        <p class="text-lg text-black text-center flex-content-center">
           Read our reviews on
         </p>
-        <img
-          src="/src/assets/images/trustpilot-1.svg"
+        <Image
+          src={Trustpilot}
           alt="Trustpilot"
           class="h-12"
         />
