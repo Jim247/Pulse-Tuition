@@ -1,10 +1,10 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import guitarImage from '~/assets/images/guitar-lessons-bristol.jpeg';
 import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Work with us',
@@ -140,21 +140,20 @@ const metadata = {
   ]}
 />
 
+<!-- CallToAction Widget ******************* -->
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Sign Up Today "
-    tagline="Start Your Tuition Journey"
-    columns={2}
-    items={[
-      {
-        title: 'Create Your Profile',
-        description:
-          'Send us some basic information to assess your suitability, and we will be in touch to complete verification.',
-        icon: 'tabler:messages',
-      },
-   
-    ]}
-  />
+<CallToAction
+actions={[
+  {
+    variant: 'primary',
+    text: 'Sign Up ',
+   href:'https://form.jotform.com/250052575896364',
+    target: '_blank',
+    icon: 'tabler:download',
+  },
+]}
+>
+<Fragment slot="title"> Join Us Today </Fragment>
+<Fragment slot="subtitle"> Make a profile, get verified, find new students </Fragment>
+</CallToAction>
 </Layout>

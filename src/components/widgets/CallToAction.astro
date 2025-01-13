@@ -25,7 +25,7 @@ const {
 } = Astro.props;
 ---
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <div class="max-w-3xl mx-auto text-center p-6 rounded-md">
+  <div class="max-w-3xl mx-auto text-center p-6 rounded-md outline-none bg-white dark:bg-slate-900 shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
     <Headline
       title={title}
       subtitle={subtitle}
@@ -34,7 +34,9 @@ const {
         container: 'mb-0 md:mb-0',
         title: 'text-3xl font-bold tracking-tighter mb-4 font-logo',
         subtitle: 'text-xl text-muted dark:text-slate-800',
+        
       }}
+      icon="tabler:thumb-up"
     />
     {
       actions && (
