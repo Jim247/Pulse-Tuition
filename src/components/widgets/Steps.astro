@@ -46,11 +46,9 @@ const {
             class="w-full h-auto rounded-md shadow-lg object-cover"
             widths={[400, 768]}
             sizes="(max-width: 768px) 100vw, 50vw"
-            width={432}
-            height={768}
             layout="cover"
-            src={image?.src || ''}
-            alt={image?.alt || ''}
+            alt={image.alt}
+            src={image.src}
           />
         )}
       </div>

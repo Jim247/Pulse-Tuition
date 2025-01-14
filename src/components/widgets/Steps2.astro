@@ -29,14 +29,14 @@ const {
         tagline={tagline}
         icon="tabler:school"
         classes={{
-          container: 'text-center md:text-left rtl:md:text-right mb-4 md:mb-8 bg-footer text-white p-5 rounded-xl w-full lg:w-full md:w-full',
+          container: 'text-center md:text-left mb-4 md:mb-8 bg-footer text-white p-5 rounded-xl w-full lg:w-full md:w-full',
           title: 'mb-4 text-xl font-bold font-heading text-white',
           subtitle: 'mb-8 text-white ',
           icon: 'text-white text-xl mx-auto md:mx-0',
         }}
       />
 
-      <div class="w-full text-center md:text-left rtl:md:text-right">
+      <div class="w-full text-center md:text-left">
         {
           typeof callToAction === 'string' ? (
             <Fragment set:html={callToAction} />
@@ -61,7 +61,7 @@ const {
                   </div>
                   <div class="pl-4 rtl:pl-0 rtl:pr-4">
                     {icon && (
-                      <Icon name={icon} class="w-6 h-6 icon-bold mb-2" />
+                      <Icon name={icon} class="w-6 h-6 icon-bold text-left mb-2" />
                     )}
                     <h3 class="mb-4 text-xl font-semibold font-heading" set:html={title2} />
                     <p class="dark:text-black" set:html={description} />

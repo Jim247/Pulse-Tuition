@@ -89,7 +89,7 @@ export interface MetaDataTwitter {
 }
 
 export interface Image {
-  src: string;
+  src: string 
   alt?: string;
 }
 

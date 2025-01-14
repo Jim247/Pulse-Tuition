@@ -17,12 +17,12 @@ const {
   container: containerClass = 'max-w-3xl',
   title: titleClass = 'text-xl md:text-4xl ',
   subtitle: subtitleClass = 'text-lg',
-  icon: defaultIconClass = '',
+  icon: defaultIconClass = 'text-left',
 } = classes;
 ---
 
 {(title || subtitle || tagline) && (
-  <div class={twMerge('md:mx-auto md:mb-12 text-center', containerClass)}>
+  <div class={twMerge('md:mx-auto md:mb-12 text-left', containerClass)}>
     {tagline && (
       <p
         class="text-base text-secondary text-sky-900 font-bold tracking-wide uppercase"
@@ -32,11 +32,11 @@ const {
 
         {/* If icon or defaultIcon are valid strings, use them. Otherwise skip. */}
         {typeof icon === 'string' ? (
-      <div class="flex justify-center">
+      <div class="flex text-left">
       <Icon name={icon} class={twMerge('w-16 h-16 stroke-1 text-sky-900 text-xl', defaultIconClass)} />
       </div>
         ) : typeof defaultIcon === 'string' ? (
-      <div class="flex justify-center">
+      <div class="flex-auto">
       <Icon name={defaultIcon} class={twMerge('w-16 h-16 stroke-1 text-sky-900', defaultIconClass)} />
       </div>
         ) : null}
