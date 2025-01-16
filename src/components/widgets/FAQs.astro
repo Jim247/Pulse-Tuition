@@ -1,34 +1,42 @@
 ---
+// Import necessary components
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
+// Define component props with default values
 const {
   title = '',
   subtitle = '',
   tagline = '',
-  items = [],
+  items = [],      // Array of FAQ items
   id,
   isDark = false,
   classes = {},
 } = Astro.props;
 ---
 
+<!-- Main wrapper for FAQ section -->
 <WidgetWrapper
   id={id}
   isDark={isDark}
   containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`}
   bgColor="olivegreen"
 >
+  <!-- Headline section for FAQ title, subtitle, and tagline -->
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
+  <!-- Container for FAQ items -->
   <div class="space-y-4">
+    {/* Map through FAQ items and create accordion-style elements */}
     {items.map((item: { title: string; description: string }, index: number) => (
       <div class="faq-item border rounded-md overflow-hidden" data-key={index}>
+        {/* FAQ question button with toggle arrow */}
         <button
           class="faq-button w-full text-left px-4 py-3 bg-white font-semibold font-logo flex justify-between items-center"
           data-index={index}
         >
           <span>{item.title}</span>
+          {/* Toggle arrow icon */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="faq-icon h-5 w-5 transition-transform duration-200"
@@ -43,8 +51,9 @@ const {
             />
           </svg>
         </button>
-        <div class="faq-description px-4 py-0 text-gray-700 bg-white transition-all duration-300 ease-in-out">
-          {item.description}
+        {/* FAQ answer section */}
+        <div class="faq-description px-4 text-gray-700 bg-white transition-all duration-300 ease-in-out">
+         <span>{item.description}</span> 
         </div>
       </div>
     ))}
@@ -52,14 +61,18 @@ const {
 </WidgetWrapper>
 
 <script>
+  // Add interactivity once the DOM is fully loaded
   document.addEventListener('DOMContentLoaded', () => {
+    // Get all FAQ items
     const faqItems = document.querySelectorAll('.faq-item');
 
+    // Add click event listeners to each FAQ item
     faqItems.forEach((item) => {
       const btn = item.querySelector('.faq-button');
       if (!btn) return;
 
       btn.addEventListener('click', () => {
+        // Toggle the open state and rotate the arrow icon
         const icon = btn.querySelector('.faq-icon');
         item.classList.toggle('open');
         icon?.classList.toggle('rotate-180');
@@ -67,4 +80,3 @@ const {
     });
   });
 </script>
-

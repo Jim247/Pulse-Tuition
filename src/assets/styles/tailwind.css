@@ -120,7 +120,7 @@
 .faq-item.open .faq-description {
   max-height: 1000px; /* or a large enough value */
   opacity: 1;
-  padding: 1rem 0; /* spacing when open */
+
 }
 
 .group {
