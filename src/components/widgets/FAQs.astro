@@ -20,13 +20,10 @@ const {
   bgColor="olivegreen"
 >
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
   <div class="space-y-4">
     {items.map((item: { title: string; description: string }, index: number) => (
-      <div
-        class="faq-item border rounded-md overflow-hidden"
-        data-key={index}
-      >
-        <!-- Title -->
+      <div class="faq-item border rounded-md overflow-hidden" data-key={index}>
         <button
           class="faq-button w-full text-left px-4 py-3 bg-white font-semibold font-logo flex justify-between items-center"
           data-index={index}
@@ -46,11 +43,7 @@ const {
             />
           </svg>
         </button>
-        <!-- Collapsible Description -->
-        <div
-          class="faq-description px-4 py-2 text-gray-700 bg-white overflow-hidden transition-all duration-300 ease-in-out"
-          style="max-height: 0; opacity: 0; padding: 0;"
-        >
+        <div class="faq-description px-4 py-0 text-gray-700 bg-white transition-all duration-300 ease-in-out">
           {item.description}
         </div>
       </div>
@@ -60,38 +53,18 @@ const {
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const faqButtons = document.querySelectorAll('.faq-button');
+    const faqItems = document.querySelectorAll('.faq-item');
 
-    faqButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const parent = button.closest('.faq-item');
-        if (!parent) return;
+    faqItems.forEach((item) => {
+      const btn = item.querySelector('.faq-button');
+      if (!btn) return;
 
-        const description = parent.querySelector('.faq-description');
-        const icon = button.querySelector('.faq-icon');
-
-        if (description instanceof HTMLElement) {
-          // Check if currently open
-          const isOpen = description.style.maxHeight && description.style.maxHeight !== '0px';
-
-          if (isOpen) {
-            // Collapse
-            description.style.maxHeight = '0';
-            description.style.opacity = '0';
-            description.style.padding = '0';
-          } else {
-            // Expand
-            description.style.maxHeight = 'none';
-            description.style.opacity = '1';
-            description.style.padding = '0.5rem 1.5rem';
-          }
-
-          // Rotate the icon
-          if (icon) {
-            icon.classList.toggle('rotate-180', !isOpen);
-          }
-        }
+      btn.addEventListener('click', () => {
+        const icon = btn.querySelector('.faq-icon');
+        item.classList.toggle('open');
+        icon?.classList.toggle('rotate-180');
       });
     });
   });
 </script>
+

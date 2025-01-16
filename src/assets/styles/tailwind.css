@@ -111,8 +111,16 @@
   z-index: 10; /* Optional: to ensure it's on top of other content */
 }
 
-.faq-description.open {
-  max-height: 1000px; /* Arbitrary large value for expansion */
+.faq-item .faq-description {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.faq-item.open .faq-description {
+  max-height: 1000px; /* or a large enough value */
+  opacity: 1;
+  padding: 1rem 0; /* spacing when open */
 }
 
 .group {
