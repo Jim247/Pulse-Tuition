@@ -1,8 +1,9 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import TutorSelect from '~/components/widgets/TutorSelect.jsx';
+// import TutorSelect from '~/components/widgets/TutorSelect.jsx';//
 import Hero from '~/components/widgets/Hero.astro';
 import Divider from '~/components/ui/Divider.astro';
+import ContactForm from '~/components/widgets/ContactForm';
 
 const metadata = {
   title: 'Make a Booking',
@@ -16,5 +17,7 @@ const metadata = {
     image={{ src: '~/assets/images/piano-lesson.jpeg', alt: 'Hero Image' }}
   />
   <Divider />
-  <TutorSelect client:load />
+  <div class="container ">
+<ContactForm>
+  </div>
 </Layout>

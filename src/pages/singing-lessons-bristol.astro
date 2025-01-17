@@ -2,8 +2,7 @@
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
-import Layout from '~/layouts/PageLayout.astro';
-import singingImage from '~/assets/images/singing-lessons-bristol.jpeg';
+import Layout from '~/layouts/PageLayout.astro';;
 import FAQs from '~/components/widgets/FAQs.astro';
 import Steps3 from '~/components/widgets/Steps3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -17,21 +16,33 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero tagline="About Us" image={{ src: singingImage, alt: 'Singing Lessons Bristol Hero Image' }}>
-    <Fragment slot="title">
-      Discover the Joy of Singing <br />
-      <span class="text-highlight">With Expert Guidance</span>
-    </Fragment>
-    <Fragment slot="subtitle">
-      Singing Lessons Bristol offers a personalised approach to unlocking your vocal potential. Whether you're a
-      beginner or an experienced singer, our lessons include warm-ups, tailored vocal exercises, and practice on songs
-      of your choice. <br /><br />
-      Key areas of focus include breath control, pitch accuracy, expanding vocal range, and developing expressive performance
-      skills. Our supportive environment is designed to help you grow as a singer, boost your confidence, and achieve your
-      musical goals.
-    </Fragment>
-  </Hero>
-
+  <Layout metadata={metadata}>
+    <!-- Hero Widget ******************* -->
+  
+    <Hero
+      actions={[
+      {
+        variant: 'primary',
+        text: 'BOOK NOW ',
+        href: '/booking',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+      ]}
+      image={{ src: '~/assets/images/singing-lessons-bristol.jpeg', alt: 'Singing Lessons Bristol' }}
+    >
+      <Fragment slot="title">
+      SINGING TEACHERS IN THE<span class="hidden xl:inline"></span>
+      <span> BRISTOL </span> AREA
+      </Fragment>
+    
+      <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Bristol's Platform For Singing Tutors <br /> Find Your Perfect Vocal Coach In Bristol</span
+      >
+      </Fragment>
+    </Hero>
+  
   <Divider />
 
   <!-- Features3 Widget ************** -->

@@ -3,7 +3,6 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import guitarImage from '~/assets/images/guitar-lessons-bristol.jpg';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
@@ -18,14 +17,27 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero tagline="Guitar Lessons Bristol" image={{ src: guitarImage, alt: 'Guitar Lessons in Bristol Hero Image' }}>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'BOOK NOW ',
+        href: '/booking',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+    image={{ src: '~/assets/images/guitar-lessons-bristol.jpg', alt: 'Guitar Lessons Bristol' }}
+  >
     <Fragment slot="title">
-      Learn to Play Guitar <br />
-      <span class="">with Expert Tutors</span>
+      GUITAR TEACHERS IN THE<span class="hidden xl:inline"></span>
+      <span> BRISTOL </span> AREA
     </Fragment>
+
     <Fragment slot="subtitle">
-      We connect you with top quality, experienced guitar tutors in Bristol, offering personalised, one-on-one tuition
-      tailored to your goals
+      <span class="hidden sm:inline">
+        Bristol's Platform For Guitar Tutors <br /> Find Your Perfect Guitar Tutor In Bristol</span
+      >
     </Fragment>
   </Hero>
 
