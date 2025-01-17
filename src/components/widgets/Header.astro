@@ -36,7 +36,7 @@ const {
   actions = [
     {
       text: 'BOOK NOW',
-     href:'/booking',
+      href: '/booking',
       variant: 'primary',
     },
   ],
@@ -56,107 +56,103 @@ const {
     },
     'top-0 z-40 flex-none mx-auto w-full border-gray-50/0 transition-opacity ease-in-out bg-sky-900',
   ]}
-  {...(isSticky && { 'data-aw-sticky-header': true })}
-  {...(id && { id })}
+  {...isSticky && { 'data-aw-sticky-header': true }}
+  {...id && { id }}
 >
   <div class="absolute inset-0"></div>
   <div
     class:list={[
       'relative py-3 px-3 md:px-6 mx-auto w-full',
-      position !== 'center'
-        ? 'md:flex md:justify-between'
-        : 'md:grid md:grid-cols-[auto,1fr,auto] md:items-center',
+      position !== 'center' ? 'md:flex md:justify-between' : 'md:grid md:grid-cols-[auto,1fr,auto] md:items-center',
       !isFullWidth && 'max-w-7xl',
     ]}
   >
-<!-- Logo and Mobile Toggle -->
-<div class="flex items-center w-full relative">
-  <!-- Container with logo left, text center on mobile -->
-  <div class="flex-1 grid grid-cols-[1fr,auto,1fr] md:flex md:justify-start items-center">
-    <!-- Logo always left -->
-    <a href={getHomePermalink()} class="flex items-center">
-      <Logo />
-    </a>
-    <!-- Text centered on mobile, left on desktop -->
-    <div class="text-white text-xl font-logo align-middle text-center md:text-left md:ml-2 leading-none flex items-center">
-      PULSE TUITION
-    </div>
-  </div>
+    <!-- Logo and Mobile Toggle -->
+    <div class="flex items-center w-full relative">
+      <!-- Container with logo left, text center on mobile -->
+      <div class="flex-1 grid grid-cols-[1fr,auto,1fr] md:flex md:justify-start items-center">
+        <!-- Logo always left -->
+        <a href={getHomePermalink()} class="flex items-center">
+          <Logo />
+        </a>
+        <!-- Text centered on mobile, left on desktop -->
+        <div
+          class="text-white text-xl font-logo align-middle text-center md:text-left md:ml-2 leading-none flex items-center"
+        >
+          PULSE TUITION
+        </div>
+      </div>
 
-  <!-- Mobile Toggle positioned absolutely -->
-  <div class="absolute right-0 top-1/2 -translate-y-1/2 md:hidden">
-    <ToggleMenu />
-  </div>
-</div>
+      <!-- Mobile Toggle positioned absolutely -->
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 md:hidden">
+        <ToggleMenu />
+      </div>
+    </div>
 
     <!-- Navigation Links -->
     <nav
       class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default text-white md:justify-self-center md:min-h-0"
       aria-label="Main navigation"
     >
-      <ul class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-base tracking-wide font-medium md:justify-center space-x-8">
-        {links.map(({ text, href, submenu }) => (
-          <>
-            <li class="group relative">
-              {submenu?.length ? (
-                <>
-                  <!-- Parent Menu -->
-                  <button
-                    type="button"
-                    class="hover:text-link py-4 items-center whitespace-wrap uppercase focus:outline-none hidden md:flex"
-                    aria-haspopup="true"
-                    aria-expanded="false"
+      <ul
+        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-base tracking-wide font-medium md:justify-center space-x-8"
+      >
+        {
+          links.map(({ text, href, submenu }) => (
+            <>
+              <li class="group relative">
+                {submenu?.length ? (
+                  <>
+                    <button
+                      type="button"
+                      class="hover:text-link py-4 items-center whitespace-wrap uppercase focus:outline-none hidden md:flex"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      {text}
+                      <Icon name="tabler:chevron-down" class="w-4 h-4 ml-1 hidden md:inline text-white" />
+                    </button>
+                    <ul class="absolute left-0 top-full mt-1 w-48 bg-sky-900 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                      {submenu.map(({ text: submenuText, href: submenuHref }) => (
+                        <li>
+                          <a
+                            class="py-3 block justify whitespace-nowrap uppercase hover:text-sky-300 focus:outline-none text-white text-center"
+                            href={submenuHref}
+                          >
+                            {submenuText}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <a
+                    class="hover:text-link hover:text-sky-300 px-6 py-4 flex items-center whitespace-nowrap uppercase text-white"
+                    href={href}
                   >
                     {text}
-                    <Icon
-                      name="tabler:chevron-down"
-                      class="w-4 h-4 ml-1 hidden md:inline text-white"
-                    />
-                  </button>
-
-                  <!-- Submenu -->
-                  <ul
-                    class="absolute left-0 top-full mt-1 w-48 bg-sky-900 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
-                  >
-                    {submenu.map(({ text: submenuText, href: submenuHref }) => (
-                      <li>
-                        <a
-                          class="py-3 block justify whitespace-nowrap uppercase hover:text-sky-300 focus:outline-none text-white text-center"
-                          href={submenuHref}
-                        >
-                          {submenuText}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <a
-                  class="hover:text-link hover:text-sky-300 px-6 py-4 flex items-center whitespace-nowrap uppercase text-white"
-                  href={href}
-                >
-                  {text}
-                </a>
-              )}
-            </li>
-            {/* Submenu items as main menu items for mobile */}
-            {submenu?.length &&
-              submenu.map(({ text: submenuText, href: submenuHref }) => (
-                <li class="md:hidden text-right">
-                  <a
-                    class="text-white bg-sky-900 hover:text-sky-300 px-6 py-4 flex items-center whitespace-nowrap uppercase"
-                    href={submenuHref}
-                  >
-                    {submenuText}
                   </a>
-                </li>
-              ))}
-          </>
-        ))}
+                )}
+              </li>
+              {/* Submenu items as main menu items for mobile */}
+              {submenu?.length &&
+                submenu.map(({ text: submenuText, href: submenuHref }) => (
+                  <li class="md:hidden text-right">
+                    <a
+                      class="text-white bg-sky-900 hover:text-sky-300 px-6 py-4 flex items-center whitespace-nowrap uppercase"
+                      href={submenuHref}
+                    >
+                      {submenuText}
+                    </a>
+                  </li>
+                ))}
+            </>
+          ))
+        }
       </ul>
     </nav>
 
-    <!-- Action Buttons -->
+    {/*<!-- Action Buttons -->*/}
     <div
       class:list={[
         position === 'left' ? 'ml-auto rtl:ml-0 rtl:mr-auto' : '',
@@ -164,16 +160,15 @@ const {
       ]}
     >
       <div class="items-center flex justify-between w-full md:w-auto">
-        {actions?.length && (
-          <span class="ml-2 text-lg md:text-xl lg:text-2xl">
-            {actions.map((btnProps) => (
-              <Button
-                {...btnProps}
-                class="btn-primary"
-              />
-            ))}
-          </span>
-        )}
+        {
+          actions?.length && (
+            <span class="ml-2 text-lg md:text-xl lg:text-2xl">
+              {actions.map((btnProps) => (
+                <Button {...btnProps} class="btn-primary" />
+              ))}
+            </span>
+          )
+        }
       </div>
     </div>
   </div>

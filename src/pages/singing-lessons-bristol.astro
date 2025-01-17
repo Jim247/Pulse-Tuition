@@ -2,7 +2,7 @@
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
-import Layout from '~/layouts/PageLayout.astro';;
+import Layout from '~/layouts/PageLayout.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Steps3 from '~/components/widgets/Steps3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -18,192 +18,192 @@ const metadata = {
 
   <Layout metadata={metadata}>
     <!-- Hero Widget ******************* -->
-  
+
     <Hero
       actions={[
-      {
-        variant: 'primary',
-        text: 'BOOK NOW ',
-        href: '/booking',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
+        {
+          variant: 'primary',
+          text: 'BOOK NOW ',
+          href: '/booking',
+          target: '_blank',
+          icon: 'tabler:download',
+        },
       ]}
       image={{ src: '~/assets/images/singing-lessons-bristol.jpeg', alt: 'Singing Lessons Bristol' }}
     >
       <Fragment slot="title">
-      SINGING TEACHERS IN THE<span class="hidden xl:inline"></span>
-      <span> BRISTOL </span> AREA
+        SINGING TEACHERS IN THE<span class="hidden xl:inline"></span>
+        <span> BRISTOL </span> AREA
       </Fragment>
-    
+
       <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        Bristol's Platform For Singing Tutors <br /> Find Your Perfect Vocal Coach In Bristol</span
-      >
+        <span class="hidden sm:inline">
+          Bristol's Platform For Singing Tutors <br /> Find Your Perfect Vocal Coach In Bristol</span
+        >
       </Fragment>
     </Hero>
-  
-  <Divider />
 
-  <!-- Features3 Widget ************** -->
+    <Divider />
 
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Vocal Technique',
-        description:
-          'Master breath control, vocal placement, and posture to build a strong foundation for healthy and effective singing.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Music Theory',
-        description:
-          'Understand the basics of music theory, including scales, intervals, and harmony, to enhance your vocal skills.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Repertoire Building',
-        description:
-          'Expand your vocal repertoire by exploring genres such as classical, pop, jazz, and musical theatre.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Performance Skills',
-        description:
-          'Develop stage presence, emotional expression, and confidence to shine during live performances or auditions.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Improvisation',
-        description: 'Learn to experiment with your voice and improvise confidently across various musical styles.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Ear Training',
-        description:
-          'Improve your pitch accuracy and musical sensitivity with exercises designed to sharpen your listening skills.',
-        icon: 'tabler:template',
-      },
-    ]}
-  />
+    <!-- Features3 Widget ************** -->
 
-  <!-- Steps2 Widget ****************** -->
+    <Features3
+      columns={3}
+      isAfterContent={true}
+      items={[
+        {
+          title: 'Vocal Technique',
+          description:
+            'Master breath control, vocal placement, and posture to build a strong foundation for healthy and effective singing.',
+          icon: 'tabler:template',
+        },
+        {
+          title: 'Music Theory',
+          description:
+            'Understand the basics of music theory, including scales, intervals, and harmony, to enhance your vocal skills.',
+          icon: 'tabler:template',
+        },
+        {
+          title: 'Repertoire Building',
+          description:
+            'Expand your vocal repertoire by exploring genres such as classical, pop, jazz, and musical theatre.',
+          icon: 'tabler:template',
+        },
+        {
+          title: 'Performance Skills',
+          description:
+            'Develop stage presence, emotional expression, and confidence to shine during live performances or auditions.',
+          icon: 'tabler:template',
+        },
+        {
+          title: 'Improvisation',
+          description: 'Learn to experiment with your voice and improvise confidently across various musical styles.',
+          icon: 'tabler:template',
+        },
+        {
+          title: 'Ear Training',
+          description:
+            'Improve your pitch accuracy and musical sensitivity with exercises designed to sharpen your listening skills.',
+          icon: 'tabler:template',
+        },
+      ]}
+    />
 
-  <Steps2
-    title="Our Values"
-    subtitle="We believe in creating a supportive and inspiring learning environment that fosters creativity, growth, and a lifelong love for music."
-    items={[
-      {
-        title: 'Personalized Lessons',
-        description: 'Every student is unique, and we tailor lessons to match individual goals and aspirations.',
-      },
-      {
-        title: 'Continuous Improvement',
-        description:
-          'We encourage consistent practice and provide constructive feedback to help students achieve their full potential.',
-      },
-      {
-        title: 'Inspiring Confidence',
-        description: 'Our goal is to help students build confidence in their abilities, both in singing and in life.',
-      },
-    ]}
-  />
-  <FAQs
-    title="Frequently Asked Questions"
-    tagline="Piano, Keyboard, and Singing Lessons in Bristol"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'I’ve never played piano, keyboard, or sang before. Can I still learn?',
-        description:
-          "Absolutely! Our lessons are perfect for beginners. Whether you're starting from scratch or revisiting a passion, we'll guide you step-by-step, helping you play your first tune or hit your first note with confidence.",
-      },
-      {
-        title: 'Do you teach children?',
-        description:
-          'Yes! Our piano, keyboard, and singing lessons are designed for both children and adults, with tailored approaches to match different ages and learning styles.',
-      },
-      {
-        title: 'How often should I attend lessons?',
-        description:
-          'To see steady progress, we recommend weekly lessons. Regular practice between sessions will accelerate your improvement, whether you’re learning piano, keyboard, or singing.',
-      },
-      {
-        title: 'What types of music can I learn?',
-        description:
-          'We teach a variety of genres, including classical, pop, jazz, rock, and musical theatre. For singing, we can also explore styles like R&B, folk, or even your favorite karaoke hits.',
-      },
-      {
-        title: 'How long will it take me to learn to play or sing?',
-        description:
-          'It depends on your goals and practice habits. Many students see progress within weeks, such as playing simple songs or hitting their notes more accurately. Reaching advanced levels takes dedication over months or years.',
-      },
-      {
-        title: 'Am I too old to start learning?',
-        description:
-          "Not at all! Whether you're picking up an instrument or singing for the first time, it's never too late. We’ve helped students of all ages unlock their musical potential.",
-      },
-      {
-        title: 'Can I learn to sing if I think I’m tone-deaf?',
-        description:
-          "Yes, you can! Most people who think they're tone-deaf simply haven't had the right training. With personalised guidance and exercises, you'll develop your ear and find your voice.",
-      },
-      {
-        title: 'What if I don’t know how to read music?',
-        description:
-          'No problem! For piano and keyboard, we’ll teach you the basics of reading sheet music and understanding music theory. For singing, we focus on ear training, vocal techniques, and performance skills.',
-      },
-      {
-        title: 'Can I take lessons online?',
-        description:
-          'Yes, we offer online lessons for piano, keyboard, and singing. Our virtual sessions are just as effective as in-person lessons, and you can learn from the comfort of your home.',
-      },
-      {
-        title: 'Can I book a trial lesson?',
-        description:
-          'Of course! We offer a free 20-minute trial session for new students. Try piano, keyboard, or singing lessons to see if they’re the right fit for you.',
-      },
-      {
-        title: 'What makes your singing lessons unique?',
-        description:
-          "Our singing lessons go beyond technique. We focus on building confidence, stage presence, and even microphone skills if you're interested in performing. You'll also get personalised warm-ups and exercises to suit your voice.",
-      },
-      {
-        title: 'Can I learn to sing and play piano at the same time?',
-        description:
-          'Yes! Many students enjoy combining singing with piano or keyboard skills. We can help you coordinate playing and singing, perfect for songwriting or performing.',
-      },
-    ]}
-  />
+    <!-- Steps2 Widget ****************** -->
 
-  <!------- Steps 3 Widget ******** -->
-  <Steps3
-    title="Helpful Links for Singing"
-    subtitle="Here are some useful links and resources for people learning to sing."
-    items={[
-      {
-        title: 'Sing Up',
-        description: 'A site with free vocal exercises, tutorials, and tips for improving your singing voice.',
-        link: 'https://www.singup.org',
-      },
-      {
-        title: 'Vocal Coach',
-        description:
-          'Vocal coaching platform offering structured lessons, warm-ups, and performance tips for singers of all levels.',
-        link: 'https://www.vocalcoach.com',
-      },
-      {
-        title: 'The Vocalist Studio',
-        description:
-          'An online platform offering vocal training courses, including a range of techniques for professional singers.',
-        link: 'https://www.thevocaliststudio.com',
-      },
-    ]}
-  />
+    <Steps2
+      title="Our Values"
+      subtitle="We believe in creating a supportive and inspiring learning environment that fosters creativity, growth, and a lifelong love for music."
+      items={[
+        {
+          title: 'Personalized Lessons',
+          description: 'Every student is unique, and we tailor lessons to match individual goals and aspirations.',
+        },
+        {
+          title: 'Continuous Improvement',
+          description:
+            'We encourage consistent practice and provide constructive feedback to help students achieve their full potential.',
+        },
+        {
+          title: 'Inspiring Confidence',
+          description: 'Our goal is to help students build confidence in their abilities, both in singing and in life.',
+        },
+      ]}
+    />
+    <FAQs
+      title="Frequently Asked Questions"
+      tagline="Piano, Keyboard, and Singing Lessons in Bristol"
+      classes={{ container: 'max-w-6xl' }}
+      items={[
+        {
+          title: 'I’ve never played piano, keyboard, or sang before. Can I still learn?',
+          description:
+            "Absolutely! Our lessons are perfect for beginners. Whether you're starting from scratch or revisiting a passion, we'll guide you step-by-step, helping you play your first tune or hit your first note with confidence.",
+        },
+        {
+          title: 'Do you teach children?',
+          description:
+            'Yes! Our piano, keyboard, and singing lessons are designed for both children and adults, with tailored approaches to match different ages and learning styles.',
+        },
+        {
+          title: 'How often should I attend lessons?',
+          description:
+            'To see steady progress, we recommend weekly lessons. Regular practice between sessions will accelerate your improvement, whether you’re learning piano, keyboard, or singing.',
+        },
+        {
+          title: 'What types of music can I learn?',
+          description:
+            'We teach a variety of genres, including classical, pop, jazz, rock, and musical theatre. For singing, we can also explore styles like R&B, folk, or even your favorite karaoke hits.',
+        },
+        {
+          title: 'How long will it take me to learn to play or sing?',
+          description:
+            'It depends on your goals and practice habits. Many students see progress within weeks, such as playing simple songs or hitting their notes more accurately. Reaching advanced levels takes dedication over months or years.',
+        },
+        {
+          title: 'Am I too old to start learning?',
+          description:
+            "Not at all! Whether you're picking up an instrument or singing for the first time, it's never too late. We’ve helped students of all ages unlock their musical potential.",
+        },
+        {
+          title: 'Can I learn to sing if I think I’m tone-deaf?',
+          description:
+            "Yes, you can! Most people who think they're tone-deaf simply haven't had the right training. With personalised guidance and exercises, you'll develop your ear and find your voice.",
+        },
+        {
+          title: 'What if I don’t know how to read music?',
+          description:
+            'No problem! For piano and keyboard, we’ll teach you the basics of reading sheet music and understanding music theory. For singing, we focus on ear training, vocal techniques, and performance skills.',
+        },
+        {
+          title: 'Can I take lessons online?',
+          description:
+            'Yes, we offer online lessons for piano, keyboard, and singing. Our virtual sessions are just as effective as in-person lessons, and you can learn from the comfort of your home.',
+        },
+        {
+          title: 'Can I book a trial lesson?',
+          description:
+            'Of course! We offer a free 20-minute trial session for new students. Try piano, keyboard, or singing lessons to see if they’re the right fit for you.',
+        },
+        {
+          title: 'What makes your singing lessons unique?',
+          description:
+            "Our singing lessons go beyond technique. We focus on building confidence, stage presence, and even microphone skills if you're interested in performing. You'll also get personalised warm-ups and exercises to suit your voice.",
+        },
+        {
+          title: 'Can I learn to sing and play piano at the same time?',
+          description:
+            'Yes! Many students enjoy combining singing with piano or keyboard skills. We can help you coordinate playing and singing, perfect for songwriting or performing.',
+        },
+      ]}
+    />
 
-  <!-- Features2 Widget ************** 
+    <!------- Steps 3 Widget ******** -->
+    <Steps3
+      title="Helpful Links for Singing"
+      subtitle="Here are some useful links and resources for people learning to sing."
+      items={[
+        {
+          title: 'Sing Up',
+          description: 'A site with free vocal exercises, tutorials, and tips for improving your singing voice.',
+          link: 'https://www.singup.org',
+        },
+        {
+          title: 'Vocal Coach',
+          description:
+            'Vocal coaching platform offering structured lessons, warm-ups, and performance tips for singers of all levels.',
+          link: 'https://www.vocalcoach.com',
+        },
+        {
+          title: 'The Vocalist Studio',
+          description:
+            'An online platform offering vocal training courses, including a range of techniques for professional singers.',
+          link: 'https://www.thevocaliststudio.com',
+        },
+      ]}
+    />
+
+    <!-- Features2 Widget ************** 
 <Features2
 title="Where to Find Us"
 tagline="Piano Lessons Near You in Bristol"
@@ -213,15 +213,16 @@ items={[]}
 />
 -->
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'BOOK NOW',
-        href: '/booking',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-    ]}
-  />
+    <CallToAction
+      actions={[
+        {
+          variant: 'primary',
+          text: 'BOOK NOW',
+          href: '/booking',
+          target: '_blank',
+          icon: 'tabler:download',
+        },
+      ]}
+    />
+  </Layout>
 </Layout>
