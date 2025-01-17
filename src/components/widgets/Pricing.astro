@@ -53,7 +53,10 @@ const {
                             description && (
                               <li class="mb-1.5 flex items-start space-x-3 leading-7">
                                 <div class="rounded-full bg-primary mt-1">
-                                  <Icon name={icon ? icon : 'tabler:check'} class="w-5 h-5 font-bold text-white bg-green-700" />
+                                  <Icon
+                                    name={icon ? icon : 'tabler:check'}
+                                    class="w-5 h-5 font-bold text-white bg-green-700"
+                                  />
                                 </div>
                                 <span>{description}</span>
                               </li>
@@ -68,7 +71,9 @@ const {
                         <Fragment set:html={callToAction} />
                       ) : (
                         callToAction &&
-                        callToAction.href && <Button {...(hasRibbon ? { variant: 'secondary' } : {})} {...callToAction} />
+                        callToAction.href && (
+                          <Button {...(hasRibbon ? { variant: 'secondary' } : {})} {...callToAction} />
+                        )
                       )}
                     </div>
                   )}

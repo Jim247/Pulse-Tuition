@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import TutorSelect from '~/components/widgets/TutorSelect.jsx';
 import Hero from '~/components/widgets/Hero.astro';
+import Divider from '~/components/ui/Divider.astro';
 
 const metadata = {
   title: 'Make a Booking',
@@ -9,13 +10,11 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-
-<Hero 
-  title="Find a Tutor!"
-  subtitle="Book a tutor today, select an instrument from the menu below"
-  image={{ src: "~/assets/images/piano-lesson.jpeg", alt: "Hero Image" }}
-/>
-<TutorSelect client:load />
-  <!-- Contact Form React Component ******************* -->
-
+  <Hero
+    title="Find a Tutor!"
+    subtitle="Book a tutor today, select an instrument from the menu below"
+    image={{ src: '~/assets/images/piano-lesson.jpeg', alt: 'Hero Image' }}
+  />
+  <Divider />
+  <TutorSelect client:load />
 </Layout>

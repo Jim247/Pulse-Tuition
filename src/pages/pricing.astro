@@ -5,19 +5,15 @@ import Prices from '~/components/widgets/Pricing.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
-
-
 const metadata = {
   title: 'Pricing',
 };
 ---
 
 <Layout metadata={metadata}>
-
   <!-- HeroText Widget ******************* -->
 
   <HeroText tagline="Pricing" title="Excellent Value, the Best Tutors in Town" subtitle="" />
-
 
   <!-- Pricing Widget ******************* -->
 
@@ -63,22 +59,22 @@ const metadata = {
 
   <!-- Steps Widget ****************** -->
 
-<Steps
-  title="A simple journey to finding the perfect Bristol Tutor"
-  tagline="simplified process"
-  isReversed={true}
-  items={[
-    { title: 'Find a tutor', icon: 'tabler:number-1' },
-    { title: 'Sign up', icon: 'tabler:number-2' },
-    { title: 'Book a trial lesson', icon: 'tabler:number-3' },
-    { title: 'Confirmation from tutor', icon: 'tabler:number-4' },
-    { title: 'Meet your tutor', icon: 'tabler:number-5' },
-    { title: 'Book further lessons', icon: 'tabler:number-6'},
-  ]}
-  image={{
-    src: '~/assets/images/guitar-lesson-portrait.jpeg',
-    alt: 'A guitar lesson taking place'
-  }}
+  <Steps
+    title="A simple journey to finding the perfect Bristol Tutor"
+    tagline="simplified process"
+    isReversed={true}
+    items={[
+      { title: 'Find a tutor', icon: 'tabler:number-1' },
+      { title: 'Sign up', icon: 'tabler:number-2' },
+      { title: 'Book a trial lesson', icon: 'tabler:number-3' },
+      { title: 'Confirmation from tutor', icon: 'tabler:number-4' },
+      { title: 'Meet your tutor', icon: 'tabler:number-5' },
+      { title: 'Book further lessons', icon: 'tabler:number-6' },
+    ]}
+    image={{
+      src: '~/assets/images/guitar-lesson-portrait.jpeg',
+      alt: 'A guitar lesson taking place',
+    }}
   />
 
   <!-- CallToAction Widget *********** -->

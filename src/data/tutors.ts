@@ -29,7 +29,7 @@ const tutors = [
     calendly: 'https://calendly.com/tutor-b',
     bio: 'Classically trained pianist with a passion for modern pop.',
     photo: 'assets/images/tutors/tutorB.jpg',
-  }
+  },
 ];
 
 export default tutors;

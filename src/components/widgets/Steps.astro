@@ -37,21 +37,23 @@ const {
     </div>
 
     {/* Right Column - Image */}
-    {image && (
-      <div class="w-full md:w-1/2">
-        {typeof image === 'string' ? (
-          <Fragment set:html={image} />
-        ) : (
-          <Image
-            class="w-full h-auto rounded-md shadow-lg object-cover"
-            widths={[400, 768]}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            layout="cover"
-            alt={image.alt}
-            src={image.src}
-          />
-        )}
-      </div>
-    )}
+    {
+      image && (
+        <div class="w-full md:w-1/2">
+          {typeof image === 'string' ? (
+            <Fragment set:html={image} />
+          ) : (
+            <Image
+              class="w-full h-auto rounded-md shadow-lg object-cover"
+              widths={[400, 768]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              layout="cover"
+              alt={image.alt}
+              src={image.src}
+            />
+          )}
+        </div>
+      )
+    }
   </div>
 </WidgetWrapper>

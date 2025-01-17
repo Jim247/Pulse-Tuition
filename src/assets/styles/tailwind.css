@@ -51,7 +51,6 @@
   .header-scroll {
     @apply bg-sky-900 md:backdrop-blur-md transition-all duration-300 ease-in-out;
   }
-
 }
 
 #header.expanded > div.absolute {
@@ -61,7 +60,6 @@
 #header.scroll > div:first-child {
   @apply header-scroll;
 }
-
 
 /* #header.scroll > div:last-child {
   @apply py-3;
@@ -105,7 +103,6 @@
   @apply bg-page text-page;
 }
 
-
 .group {
   position: relative; /* The parent container for positioning the dropdown */
 }
@@ -122,7 +119,9 @@
   opacity: 0; /* Initially hidden */
   visibility: hidden; /* Initially hidden */
   z-index: 1000; /* Ensure it appears above other elements */
-  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth dropdown appearance */
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease; /* Smooth dropdown appearance */
 }
 
 .group:hover ul {
@@ -159,5 +158,5 @@
   display: block;
   width: calc(100% + 1.3px);
   height: 25px;
-  margin-top: -1px; 
+  margin-top: -1px;
 }
