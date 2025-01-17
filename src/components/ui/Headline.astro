@@ -22,21 +22,21 @@ const {
 ---
 
 {(title || subtitle || tagline) && (
-  <div class={twMerge('md:mx-auto md:mb-12 text-center', containerClass)}>
+  <div class={twMerge('md:mx-auto md:mb-12 text-center justify-center', containerClass)}>
     {tagline && (
       <p
-        class="text-base text-secondary text-sky-900 font-bold tracking-wide uppercase"
+        class="text-base text-center text-secondary text-sky-900 font-bold tracking-wide uppercase"
         set:html={tagline}
       />
         )}
 
         {/* If icon or defaultIcon are valid strings, use them. Otherwise skip. */}
         {typeof icon === 'string' ? (
-  <div class="flex justify-center items-center">
+  <div class="flex justify-center items-left">
     <Icon name={icon} class={twMerge('w-16 h-16 stroke-1 text-sky-900', defaultIconClass)} />
   </div>
 ) : typeof defaultIcon === 'string' ? (
-  <div class="flex justify-center items-center">
+  <div class="flex justify-center  items-left">
     <Icon name={defaultIcon} class={twMerge('w-16 h-16 stroke-1 text-sky-900', defaultIconClass)} />
   </div>
 ) : null}
@@ -44,7 +44,7 @@ const {
         {title && (
       <h2
         class={twMerge(
-          'font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl pt-5',
+          'font-bold leading-tighter tracking-tighter font-heading text-heading text-center text-3xl pt-5',
           titleClass
         )}
         set:html={title}
@@ -52,7 +52,7 @@ const {
     )}
 
     {subtitle && (
-      <p class ={twMerge('mt-2 text-muted mb-10', subtitleClass)} set:html={subtitle} />
+      <p class ={twMerge('mt-2 text-muted mb-10 text-center', subtitleClass)} set:html={subtitle} />
     )}
 
     {link && <div class="mt-2" set:html={link} />}
