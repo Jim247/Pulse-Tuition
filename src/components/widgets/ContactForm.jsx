@@ -6,7 +6,6 @@ import { useForm, ValidationError } from '@formspree/react';
 const ContactForm = () => {
   const [state, handleSubmit] = useForm('xpwzybyo'); // Replace with your Formspree form ID
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
-  const [setRecaptchaToken] = useState(null);
 
   // Dynamically load the reCAPTCHA script when the component mounts
   useEffect(() => {
