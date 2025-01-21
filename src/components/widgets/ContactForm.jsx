@@ -9,27 +9,42 @@ const ContactForm = () => {
 
   // Dynamically load the reCAPTCHA script when the component mounts
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6LeJUr4qAAAAAGipGf-IuSzHA0gCF-awE4WjvlHR';
-    script.async = true;
-    script.defer = true;
+    if (typeof window !== 'undefined') {
+      const loadReCaptcha = async () => {
+        try {
+          const script = document.createElement('script');
+          script.src = 'https://www.google.com/recaptcha/enterprise.js';
+          script.async = true;
+          script.defer = true;
 
-    script.onload = () => {
-      console.log('reCAPTCHA script loaded successfully');
-      setRecaptchaLoaded(true);
-    };
+          script.onload = () => {
+            console.log('reCAPTCHA script loaded successfully');
+            window.grecaptcha.enterprise.ready(() => {
+              setRecaptchaLoaded(true);
+            });
+          };
 
-    script.onerror = () => {
-      console.error('Failed to load reCAPTCHA script');
-      setRecaptchaLoaded(false);
-    };
+          script.onerror = () => {
+            console.error('Failed to load reCAPTCHA script');
+            setRecaptchaLoaded(false);
+          };
 
-    document.head.appendChild(script);
+          document.head.appendChild(script);
+        } catch (error) {
+          console.error('Error loading reCAPTCHA:', error);
+          setRecaptchaLoaded(false);
+        }
+      };
 
-    // Clean up script when the component unmounts
-    return () => {
-      document.head.removeChild(script);
-    };
+      loadReCaptcha();
+
+      return () => {
+        const script = document.querySelector('script[src*="recaptcha/enterprise.js"]');
+        if (script) {
+          document.head.removeChild(script);
+        }
+      };
+    }
   }, []);
 
   // Handle form submission
@@ -43,9 +58,7 @@ const ContactForm = () => {
           '6LcsZL4qAAAAAK7jEN4cTeudsv2KPDtvMTbzxOAA', // Your site key
           { action: 'submit' }
         );
-        setRecaptchaToken(token);
         console.log('reCAPTCHA token generated:', token);
-
         // Attach the token to a hidden input field in the form
         e.target.querySelector('#g-recaptcha-token').value = token;
 
