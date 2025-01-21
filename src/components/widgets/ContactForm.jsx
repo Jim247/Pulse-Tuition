@@ -132,6 +132,10 @@ const ContactForm = () => {
 
       {/* Submit Button */}
       <div>
+      <div 
+  class="g-recaptcha" 
+  data-sitekey="6LeJUr4qAAAAAGipGf-IuSzHA0gCF-awE4WjvlHR"
+></div>
         <button
           type="submit"
           disabled={state.submitting}
