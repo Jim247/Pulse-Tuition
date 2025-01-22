@@ -7,6 +7,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Steps3 from '~/components/widgets/Steps3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Divider from '~/components/ui/Divider.astro';
+import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 
 const metadata = {
   title: 'About Us - Singing Lessons Bristol',
@@ -85,6 +86,27 @@ const metadata = {
           description:
             'Improve your pitch accuracy and musical sensitivity with exercises designed to sharpen your listening skills.',
           icon: 'tabler:template',
+        },
+      ]}
+    />
+
+    <StarTestimonials
+      id="student-testimonials"
+      title="What Our Students Say"
+      subtitle="Real stories from our students and parents"
+      isDark={false}
+      testimonials={[
+        {
+          text: 'My son really enjoyed his lessons with Steve, he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
+          name: 'Katherine',
+          role: 'Parent - Guitar - Bristol',
+          rating: 5,
+        },
+        {
+          text: "Sophie has been giving 1-2-1 lessons to our 9 year old daughter for the last couple of months. She is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
+          name: 'Oliver',
+          role: 'Parent - Vocals - Bristol',
+          rating: 5,
         },
       ]}
     />

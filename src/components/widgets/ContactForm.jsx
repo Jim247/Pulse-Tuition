@@ -1,100 +1,147 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
+
+/**
+ * Name attribute must be present in each input field
+ */
 
 const ContactForm = () => {
-  const [formState, setFormState] = useState({ submitting: false, succeeded: false, error: false });
+  const [state, handleSubmit] = useForm('xpwzybyo'); // Replace with your Formspree form ID
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setFormState({ ...formState, submitting: true });
-
-    try {
-      const formData = new FormData(e.target);
-      const response = await fetch('/', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        setFormState({ submitting: false, succeeded: true, error: false });
-      } else {
-        throw new Error('Submission failed');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setFormState({ submitting: false, succeeded: false, error: true });
-    }
-  };
-
-  if (formState.succeeded) {
+  // If submission is successful, show success message
+  if (state.succeeded) {
     return <p>Thanks for your submission!</p>;
   }
 
   return (
     <form
-      onSubmit={handleSubmit}
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      data-netlify-recaptcha="true"
+      onSubmit={handleSubmit} // Use Formspree's handleSubmit directly
+      action="https://formspree.io/f/xpwzybyo" // Set the Formspree URL
+      method="POST" // Ensure the method is POST
       className="space-y-6 bg-white p-6 rounded-lg shadow-md max-w-xl mx-auto"
     >
-      <input type="hidden" name="form-name" value="contact" />
-
       <h2 className="text-2xl font-bold text-center">Contact Us</h2>
 
+      {/* Name Field */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-1">
+        <label className="block text-sm font-medium mb-1" htmlFor="name">
           Name
         </label>
         <input
           type="text"
           id="name"
-          name="name"
+          name="name" // Ensure name attribute is present
           required
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
         />
+        <ValidationError prefix="Name" field="name" errors={state.errors} />
       </div>
 
+      {/* Email Field */}
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-1">
+        <label className="block text-sm font-medium mb-1" htmlFor="email">
           Email
         </label>
         <input
           type="email"
           id="email"
-          name="email"
+          name="email" // Ensure name attribute is present
           required
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
+          placeholder="elton@john.com"
         />
+        <ValidationError prefix="Email" field="email" errors={state.errors} />
       </div>
 
+      {/* Phone Field */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-1">
+        <label className="block text-sm font-medium mb-1" htmlFor="phone">
+          Phone
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone" // Ensure name attribute is present
+          className="w-full px-4 py-2 border border-gray-300 rounded-md"
+          placeholder="+44 7123 456 789"
+        />
+        <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+      </div>
+
+      {/* Instruments Field */}
+      <div>
+        <label className="block text-sm font-medium mb-1">Instruments</label>
+        <div className="space-y-2">
+          {/* Vocals */}
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="vocals"
+              value="Vocals"
+              name="instruments[]" // Ensure name attribute is present
+              className="h-4 w-4 text-indigo-600 border-gray-300 rounded"
+            />
+            <label htmlFor="vocals" className="ml-2 text-sm">
+              Vocals
+            </label>
+          </div>
+          {/* Keys/Piano */}
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="keys"
+              value="Keys/Piano"
+              name="instruments[]" // Ensure name attribute is present
+              className="h-4 w-4 text-indigo-600 border-gray-300 rounded"
+            />
+            <label htmlFor="keys" className="ml-2 text-sm">
+              Keys/Piano
+            </label>
+          </div>
+          {/* Guitar */}
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="guitar"
+              value="Guitar"
+              name="instruments[]" // Ensure name attribute is present
+              className="h-4 w-4 text-indigo-600 border-gray-300 rounded"
+            />
+            <label htmlFor="guitar" className="ml-2 text-sm">
+              Guitar
+            </label>
+          </div>
+        </div>
+        <ValidationError prefix="Instruments" field="instruments" errors={state.errors} />
+      </div>
+
+      {/* Message Field */}
+      <div>
+        <label className="block text-sm font-medium mb-1" htmlFor="message">
           Message
         </label>
         <textarea
           id="message"
-          name="message"
+          name="message" // Ensure name attribute is present
           rows={6}
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
+          placeholder="How can we help? Please include age, level, musical interests, and goals..."
         />
+        <ValidationError prefix="Message" field="message" errors={state.errors} />
       </div>
 
-      <div data-netlify-recaptcha="true"></div>
-
+      {/* Submit Button */}
       <div>
         <button
           type="submit"
-          disabled={formState.submitting}
+          disabled={state.submitting}
           className={`w-full py-2 rounded-md ${
-            formState.submitting ? 'bg-gray-400' : 'bg-sky-900 hover:bg-sky-700 text-white'
+            state.submitting ? 'bg-gray-400' : 'bg-sky-900 hover:bg-sky-700 text-white'
           }`}
         >
-          {formState.submitting ? 'Submitting...' : 'Submit'}
+          {state.submitting ? 'Submitting...' : 'Submit'}
         </button>
       </div>
-
-      {formState.error && <p className="text-red-500 text-sm text-center mt-2">Submission failed. Please try again.</p>}
     </form>
   );
 };
