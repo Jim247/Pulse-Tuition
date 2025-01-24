@@ -37,11 +37,12 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
     class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-white intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
   >
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
-      <div class="col-span-12 lg:col-span-4">
+      <div class="col-span-12 lg:col-span-4 text-center lg:text-left">
         <div class="mb-2">
           <a class="inline-block font-bold text-xl text-white font-logo" href={getHomePermalink()}>{SITE?.name}</a>
         </div>
-        <div class="text-sm text-white flex gap-1">
+        <!-- Center on small, left-aligned on large -->
+        <div class="text-sm text-white flex flex-col sm:flex-row sm:flex-nowrap items-center gap-1 justify-center lg:justify-start">
           {
             secondaryLinks.map(({ text, href }, index) => (
               <>
@@ -58,7 +59,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       </div>
       {
         links.map(({ title, links }) => (
-          <div class="col-span-6 md:col-span-3 lg:col-span-2">
+          <div class="col-span-6 md:col-span-3 lg:col-span-2 text-center sm:text-left">
             <div class="dark:text-white font-medium mb-2">{title}</div>
             {links && Array.isArray(links) && links.length > 0 && (
               <ul class="text-sm">
@@ -79,29 +80,26 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         ))
       }
     </div>
-    <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
+    <div class="md:flex sm:items-center md:items-center md:justify-between py-6 md:py-8">
       {
         socialLinks?.length ? (
-          <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
+            <ul class="flex justify-center md:justify-start items-center mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
             {socialLinks.map(({ ariaLabel, href, text, icon }) => (
               <li>
                 <a
-                  class="text-white dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                  class="text-white hover:bg-white hover:text-sky-900 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:text-sky-900 focus:ring-gray-200 rounded-lg text-md p-2.5 inline-flex items-center"
                   aria-label={ariaLabel}
                   href={href}
                 >
-                  {icon && <Icon name={icon} class="w-5 h-5" />}
+                  {icon && <Icon name={icon} class="w-9 h-9" />}
                   <Fragment set:html={text} />
                 </a>
               </li>
             ))}
           </ul>
-        ) : (
-          ''
-        )
+        ) : ''
       }
-
-      <div class="text-sm mr-4 dark:text-white">
+      <div class="text-center dark:text-white md:text-left w-full md:w-auto">
         <Fragment set:html={footNote} />
       </div>
     </div>
