@@ -18,8 +18,7 @@ const ContactForm = () => {
       onSubmit={handleSubmit} // Use Formspree's handleSubmit directly
       action="https://formspree.io/f/xpwzybyo" // Set the Formspree URL
       method="POST" // Ensure the method is POST
-      className="space-y-6 bg-white p-6 rounded-lg shadow-md max-w-xl mx-auto"
-    >
+      className="space-y-6 bg-white p-6 rounded-lg shadow-md w-full md:w-2/3 lg:w-1/2 mx-auto"    >
       <h2 className="text-2xl font-bold text-center">Contact Us</h2>
 
       {/* Name Field */}
