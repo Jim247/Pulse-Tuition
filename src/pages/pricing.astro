@@ -20,22 +20,6 @@ const metadata = {
   <Prices
     prices={[
       {
-        title: 'Pay as you go',
-        subtitle: 'from',
-        price: 20,
-        period: 'per half-hour lesson',
-        items: [
-          { description: '30, 40 and 60 minute durations' },
-          { description: 'Bespoke tuition from expert tutors' },
-          { description: 'Online payment and lesson management gateway' },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: './contact',
-        },
-      },
-      {
         title: 'Block Booking',
         subtitle: 'from',
         price: 18,
@@ -54,6 +38,35 @@ const metadata = {
         hasRibbon: true,
         ribbonTitle: 'popular',
       },
+      {
+        title: 'Pay as you go',
+        subtitle: 'from',
+        price: 20,
+        period: 'per half-hour lesson',
+        items: [
+          { description: '30, 40 and 60 minute durations' },
+          { description: 'Bespoke tuition from expert tutors' },
+          { description: 'Online payment and lesson management gateway' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get started',
+          href: './contact',
+        },
+        },
+        {
+        title: 'Our Competitor\'s Price',
+        subtitle: 'from',
+        price: 30,
+        period: 'per half-hour lesson',
+        items: [
+        { description: 'A typical competitor from Bristol - price as of January 2024.',
+        icon: 'cross'},
+        
+        { description: 'No access to online payment gateway',
+          icon: 'cross'},
+        ],
+      }
     ]}
   />
 
@@ -74,7 +87,8 @@ const metadata = {
     image={{
       src: '~/assets/images/guitar-lesson-portrait.jpeg',
       alt: 'A guitar lesson taking place',
-    }}
+    }},
+    
   />
 
   <!-- CallToAction Widget *********** -->
