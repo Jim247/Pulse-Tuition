@@ -22,7 +22,6 @@ For the purposes of these Terms and Conditions:
 - **Device** means any device that can access the Service such as a computer, a mobile phone, or a tablet.
 - **Service** refers to the Website and any associated services provided by the Company.
 - **Terms and Conditions** (also referred to as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service.
-- **Third-party Social Media Service** means any services or content (including data, information, products, or services) provided by a third party that may be displayed, included, or made available through the Service.
 - **Website** refers to [Your Website URL].
 - **You** means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
 
@@ -30,75 +29,78 @@ For the purposes of these Terms and Conditions:
 
 ## Acknowledgment
 
-These Terms govern the use of this Service and form the agreement between You and the Company. By accessing or using the Service, You agree to be bound by these Terms. If You disagree with any part of these Terms, You must not use the Service.
+These Terms govern the use of this Service and form a legally binding agreement between You and the Company. By accessing or using the Service, You agree to be bound by these Terms. If You disagree with any part of these Terms, You must not use the Service.
 
-You confirm that You are over the age of 18. If You are under 18, You may only use the Service with the involvement and approval of a parent or guardian.
+You represent that You are at least 18 years old. If You are under 18, You may only use the Service with the involvement and consent of a parent or guardian.
 
-Your use of the Service is also subject to Our Privacy Policy, which explains how We collect, use, and protect Your personal information in accordance with UK GDPR. Please review it carefully.
+Your use of the Service is also subject to Our Privacy Policy, which details Our compliance with the UK GDPR and Data Protection Act 2018. 
 
 ---
 
-## Links to Other Websites
+## Links to Third-Party Websites
 
-Our Service may contain links to third-party websites or services not owned or controlled by the Company. We do not assume responsibility for the content, privacy policies, or practices of these third-party websites. We strongly recommend reviewing their terms and privacy policies before engaging with them.
+Our Service may contain links to third-party websites. We accept no liability for the content or operation of these websites. Your use of third-party sites is subject to their terms and conditions.
 
 ---
 
 ## Termination
 
-We reserve the right to terminate or suspend Your access to the Service immediately, without prior notice, if You breach these Terms or engage in unlawful activity.
-
-Upon termination, Your right to use the Service will cease immediately.
+We may terminate or suspend Your access immediately if You breach these Terms or applicable laws. Upon termination, Your right to use the Service ceases immediately.
 
 ---
 
 ## Limitation of Liability
 
-Under no circumstances will the Company or its affiliates be liable for:
+To the fullest extent permitted by applicable law:
 
-- Losses not foreseeable by both parties when the contract was formed.
-- Losses that were not caused by any breach on Our part.
+1. We limit Our liability for business losses. If You use the Service for commercial purposes, We shall not be liable for loss of profits, business, goodwill, or similar losses.
 
-Our liability to You will not exceed the total amount paid by You through the Service or £100 if no payments have been made.
-
-Nothing in these Terms excludes or limits liability for death or personal injury caused by Our negligence, fraud, or any other liability that cannot be excluded under UK law.
+2. We do not exclude or limit Our liability for:
+    - Death or personal injury caused by Our negligence
+    - Fraud or fraudulent misrepresentation
+    - Breach of the terms implied by section 12 of the Sale of Goods Act 1979
+    - Defective products under the Consumer Protection Act 1987
+    - Any other liability that cannot be excluded by law
 
 ---
 
 ## Consumer Rights
 
-If You are a UK-based consumer, these Terms and Conditions do not affect Your statutory rights under the Consumer Rights Act 2015. For digital content provided as part of Our Service, You are entitled to content that is of satisfactory quality, fit for purpose, and as described.
+If You are a consumer in the UK, You have rights under the Consumer Rights Act 2015, which are not affected by these Terms. For digital content, You are entitled to content that is:
+- Of satisfactory quality
+- Fit for purpose
+- As described
+- Maintained to a reasonable standard
+
+If the digital content is faulty, You're entitled to a repair or replacement. If the fault can't be fixed, or hasn't been fixed within a reasonable time, You can get some, or all of Your money back.
 
 ---
 
-## "AS IS" and "AS AVAILABLE" Disclaimer
+## Service Availability
 
-The Service is provided to You "AS IS" and "AS AVAILABLE" without any warranties, either express or implied, including implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
-
-We do not guarantee that the Service will be error-free or uninterrupted.
-
-Some jurisdictions do not allow the exclusion of implied warranties, so some of the above exclusions may not apply to You.
+While We strive to provide uninterrupted Service, We do not guarantee that the Service will be available at all times. We reserve the right to modify or discontinue the Service temporarily or permanently without notice.
 
 ---
 
 ## Governing Law
 
-These Terms are governed by the laws of England and Wales. Disputes arising from these Terms will be subject to the exclusive jurisdiction of the courts of England and Wales.
+These Terms are governed by English law. You can bring legal proceedings regarding these Terms in the courts of England and Wales. If You live in Scotland, You can bring legal proceedings in either Scottish or English courts. If You live in Northern Ireland, You can bring legal proceedings in either Northern Irish or English courts.
 
 ---
 
-## Disputes Resolution
+## Dispute Resolution
 
-If You have any concern or dispute about the Service, You agree to try to resolve it informally by contacting Us first.
+We encourage You to contact Us first with any concerns. You may also be entitled to use the EU Online Dispute Resolution platform (http://ec.europa.eu/consumers/odr/).
 
 ---
 
-## Changes to These Terms and Conditions
+## Changes to These Terms
 
-We reserve the right to update or modify these Terms at any time. If changes are significant, We will notify You in advance. Your continued use of the Service after changes are made indicates Your acceptance of the new Terms.
+We may revise these Terms at any time. Material changes will be notified to You in advance. Your continued use of the Service after changes constitutes acceptance of the new Terms.
 
 ---
 
 ## Contact Us
 
-If You have any questions about these Terms and Conditions, You can contact Us at [Your Contact Method, e.g., email or webform].
+For questions about these Terms, contact Us at [Your Contact Method].
+
