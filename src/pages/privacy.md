@@ -38,6 +38,7 @@ For the purposes of this Privacy Policy:
 ## Legal Basis for Processing Personal Data
 
 We process your personal data on the following legal bases:
+
 - Contract fulfillment
 - Legal obligation
 - Legitimate interests
@@ -46,6 +47,7 @@ We process your personal data on the following legal bases:
 ## Your Rights Under UK Data Protection Law
 
 You have the right to:
+
 - Access your personal data
 - Rectify inaccurate data
 - Erase your data (right to be forgotten)
@@ -62,6 +64,7 @@ You have the right to:
 ## International Transfers
 
 Where we transfer your data outside the UK, we ensure appropriate safeguards are in place in accordance with UK GDPR requirements, including:
+
 - Standard contractual clauses
 - Adequacy decisions
 - Binding corporate rules where applicable
@@ -71,6 +74,7 @@ Where we transfer your data outside the UK, we ensure appropriate safeguards are
 ## Children's Privacy
 
 We process children's personal data only where:
+
 - We have obtained parental/guardian consent
 - The processing is necessary for the provision of music tuition services
 - We have appropriate safeguards in place
@@ -80,6 +84,7 @@ We process children's personal data only where:
 ## Data Protection Officer
 
 Our Data Protection Officer can be contacted at:
+
 - Email: [info@pulse-tuition.co.uk]
 - Address: [Company Address]
 
@@ -94,7 +99,7 @@ You have the right to make a complaint at any time to the Information Commission
 ## Contact Us
 
 For any data protection queries, please contact:
+
 - Email: info@pulse-tuition.co.uk
 - Phone: [Phone Number]
 - Address: [Company Address]
-

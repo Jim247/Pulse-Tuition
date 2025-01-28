@@ -33,7 +33,7 @@ These Terms govern the use of this Service and form a legally binding agreement 
 
 You represent that You are at least 18 years old. If You are under 18, You may only use the Service with the involvement and consent of a parent or guardian.
 
-Your use of the Service is also subject to Our Privacy Policy, which details Our compliance with the UK GDPR and Data Protection Act 2018. 
+Your use of the Service is also subject to Our Privacy Policy, which details Our compliance with the UK GDPR and Data Protection Act 2018.
 
 ---
 
@@ -56,17 +56,18 @@ To the fullest extent permitted by applicable law:
 1. We limit Our liability for business losses. If You use the Service for commercial purposes, We shall not be liable for loss of profits, business, goodwill, or similar losses.
 
 2. We do not exclude or limit Our liability for:
-    - Death or personal injury caused by Our negligence
-    - Fraud or fraudulent misrepresentation
-    - Breach of the terms implied by section 12 of the Sale of Goods Act 1979
-    - Defective products under the Consumer Protection Act 1987
-    - Any other liability that cannot be excluded by law
+   - Death or personal injury caused by Our negligence
+   - Fraud or fraudulent misrepresentation
+   - Breach of the terms implied by section 12 of the Sale of Goods Act 1979
+   - Defective products under the Consumer Protection Act 1987
+   - Any other liability that cannot be excluded by law
 
 ---
 
 ## Consumer Rights
 
 If You are a consumer in the UK, You have rights under the Consumer Rights Act 2015, which are not affected by these Terms. For digital content, You are entitled to content that is:
+
 - Of satisfactory quality
 - Fit for purpose
 - As described
@@ -103,4 +104,3 @@ We may revise these Terms at any time. Material changes will be notified to You 
 ## Contact Us
 
 For questions about these Terms, contact Us at [Your Contact Method].
-

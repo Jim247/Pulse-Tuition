@@ -10,7 +10,7 @@ site:
 metadata:
   title:
     default: Music Lessons in the Bristol Area
-    template: '%title% | Music Lessons Bristol'
+    template: 'Music Lessons Bristol'
   description: 'Music Lessons Bristol is a music school in the Bristol area. We offer music lessons for all ages and abilities. Our music teachers are experienced and qualified. We offer music lessons in piano, guitar, violin, drums, and more. Contact us today to book your music lesson.'
   robots:
     index: true
