@@ -21,4 +21,13 @@ const metadata = {
   <div class="container flex justify-center lg:w-2/3 xl:w-1/2 mx-auto">
     <WorkForm />
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6LeJUr4qAAAAAGipGf-IuSzHA0gCF-awE4WjvlHR';
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    });
+  </script>
 </Layout>
