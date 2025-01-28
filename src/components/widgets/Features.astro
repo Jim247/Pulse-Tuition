@@ -30,11 +30,10 @@ const {
         item: 'flex items-center' /* Ensure items are aligned centrally vertically */,
         icon: 'text-sky-900 bg-white border-2 border-sky-900 rounded-full w-16 h-16 p-4 md:w-20 md:h-20 md:p-6 mr-4 rtl:ml-4 rtl:mr-0',
         content: 'flex flex-col' /* Group title and description together */,
-        title: 'md:text-[1.5rem]',
-        description: 'text',
+        title: 'font-logo',
+        description: 'text-muted text-lg',
         ...((classes?.items as Record<string, never>) ?? {}),
       }}
     />
   </div>
 </WidgetWrapper>
-

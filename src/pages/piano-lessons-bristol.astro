@@ -3,7 +3,6 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import pianoImage from '~/assets/images/piano-lessons-bristol.jpg';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
@@ -12,22 +11,36 @@ import Divider from '~/components/ui/Divider.astro';
 
 const metadata = {
   title: 'Piano Lessons Bristol',
+  description:
+    'Are you looking for expert piano tuition in Bristol? Our experienced tutors offer tailored lessons for all ages and skill levels, helping you achieve your musical goals.',
+  ignoretitletemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero tagline="Piano Lessons Bristol" image={{ src: pianoImage, alt: 'Piano Lessons in Bristol Hero Image' }}>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'BOOK NOW ',
+        href: '/booking',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+    image={{ src: '~/assets/images/piano-lessons-bristol.jpg', alt: 'Piano Lessons Bristol' }}
+  >
     <Fragment slot="title">
-      Master the Art of the Piano <br />
-      <span class="text-">with Expert Lessons</span>
+      PIANO TEACHERS IN THE<span class="hidden xl:inline"></span>
+      <span> BRISTOL </span> AREA
     </Fragment>
+
     <Fragment slot="subtitle">
-      Discover tailored Piano Lessons in Bristol. <br /> Designed to help you unlock your musical potential. Whether you're
-      a complete beginner or looking to refine your skills, our lessons include personalized techniques, music theory, and
-      a wide range of repertoire.<br /><br />
-      We have the perfect piano tutor for you, offering a supportive and engaging environment to help you achieve your musical goals.
+      <span class="hidden sm:inline">
+        Bristol's Platform For Piano Tutors <br /> Find Your Perfect Piano Tutor In Bristol</span
+      >
     </Fragment>
   </Hero>
 
@@ -107,13 +120,13 @@ const metadata = {
     isDark={false}
     testimonials={[
       {
-        text: 'My son really enjoyed his lessons with josh he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
-        name: 'Katie',
+        text: 'My son really enjoyed his lessons with Steve, he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
+        name: 'Katherine',
         role: 'Parent - Guitar - Bristol',
         rating: 5,
       },
       {
-        text: "Adriana has been giving 121 lessons to our 9 year old daughter for the last couple of months. Adriana is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
+        text: "Sophie has been giving 1-2-1 lessons to our 9 year old daughter for the last couple of months. She is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
         name: 'Oliver',
         role: 'Parent - Vocals - Bristol',
         rating: 5,
@@ -144,7 +157,7 @@ const metadata = {
       {
         title: 'What types of music can I learn on piano or keyboard?',
         description:
-          'You can learn a variety of styles, including classical, pop, jazz, blues, and more. We customize lessons to match your musical tastes and goals.',
+          'You can learn a variety of styles, including classical, pop, jazz, blues, and more. We customise lessons to match your musical tastes and goals.',
       },
       {
         title: 'How long will it take me to learn to play piano or keyboard?',
@@ -219,7 +232,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'BOOK NOW',
-       href:'/booking',
+        href: '/booking',
         target: '_blank',
         icon: 'tabler:download',
       },

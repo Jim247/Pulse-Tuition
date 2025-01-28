@@ -22,7 +22,7 @@ const instruments = [
   {
     icon: '../assets/images/custom-icons/bass-guitar.png',
     title: 'Bass Guitar',
-  }
+  },
 ];
 
 const ConditionalForm = () => {
@@ -73,11 +73,11 @@ const ConditionalForm = () => {
   const handlePreviousStep = useCallback(() => {
     if (step === 2) {
       // Clear instrument selection when going back to step 1
-      setFormData(prev => ({ ...prev, instrument: '', tutor: '' }));
+      setFormData((prev) => ({ ...prev, instrument: '', tutor: '' }));
     }
     setStep((prev) => prev - 1);
   }, [step]);
-  
+
   const handleRestart = useCallback(() => {
     setFormData({
       instrument: '',
@@ -110,11 +110,7 @@ const ConditionalForm = () => {
                   }`}
               >
                 <div className="flex items-center justify-center h-24">
-                  <img
-                    src={item.icon}
-                    alt={item.title}
-                    className="w-16 h-16 object-contain"
-                  />
+                  <img src={item.icon} alt={item.title} className="w-16 h-16 object-contain" />
                 </div>
                 <p className="font-bold text-lg text-center mt-2">{item.title}</p>
               </button>
@@ -138,18 +134,12 @@ const ConditionalForm = () => {
               >
                 {tutor.photo && (
                   <div className="flex justify-center mb-2">
-                    <img
-                      src={tutor.photo}
-                      alt={tutor.name}
-                      className="w-24 h-24 rounded-full object-cover"
-                    />
+                    <img src={tutor.photo} alt={tutor.name} className="w-24 h-24 rounded-full object-cover" />
                   </div>
                 )}
                 <h3 className="text-center font-bold">{tutor.name}</h3>
                 {tutor.locations && (
-                  <p className="text-center text-sm text-gray-700">
-                    Locations: {tutor.locations.join(', ')}
-                  </p>
+                  <p className="text-center text-sm text-gray-700">Locations: {tutor.locations.join(', ')}</p>
                 )}
                 <p className="text-center text-gray-600 mt-2">{tutor.bio}</p>
               </div>
@@ -285,39 +275,36 @@ const ConditionalForm = () => {
           </div>
         </>
       )}
-{/* Step 5: Confirm/Submit */}
-{step === 5 && (
-  <>
-    <h2 className="text-center font-bold">Confirm Your Booking</h2>
-    <div className="text-center text-sm my-4 space-y-1">
-      {/* ...existing confirmation details... */}
-    </div>
-    <div className="flex justify-center gap-4">
-      <button
-        type="button"
-        onClick={() => {
-          const selectedTutor = tutors.find(t => t.name === formData.tutor);
-          if (selectedTutor?.calendly) {
-            window.location.href = selectedTutor.calendly;
-          } else {
-            alert('Booking link not available. Please try again later.');
-          }
-        }}
-        className="py-2 px-4 rounded-md bg-green-700 text-white hover:bg-green-600 text-sm font-medium"
-      >
-        Book Now
-      </button>
-      <button
-        type="button"
-        onClick={handleRestart}
-        className="py-2 px-4 rounded-md bg-slate-300 text-black hover:bg-slate-200 text-sm"
-      >
-        Restart
-      </button>
-    </div>
-  </>
-)}
-
+      {/* Step 5: Confirm/Submit */}
+      {step === 5 && (
+        <>
+          <h2 className="text-center font-bold">Confirm Your Booking</h2>
+          <div className="text-center text-sm my-4 space-y-1">{/* ...existing confirmation details... */}</div>
+          <div className="flex justify-center gap-4">
+            <button
+              type="button"
+              onClick={() => {
+                const selectedTutor = tutors.find((t) => t.name === formData.tutor);
+                if (selectedTutor?.calendly) {
+                  window.location.href = selectedTutor.calendly;
+                } else {
+                  alert('Booking link not available. Please try again later.');
+                }
+              }}
+              className="py-2 px-4 rounded-md bg-green-700 text-white hover:bg-green-600 text-sm font-medium"
+            >
+              Book Now
+            </button>
+            <button
+              type="button"
+              onClick={handleRestart}
+              className="py-2 px-4 rounded-md bg-slate-300 text-black hover:bg-slate-200 text-sm"
+            >
+              Restart
+            </button>
+          </div>
+        </>
+      )}
     </form>
   );
 };

@@ -24,7 +24,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'BOOK NOW ',
-       href:'/booking',
+        href: '/booking',
         target: '_blank',
         icon: 'tabler:download',
       },
@@ -37,12 +37,14 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline"> Bristol's Music Tuition Platform. <br>   Find your perfect music tutor in Bristol</span>
+      <span class="hidden sm:inline">
+        Bristol's Music Tuition Platform <br /> Find Your Perfect Music Tutor In Bristol</span
+      >
     </Fragment>
   </Hero>
- 
+
   <Divider />
-  
+
   <Instruments />
 
   <!-- Features Widget *************** -->
@@ -51,7 +53,7 @@ const metadata = {
     id="features"
     tagline="What We Offer"
     title="Learn Music Your Way"
-    subtitle="At our locally-owned music education company, we believe everyone has the potential to make beautiful music.' <br><br> Whether you're picking up an instrument for the first time or looking to refine your skills, we offer personalized lessons that cater to your unique goals. <br><br> Our experienced instructors teach a wide range of musical genres, instruments and vocal styles, ensuring a fun and supportive learning environment for students of all ages and skill levels. Join us to explore your musical talents and take the next step in your musical journey."
+    subtitle="At our locally-owned music education company, we believe everyone has the potential to make music. <br><br> Whether you're picking up an instrument for the first time or looking to refine your skills, we offer personalised lessons that cater to your unique goals. <br><br> Our experienced instructors teach a wide range of musical genres, instruments and vocal styles, ensuring a fun and supportive learning environment for students of all ages and skill levels. Join us to explore your musical talents and take the next step in your musical journey."
     items={[
       {
         title: 'Expert Musicians',
@@ -72,7 +74,7 @@ const metadata = {
         icon: 'tabler:hand-finger-right',
       },
       {
-        title: 'Learn the music you love',
+        title: 'Learn the Music You Love',
         description:
           'Our tutors have their own individual styles, and can tailor lessons to your musical interests, so you can learn the songs and styles you love.',
         icon: 'tabler:heart',
@@ -87,13 +89,13 @@ const metadata = {
     isDark={false}
     testimonials={[
       {
-        text: 'My son really enjoyed his lessons with josh he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
-        name: 'Katie',
+        text: 'My son really enjoyed his lessons with Steve, he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
+        name: 'Katherine',
         role: 'Parent - Guitar - Bristol',
         rating: 5,
       },
       {
-        text: "Adriana has been giving 121 lessons to our 9 year old daughter for the last couple of months. Adriana is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
+        text: "Sophie has been giving 1-2-1 lessons to our 9 year old daughter for the last couple of months. She is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
         name: 'Oliver',
         role: 'Parent - Vocals - Bristol',
         rating: 5,
@@ -103,7 +105,10 @@ const metadata = {
 
   <FAQs
     title="Frequently Asked Questions"
+    subtitle="Common questions about our music lessons"
     tagline="FAQs"
+    id="faqs"
+    isDark={false}
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
@@ -157,7 +162,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'BOOK NOW ',
-       href:'/booking',
+        href: '/booking',
         target: '_blank',
         icon: 'tabler:download',
       },

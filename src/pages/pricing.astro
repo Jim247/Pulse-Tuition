@@ -4,41 +4,24 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { Image } from 'astro:assets';
-import GuitarLesson from '~/assets/images/guitar-lesson-portrait.jpeg';
 
 const metadata = {
   title: 'Pricing',
+  description:
+    'Excellent value, the best tutors in town. Find out more about our pricing plans and book your first lesson today.',
+  ignoretitletemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-
   <!-- HeroText Widget ******************* -->
 
   <HeroText tagline="Pricing" title="Excellent Value, the Best Tutors in Town" subtitle="" />
-
 
   <!-- Pricing Widget ******************* -->
 
   <Prices
     prices={[
-      {
-        title: 'Pay as you go',
-        subtitle: 'from',
-        price: 20,
-        period: 'per half-hour lesson',
-        items: [
-          { description: '30, 40 and 60 minute durations' },
-          { description: 'Bespoke tuition from expert tutors' },
-          { description: 'Online payment and lesson management gateway' },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: './contact',
-        },
-      },
       {
         title: 'Block Booking',
         subtitle: 'from',
@@ -58,6 +41,33 @@ const metadata = {
         hasRibbon: true,
         ribbonTitle: 'popular',
       },
+      {
+        title: 'Pay as you go',
+        subtitle: 'from',
+        price: 20,
+        period: 'per half-hour lesson',
+        items: [
+          { description: '30, 40 and 60 minute durations' },
+          { description: 'Bespoke tuition from expert tutors' },
+          { description: 'Online payment and lesson management gateway' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get started',
+          href: './contact',
+        },
+      },
+      {
+        title: "Our Competitor's Price",
+        subtitle: 'from',
+        price: 30,
+        period: 'per half-hour lesson',
+        items: [
+          { description: 'A typical competitor from Bristol - price as of January 2024.', icon: 'cross' },
+
+          { description: 'No access to online payment gateway', icon: 'cross' },
+        ],
+      },
     ]}
   />
 
@@ -73,16 +83,13 @@ const metadata = {
       { title: 'Book a trial lesson', icon: 'tabler:number-3' },
       { title: 'Confirmation from tutor', icon: 'tabler:number-4' },
       { title: 'Meet your tutor', icon: 'tabler:number-5' },
-      { title: 'Confirmation from tutor', icon: 'tabler:number-6' },
-      { title: 'Book further lessons', icon: 'tabler:number-7' },
+      { title: 'Book further lessons', icon: 'tabler:number-6' },
     ]}
     image={{
-      src: GuitarLesson,
-      alt: 'Steps image',
+      src: '~/assets/images/guitar-lesson-portrait.jpeg',
+      alt: 'A guitar lesson taking place',
     }}
   />
-</Fragment>
-  </Steps>
 
   <!-- CallToAction Widget *********** -->
 

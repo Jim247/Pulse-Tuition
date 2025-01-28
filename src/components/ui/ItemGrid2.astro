@@ -13,7 +13,6 @@ const {
   description: descriptionClass = '',
   icon: defaultIconClass = 'text-primary',
 } = classes;
-
 ---
 
 {
@@ -24,10 +23,10 @@ const {
           columns === 4
             ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
             : columns === 3
-            ? 'lg:grid-cols-3 sm:grid-cols-2'
-            : columns === 2
-            ? 'sm:grid-cols-2'
-            : ''
+              ? 'lg:grid-cols-3 sm:grid-cols-2'
+              : columns === 2
+                ? 'sm:grid-cols-2'
+                : ''
         } ${items.length === 1 ? 'lg:grid-cols-1 md:grid-cols-1 justify-center items-center w-full' : ''}`,
         containerClass
       )}
@@ -44,17 +43,11 @@ const {
           )}
         >
           {(icon || defaultIcon) && (
-            <Icon
-              name={icon || defaultIcon}
-              class={twMerge('mb-2 w-10 h-10', defaultIconClass, itemClasses?.icon)}
-            />
+            <Icon name={icon || defaultIcon} class={twMerge('mb-2 w-10 h-10', defaultIconClass, itemClasses?.icon)} />
           )}
           <div class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
           {description && (
-            <p
-              class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)}
-              set:html={description}
-            />
+            <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
           )}
           {callToAction && (
             <div class="mt-2">

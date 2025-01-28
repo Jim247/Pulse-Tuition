@@ -3,7 +3,6 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import guitarImage from '~/assets/images/guitar-lessons-bristol.jpg';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import StarTestimonials from '~/components/widgets/StarTestimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
@@ -12,24 +11,41 @@ import Divider from '~/components/ui/Divider.astro';
 
 const metadata = {
   title: 'Guitar Lessons Bristol',
+  description:
+    'Are you looking for expert guitar tuition in Bristol? Our experienced tutors offer tailored lessons for all ages and skill levels, helping you achieve your musical goals.',
+  ignoretitletemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero tagline="Guitar Lessons Bristol" image={{ src: guitarImage, alt: 'Guitar Lessons in Bristol Hero Image' }}>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'BOOK NOW ',
+        href: '/booking',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+    ]}
+    image={{ src: '~/assets/images/guitar-lessons-bristol.jpg', alt: 'Guitar Lessons Bristol' }}
+  >
     <Fragment slot="title">
-      Learn to Play Guitar <br />
-      <span class="text-highlight">with Expert Tutors</span>
+      GUITAR TEACHERS IN THE<span class="hidden xl:inline"></span>
+      <span> BRISTOL </span> AREA
     </Fragment>
+
     <Fragment slot="subtitle">
-      1:1 Bespoke Guitar Tuition in Bristol: Guitar Lessons Bristol <br /><br />
-      We connect you with top-notch, experienced guitar tutors in Bristol, offering personalized, one-on-one tuition tailored to your goals   </Fragment>
+      <span class="hidden sm:inline">
+        Bristol's Platform For Guitar Tutors <br /> Find Your Perfect Guitar Tutor In Bristol</span
+      >
+    </Fragment>
   </Hero>
 
   <Divider />
-  
+
   <!-- Features3 Widget ************** -->
 
   <Features3
@@ -49,7 +65,7 @@ const metadata = {
       },
       {
         title: 'Repertoire Development',
-        description: 'Learn to play your favorite songs while exploring contemporary, and popular guitar styles.',
+        description: 'Learn to play your favourite songs while exploring contemporary, and popular guitar styles.',
         icon: 'tabler:template',
       },
       {
@@ -76,7 +92,7 @@ const metadata = {
 
   <Steps2
     title="Our Teaching Philosophy"
-    subtitle="We work with skilled tutors who tailor lessons to your unique needs, fostering growth and creativity."
+    subtitle="We work with skilled tutors who tailor lessons to your unique needs, fostering growth and creativity. Our focus is on helping you achieve your musical goals while maintaining a supportive and encouraging learning environment."
     items={[
       {
         title: 'Student-Centered Lessons',
@@ -99,19 +115,19 @@ const metadata = {
   <StarTestimonials
     id="student-testimonials"
     title="What Our Students Say"
-    subtitle="Hear from students and parents who love our guitar lessons"
+    subtitle="Real stories from our students and parents"
     isDark={false}
     testimonials={[
       {
-        text: 'My son really enjoyed his lessons with Josh. He made the sessions fun and ensured my son understood everything being taught. Highly recommend Josh for guitar lessons in Bristol.',
-        name: 'Katie',
+        text: 'My son really enjoyed his lessons with Steve, he made the lessons enjoyable and made sure my son understood everything he was teaching, would highly recommend josh as a music teacher.',
+        name: 'Katherine',
         role: 'Parent - Guitar - Bristol',
         rating: 5,
       },
       {
-        text: "Adriana has been amazing teaching my 9-year-old daughter guitar. She's professional, friendly, and very knowledgeable. We've seen great progress. Highly recommended!",
+        text: "Sophie has been giving 1-2-1 lessons to our 9 year old daughter for the last couple of months. She is super professional and experienced and we've been really happy with the lessons. We highly recommend her.",
         name: 'Oliver',
-        role: 'Parent - Guitar - Bristol',
+        role: 'Parent - Vocals - Bristol',
         rating: 5,
       },
     ]}
@@ -125,7 +141,7 @@ const metadata = {
       {
         title: 'I’ve never played guitar before. Can I still learn?',
         description:
-          "The tutors we partner with specialize in guiding beginners step-by-step. Choose your tutor based on your goals and start learning guitar today!",
+          'The tutors we partner with specialize in guiding beginners step-by-step. Choose your tutor based on your goals and start learning guitar today!',
       },
       {
         title: 'Do I need an acoustic guitar or an electric guitar?',
@@ -145,7 +161,7 @@ const metadata = {
       {
         title: 'What types of music can I learn on guitar?',
         description:
-          'You can learn a wide range of genres, including rock, pop, blues, jazz, classical, and more. Lessons are customized to match your musical interests and goals.',
+          'You can learn a wide range of genres, including rock, pop, blues, jazz, classical, and more. Lessons are customised to match your musical interests and goals.',
       },
       {
         title: 'How long will it take me to learn to play guitar?',
@@ -218,7 +234,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'BOOK NOW',
-       href:'/booking',
+        href: '/booking',
         target: '_blank',
         icon: 'tabler:download',
       },

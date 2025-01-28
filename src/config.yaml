@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Music Lessons in the Bristol Area
+    template: 'Music Lessons Bristol'
+  description: 'Music Lessons Bristol is a music school in the Bristol area. We offer music lessons for all ages and abilities. Our music teachers are experienced and qualified. We offer music lessons in piano, guitar, violin, drums, and more. Contact us today to book your music lesson.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Music Lessons Bristol
     images:
       - url: '~/assets/images/default.png'
         width: 1200
