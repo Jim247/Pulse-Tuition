@@ -42,8 +42,18 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/pulse.tuition', class: 'w-8 h-8' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/pulse.tuition.uk', class: 'w-8 h-8' },
+    {
+      ariaLabel: 'Instagram',
+      icon: 'tabler:brand-instagram',
+      href: 'https://www.instagram.com/pulse.tuition',
+      class: 'w-8 h-8',
+    },
+    {
+      ariaLabel: 'Facebook',
+      icon: 'tabler:brand-facebook',
+      href: 'https://www.facebook.com/pulse.tuition.uk',
+      class: 'w-8 h-8',
+    },
   ],
   footNote: `
     Pulse Tuition <a class="text-white underline dark:text-muted" href="#ß

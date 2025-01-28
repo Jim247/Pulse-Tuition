@@ -7,6 +7,9 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Pricing',
+  description:
+    'Excellent value, the best tutors in town. Find out more about our pricing plans and book your first lesson today.',
+  ignoretitletemplate: true,
 };
 ---
 
@@ -53,20 +56,18 @@ const metadata = {
           text: 'Get started',
           href: './contact',
         },
-        },
-        {
-        title: 'Our Competitor\'s Price',
+      },
+      {
+        title: "Our Competitor's Price",
         subtitle: 'from',
         price: 30,
         period: 'per half-hour lesson',
         items: [
-        { description: 'A typical competitor from Bristol - price as of January 2024.',
-        icon: 'cross'},
-        
-        { description: 'No access to online payment gateway',
-          icon: 'cross'},
+          { description: 'A typical competitor from Bristol - price as of January 2024.', icon: 'cross' },
+
+          { description: 'No access to online payment gateway', icon: 'cross' },
         ],
-      }
+      },
     ]}
   />
 
@@ -87,8 +88,7 @@ const metadata = {
     image={{
       src: '~/assets/images/guitar-lesson-portrait.jpeg',
       alt: 'A guitar lesson taking place',
-    }},
-    
+    }}
   />
 
   <!-- CallToAction Widget *********** -->
