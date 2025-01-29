@@ -1,6 +1,32 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
+/*** Tutor Data Placeholder ***/
+
+const tutorsData = [
+  {
+    id: 1,
+    name: 'John Doe',
+    instruments: ['Piano/Keyboard', 'Acoustic Guitar'],
+    photo: '/assets/images/tutors/tutorA.jpg',
+    mobile: true,
+    mobileCoverage: ['BS1', 'BS2', 'BS3'],
+    studio: true,
+    studioPostcode: 'BS1 1AA',
+    online: true,
+  },
+  {
+    id: 2,
+    name: 'Sarah Smith',
+    instruments: ['Singing', 'Piano/Keyboard'],
+    photo: '/assets/images/tutors/tutorB.jpg',
+    mobile: true,
+    mobileCoverage: ['BS4', 'BS5'],
+    studio: false,
+    studioPostcode: '',
+    online: true,
+  },
+];
 /**
  * Name attribute must be present in each input field
  */
@@ -58,15 +84,39 @@ const ContactForm = () => {
         <label className="block text-sm font-medium mb-1" htmlFor="phone">
           Phone
         </label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone" // Ensure name attribute is present
-          className="w-full px-4 py-2 border border-gray-300 rounded-md"
-          placeholder="+44 7123 456 789"
-        />
+<input
+type="tel"
+id="mobile"
+name="mobile"
+className="w-full px-4 py-2 border border-gray-300 rounded-md"
+placeholder="07123456789 or 0712 3456789"
+pattern="^07\d{3}\s?\d{6}$"  // Matches both formats (with and without a space)
+title="Enter a valid UK mobile number (e.g. 07123456789 or 0712 3456789)"
+required
+/>
+
         <ValidationError prefix="Phone" field="phone" errors={state.errors} />
       </div>
+
+           {/* Postcode */}
+           <div>
+        <label className="block text-sm font-medium mb-1" htmlFor="postcode">
+          Postcode
+        </label>
+        <input
+  type="text"
+  id="postcode"
+  name="postcode"
+  className="w-full px-4 py-2 border border-gray-300 rounded-md"
+  placeholder="BS1 1AA"
+  pattern="^BS\d{1,2}\s\d[A-Z]{2}$"
+  title="Enter a valid Bristol postcode (e.g., BS1 1AA or BS10 1AB)"
+  required
+/>
+
+        <ValidationError prefix="Postcode" field="postcode" errors={state.errors} />
+      </div>
+
 
       {/* Instruments Field */}
       <div>
