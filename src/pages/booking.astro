@@ -4,8 +4,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Divider from '~/components/ui/Divider.astro';
 import ContactForm from '~/components/widgets/ContactForm';
-import SmartForm from '~/components/widgets/SmartForm';
-import Contact from '~/components/widgets/Contact.astro';
 
 const metadata = {
   title: 'Make a Booking',
@@ -23,7 +21,7 @@ const metadata = {
   />
   <Divider />
   <div class="container flex justify-center lg:w-2/3 xl:w-1/2 mx-auto">
-<ContactForm />
+    <ContactForm />
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {

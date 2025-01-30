@@ -15,7 +15,7 @@ const JobApplicationForm = () => {
       method="POST"
       className="space-y-6 bg-white p-6 rounded-lg shadow-md w-full md:w-2/3 lg:w-1/2 mx-auto"
     >
-      <h1 className="text-2xl font-bold text-center mb-4">Clone of Pulse Tuition Job Application Form</h1>
+      <h1 className="text-2xl font-bold text-center mb-4">Pulse Tuition Job Application Form</h1>
       <p className="text-center">Please complete the form below to apply for a position with us.</p>
 
       {/* Full Name */}

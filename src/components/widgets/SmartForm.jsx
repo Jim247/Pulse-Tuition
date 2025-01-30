@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 const tutorsData = [
@@ -36,9 +35,7 @@ const ContactForm = () => {
     );
 
     // Convert matched tutors to string or set “no matches”
-    const matchedString = matchedTutors.length
-      ? JSON.stringify(matchedTutors)
-      : 'no matches';
+    const matchedString = matchedTutors.length ? JSON.stringify(matchedTutors) : 'no matches';
 
     // Update or create the hidden field so Formspree includes this in the request
     const hiddenFieldName = 'matchedTutors';
@@ -133,12 +130,7 @@ const ContactForm = () => {
         <label className="block text-sm font-medium mb-1" htmlFor="message">
           Message
         </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={6}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md"
-        />
+        <textarea id="message" name="message" rows={6} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
         <ValidationError prefix="Message" field="message" errors={state.errors} />
       </div>
 
