@@ -60,12 +60,35 @@ const ContactForm = () => {
         </label>
         <input
           type="tel"
-          id="phone"
-          name="phone" // Ensure name attribute is present
+          id="mobile"
+          name="mobile"
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
-          placeholder="+44 7123 456 789"
+          placeholder="07123456789 or 0712 3456789"
+          pattern="^07\d{3}\s?\d{6}$" // Matches both formats (with and without a space)
+          title="Enter a valid UK mobile number (e.g. 07123456789 or 0712 3456789)"
+          required
         />
+
         <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+      </div>
+
+      {/* Postcode */}
+      <div>
+        <label className="block text-sm font-medium mb-1" htmlFor="postcode">
+          Postcode
+        </label>
+        <input
+          type="text"
+          id="postcode"
+          name="postcode"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md"
+          placeholder="BS1 1AA"
+          pattern="^BS\d{1,2}\s\d[A-Z]{2}$"
+          title="Enter a valid Bristol postcode (e.g., BS1 1AA or BS10 1AB)"
+          required
+        />
+
+        <ValidationError prefix="Postcode" field="postcode" errors={state.errors} />
       </div>
 
       {/* Instruments Field */}
