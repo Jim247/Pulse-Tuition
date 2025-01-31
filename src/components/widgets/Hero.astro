@@ -57,7 +57,7 @@ const {
       {
         title && (
           <h1
-            class="text-3xl text-white pt-4 md:text-4xl lg:text-3xl text-center font-bold font-logo leading-tighter tracking-tighter mb-2 font-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+            class="text-3xl text-white pt-4 md:text-4xl lg:text-3xl text-center font-bold font-logo leading-tighter tracking-tighter mb-4 font-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
             set:html={title}
           />
         )
@@ -69,19 +69,19 @@ const {
               class="text-lg text-white mb-2 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               set:html={subtitle}
             />
-          )
-        }
-        {
-          actions && (
-            <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            )
+          }
+          {
+            actions && (
+            <div class="max-w-xs md:pt-3 sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
               {Array.isArray(actions) ? (
-                actions.map((action) => (
-                  <div class="flex w-full sm:w-auto">
-                    <Button {...(action || {})} class="w-full sm:mb-0" />
-                  </div>
-                ))
+              actions.map((action) => (
+          <div class="flex w-full justify-center sm:w-auto">
+          <Button {...(action || {})} class="w-2/3 sm:w-2/3 lg:w-full sm:mb-0" />
+          </div>
+              ))
               ) : (
-                <Fragment set:html={actions} />
+              <Fragment set:html={actions} />
               )}
             </div>
           )
