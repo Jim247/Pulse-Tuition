@@ -69,19 +69,19 @@ const {
               class="text-lg text-white mb-2 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               set:html={subtitle}
             />
-            )
-          }
-          {
-            actions && (
+          )
+        }
+        {
+          actions && (
             <div class="max-w-xs md:pt-3 sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
               {Array.isArray(actions) ? (
-              actions.map((action) => (
-          <div class="flex w-full justify-center sm:w-auto">
-          <Button {...(action || {})} class="w-2/3 sm:w-2/3 lg:w-full sm:mb-0" />
-          </div>
-              ))
+                actions.map((action) => (
+                  <div class="flex w-full justify-center sm:w-auto">
+                    <Button {...(action || {})} class="w-2/3 sm:w-2/3 lg:w-full sm:mb-0" />
+                  </div>
+                ))
               ) : (
-              <Fragment set:html={actions} />
+                <Fragment set:html={actions} />
               )}
             </div>
           )

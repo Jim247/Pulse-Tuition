@@ -44,11 +44,7 @@ function Tutors() {
             className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow"
           >
             {/* Tutor Photo */}
-            <img
-              src={tutor.photo}
-              alt={`${tutor.name} photo`}
-              className="w-full h-48 object-cover object-center"
-            />
+            <img src={tutor.photo} alt={`${tutor.name} photo`} className="w-full h-48 object-cover object-center" />
 
             {/* Tutor Details */}
             <div className="p-4 flex flex-col flex-1">
@@ -65,9 +61,7 @@ function Tutors() {
                   const instrumentData = instruments.find((inst) => inst.title === instrument);
                   return (
                     <li key={instrument} className="flex items-center">
-                      {instrumentData && (
-                        <img src={instrumentData.icon} alt={instrument} className="w-5 h-5 mr-2" />
-                      )}
+                      {instrumentData && <img src={instrumentData.icon} alt={instrument} className="w-5 h-5 mr-2" />}
                       {instrument}
                     </li>
                   );

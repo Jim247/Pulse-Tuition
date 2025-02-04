@@ -17,10 +17,14 @@ const metadata = {
     subtitle="Join our community of music educators. Share your expertise and inspire the next generation of musicians."
     image={{ src: '~/assets/images/piano-lesson.jpeg', alt: 'Tutor Sign Up Hero Image' }}
   />
+
   <Divider />
-  <div class="container flex justify-center lg:w-2/3 xl:w-1/2 mx-auto">
+
+  <!-- Increase form container width for larger screens -->
+  <div class="container flex justify-center w-full lg:w-2/3 xl:w-2/3 mx-auto">
     <WorkForm />
   </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const script = document.createElement('script');
