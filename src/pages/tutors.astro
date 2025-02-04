@@ -1,0 +1,25 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+// import TutorSelect from '~/components/widgets/TutorSelect.jsx';//
+import Hero from '~/components/widgets/Hero.astro';
+import Divider from '~/components/ui/Divider.astro';
+import TutorsComponent from '~/components/widgets/Tutors';
+const metadata = {
+  title: 'Make a Booking',
+  description:
+    "Book a music tutor today, please give us as much information as possible and we'll respond as soon as possible",
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Find a Tutor!"
+    subtitle="Book a tutor today, please give us as much information as possible and we'll respond as soon as possible"
+    image={{ src: '~/assets/images/piano-lesson.jpeg', alt: 'Hero Image' }}
+  />
+  <Divider />
+  <div class="container flex justify-center lg:w-2/3 xl:w-1/2 mx-auto">
+    <TutorsComponent />
+  </div>
+</Layout>
