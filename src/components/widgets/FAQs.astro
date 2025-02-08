@@ -5,14 +5,15 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 const { title = '', subtitle = '', tagline = '', items = [], id, isDark = false, classes = {} } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`}>
+<WidgetWrapper id={id} isDark={isDark} containerClass={`bg-slate-100 mx-auto ${classes?.container ?? ''}`}>
+  
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
   <div class="space-y-4">
     {
       items.map((item: { title: string; description: string }, index: number) => (
-        <div class="faq-item border rounded-md overflow-hidden" data-key={index}>
+        <div class="faq-item border bg-white rounded-md shadow-md overflow-hidden" data-key={index}>
           <button
-            class="faq-button w-full text-left px-4 py-3 bg-white font-semibold font-logo flex justify-between items-center"
+            class="faq-button w-full text-left px-4 py-3 font-semibold font-logo flex justify-between items-center"
             data-index={index}
           >
             <span>{item.title}</span>
