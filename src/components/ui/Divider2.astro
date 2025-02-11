@@ -5,7 +5,11 @@ export interface Props {
   isUpsideDown?: boolean;
 }
 
-const { className = 'custom-shape-divider-top-1735572268', fillColor = '#0C4A6E', isUpsideDown = false } = Astro.props;
+const {
+  className = 'custom-shape-divider-top-1735572268',
+  fillColor = '#f1f5f9', // Changed to slate-100 color
+  isUpsideDown = true,
+} = Astro.props;
 ---
 
 <div class={`${className} ${isUpsideDown ? 'shape-divider-bottom' : ''}`}>

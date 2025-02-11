@@ -6,6 +6,7 @@ import Button from '~/components/ui/Button.astro';
 
 import { getHomePermalink } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
+import type { PropsWithChildren } from 'react';
 
 interface Link {
   text?: string;
@@ -163,7 +164,7 @@ const {
         {
           actions?.length && (
             <span class="ml-2 text-lg md:text-xl lg:text-2xl">
-              {actions.map((btnProps) => (
+              {actions.map((btnProps: PropsWithChildren) => (
                 <Button {...btnProps} class="btn-primary" />
               ))}
             </span>
