@@ -1,22 +1,22 @@
 ---
 export interface Props {
-    className?: string;
-    fillColor?: string;
-    isUpsideDown?: boolean;
+  className?: string;
+  fillColor?: string;
+  isUpsideDown?: boolean;
 }
 
-const { 
-    className = 'custom-shape-divider-top-1735572268', 
-    fillColor = '#f1f5f9', // Changed to slate-100 color
-  isUpsideDown = true
+const {
+  className = 'custom-shape-divider-top-1735572268',
+  fillColor = '#f1f5f9', // Changed to slate-100 color
+  isUpsideDown = true,
 } = Astro.props;
 ---
 
 <div class={`${className} ${isUpsideDown ? 'shape-divider-bottom' : ''}`}>
-  <svg 
-    data-name="Layer 1" 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 1200 120" 
+  <svg
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1200 120"
     preserveAspectRatio="none"
     style={isUpsideDown ? 'transform: rotate(180deg);' : ''}
   >
