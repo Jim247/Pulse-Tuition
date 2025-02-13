@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import ThankYouMessage from './ThankYouMessage';
 
 /**
  * Name attribute must be present in each input field
@@ -7,15 +8,36 @@ import { useForm, ValidationError } from '@formspree/react';
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm('xpwzybyo'); // Replace with your Formspree form ID
+  const [showForm, setShowForm] = useState(true);
 
-  // If submission is successful, show success message
-  if (state.succeeded) {
-    return <p>Thanks for your submission!</p>;
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await handleSubmit(e);
+      setShowForm(false);
+      window.scrollTo(0, 0);
+    } catch (error) {
+      console.error('Submission error:', error);
+    }
+  };
+
+  const handleReset = () => {
+    setShowForm(true);
+    window.grecaptcha?.reset();
+  };
+
+  if (!showForm && state.succeeded) {
+    return (
+      <ThankYouMessage 
+        onReset={handleReset}
+        message="Thank you for contacting us!"
+      />
+    );
   }
 
   return (
     <form
-      onSubmit={handleSubmit} // Use Formspree's handleSubmit directly
+      onSubmit={onSubmit} // Use Formspree's handleSubmit directly
       action="https://formspree.io/f/xpwzybyo" // Set the Formspree URL
       method="POST" // Ensure the method is POST
       className="space-y-6 bg-white p-6 rounded-lg shadow-md w-full md:w-2/3 lg:w-1/2 mx-auto"
