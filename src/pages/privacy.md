@@ -101,5 +101,5 @@ You have the right to make a complaint at any time to the Information Commission
 For any data protection queries, please contact:
 
 - Email: info@pulse-tuition.co.uk
-- Phone: [Phone Number]
-- Address: [Company Address]
+- Phone: 0782 7335222
+
