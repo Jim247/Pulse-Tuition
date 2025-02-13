@@ -9,12 +9,26 @@ const ContactForm = () => {
   const [state, handleSubmit] = useForm('xpwzybyo'); // Replace with your Formspree form ID
   const [recaptchaToken, setRecaptchaToken] = useState('');
 
+  const handleRecaptcha = (token) => {
+    setRecaptchaToken(token);
+  };
+
   useEffect(() => {
-    if (window.grecaptcha?.enterprise) {
-      window.grecaptcha.enterprise.ready(() => {
-        window.grecaptcha.enterprise.execute('6LeJUr4qAAAAAGipGf-IuSzHA0gCF-awE4WjvlHR', { action: 'submit' })
-          .then(token => setRecaptchaToken(token));
+    const renderRecaptcha = () => {
+      window.grecaptcha.render('recaptcha-contact', {
+        sitekey: '6LcuC9YqAAAAAOeyLy0_GNHp4KZYSnWDzXZpUEaO', // Improvement: Store site key securely
+        callback: handleRecaptcha,
       });
+    };
+    if (!window.grecaptcha) {
+      const script = document.createElement('script');
+      script.src = "https://www.google.com/recaptcha/api.js";
+      script.async = true;
+      script.defer = true;
+      script.onload = renderRecaptcha;
+      document.head.appendChild(script);
+    } else {
+      renderRecaptcha();
     }
   }, []);
 
@@ -163,7 +177,9 @@ const ContactForm = () => {
         <ValidationError prefix="Message" field="message" errors={state.errors} />
       </div>
 
-      {/* Hidden reCAPTCHA token */}
+      {/* reCAPTCHA tickbox */}
+      <div id="recaptcha-contact" className="g-recaptcha" />
+      {/* Hidden recaptcha token */}
       <input type="hidden" name="recaptchaToken" value={recaptchaToken} />
 
       {/* Submit Button */}

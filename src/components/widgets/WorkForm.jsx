@@ -5,12 +5,26 @@ const JobApplicationForm = () => {
   const [state, handleSubmit] = useForm('your-form-id');
   const [recaptchaToken, setRecaptchaToken] = useState('');
 
+  const handleRecaptcha = (token) => {
+    setRecaptchaToken(token);
+  };
+
   useEffect(() => {
-    if (window.grecaptcha?.enterprise) {
-      window.grecaptcha.enterprise.ready(() => {
-        window.grecaptcha.enterprise.execute('6LeJUr4qAAAAAGipGf-IuSzHA0gCF-awE4WjvlHR', { action: 'submit' })
-          .then(token => setRecaptchaToken(token));
+    const renderRecaptcha = () => {
+      window.grecaptcha.render('recaptcha', {
+        sitekey: '6LcuC9YqAAAAAOeyLy0_GNHp4KZYSnWDzXZpUEaO', // Improvement: Store site key securely
+        callback: handleRecaptcha,
       });
+    };
+    if (!window.grecaptcha) {
+      const script = document.createElement('script');
+      script.src = "https://www.google.com/recaptcha/api.js";
+      script.async = true;
+      script.defer = true;
+      script.onload = renderRecaptcha;
+      document.head.appendChild(script);
+    } else {
+      renderRecaptcha();
     }
   }, []);
 
@@ -157,17 +171,6 @@ const JobApplicationForm = () => {
         </div>
       </div>
 
-      {/* Available Start Date */}
-      <div>
-        <label className="block text-sm font-medium mb-1">Available Start Date</label>
-        <input
-          type="text"
-          name="startDate"
-          placeholder="01/28/2025"
-          className="w-full px-4 py-2 border border-gray-300 rounded-md"
-        />
-      </div>
-
       {/* Why you'd be a great fit */}
       <div>
         <label className="block text-sm font-medium mb-1">
@@ -176,10 +179,13 @@ const JobApplicationForm = () => {
         <textarea name="whyFit" rows={8} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
       </div>
 
+      {/* reCAPTCHA tickbox */}
+      <div id="recaptcha" className="g-recaptcha" />
+
       {/* Hidden reCAPTCHA token */}
       <input type="hidden" name="recaptchaToken" value={recaptchaToken} />
 
-      {/* Submit */}
+      {/* Submit Button */}
       <div>
         <button
           type="submit"
@@ -194,5 +200,4 @@ const JobApplicationForm = () => {
     </form>
   );
 };
-
 export default JobApplicationForm;
