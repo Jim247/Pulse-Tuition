@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 const JobApplicationForm = () => {
   const [state, handleSubmit] = useForm('your-form-id');
+  const [recaptchaToken, setRecaptchaToken] = useState('');
+
+  useEffect(() => {
+    if (window.grecaptcha?.enterprise) {
+      window.grecaptcha.enterprise.ready(() => {
+        window.grecaptcha.enterprise.execute('6LeJUr4qAAAAAGipGf-IuSzHA0gCF-awE4WjvlHR', { action: 'submit' })
+          .then(token => setRecaptchaToken(token));
+      });
+    }
+  }, []);
 
   if (state.succeeded) {
     return <p>Thanks for your submission!</p>;
@@ -165,6 +175,9 @@ const JobApplicationForm = () => {
         </label>
         <textarea name="whyFit" rows={8} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
       </div>
+
+      {/* Hidden reCAPTCHA token */}
+      <input type="hidden" name="recaptchaToken" value={recaptchaToken} />
 
       {/* Submit */}
       <div>
