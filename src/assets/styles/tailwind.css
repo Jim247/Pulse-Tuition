@@ -24,6 +24,10 @@
   .text-muted {
     color: var(--aw-color-text-muted);
   }
+  /* Add dark mode override for muted text */
+  .dark .text-muted {
+    color: #a8a8a8; /* update to your preferred dark mode muted colour */
+  }
   .text-highlight {
     color: var(--aw-color-accent);
   }
