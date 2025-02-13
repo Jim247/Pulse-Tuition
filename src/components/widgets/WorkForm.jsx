@@ -147,17 +147,6 @@ const JobApplicationForm = () => {
         </div>
       </div>
 
-      {/* Available Start Date */}
-      <div>
-        <label className="block text-sm font-medium mb-1">Available Start Date</label>
-        <input
-          type="text"
-          name="startDate"
-          placeholder="01/28/2025"
-          className="w-full px-4 py-2 border border-gray-300 rounded-md"
-        />
-      </div>
-
       {/* Why you'd be a great fit */}
       <div>
         <label className="block text-sm font-medium mb-1">
@@ -166,7 +155,6 @@ const JobApplicationForm = () => {
         <textarea name="whyFit" rows={8} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
       </div>
 
-      
       {/* reCAPTCHA */}
       <div id="recaptcha" className="g-recaptcha" data-sitekey="6LeU7dUqAAAAANcKolkeZ7e43tVB5gLqQizDT-S0"></div>
       
