@@ -8,7 +8,7 @@ const JobApplicationForm = () => {
   useEffect(() => {
     if (window.grecaptcha?.enterprise) {
       window.grecaptcha.enterprise.ready(() => {
-        window.grecaptcha.enterprise.execute('6LeJUr4qAAAAAGipGf-IuSzHA0gCF-awE4WjvlHR', { action: 'submit' })
+        window.grecaptcha.enterprise.execute('6LfChtUqAAAAAGr3EUOVYAxG5zXW38wsb3bPmiUg', { action: 'submit' })
           .then(token => setRecaptchaToken(token));
       });
     }
@@ -17,6 +17,7 @@ const JobApplicationForm = () => {
   if (state.succeeded) {
     return <p>Thanks for your submission!</p>;
   }
+
 
   return (
     <form
@@ -157,17 +158,6 @@ const JobApplicationForm = () => {
         </div>
       </div>
 
-      {/* Available Start Date */}
-      <div>
-        <label className="block text-sm font-medium mb-1">Available Start Date</label>
-        <input
-          type="text"
-          name="startDate"
-          placeholder="01/28/2025"
-          className="w-full px-4 py-2 border border-gray-300 rounded-md"
-        />
-      </div>
-
       {/* Why you'd be a great fit */}
       <div>
         <label className="block text-sm font-medium mb-1">
@@ -176,10 +166,13 @@ const JobApplicationForm = () => {
         <textarea name="whyFit" rows={8} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
       </div>
 
+      {/* reCAPTCHA widget */}
+      <div className="g-recaptcha" data-sitekey="your-site-key" style={{ display: 'none' }} />
+
       {/* Hidden reCAPTCHA token */}
       <input type="hidden" name="recaptchaToken" value={recaptchaToken} />
 
-      {/* Submit */}
+      {/* Submit Button */}
       <div>
         <button
           type="submit"
@@ -194,5 +187,4 @@ const JobApplicationForm = () => {
     </form>
   );
 };
-
 export default JobApplicationForm;

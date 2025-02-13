@@ -12,7 +12,7 @@ const ContactForm = () => {
   useEffect(() => {
     if (window.grecaptcha?.enterprise) {
       window.grecaptcha.enterprise.ready(() => {
-        window.grecaptcha.enterprise.execute('6LeJUr4qAAAAAGipGf-IuSzHA0gCF-awE4WjvlHR', { action: 'submit' })
+        window.grecaptcha.enterprise.execute('6Lfgab4qAAAAAB2rNXisNHZvo3n9uxvnYSo2v7do6LfChtUqAAAAAGr3EUOVYAxG5zXW38wsb3bPmiUg', { action: 'submit' })
           .then(token => setRecaptchaToken(token));
       });
     }
