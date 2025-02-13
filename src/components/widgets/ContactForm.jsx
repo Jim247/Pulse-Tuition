@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 /**
@@ -7,30 +7,6 @@ import { useForm, ValidationError } from '@formspree/react';
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm('xpwzybyo'); // Replace with your Formspree form ID
-  const [recaptchaToken, setRecaptchaToken] = useState('');
-
-  const handleRecaptcha = (token) => {
-    setRecaptchaToken(token);
-  };
-
-  useEffect(() => {
-    const renderRecaptcha = () => {
-      window.grecaptcha.render('recaptcha-contact', {
-        sitekey: '6LcuC9YqAAAAAOeyLy0_GNHp4KZYSnWDzXZpUEaO', // Improvement: Store site key securely
-        callback: handleRecaptcha,
-      });
-    };
-    if (!window.grecaptcha) {
-      const script = document.createElement('script');
-      script.src = "https://www.google.com/recaptcha/api.js";
-      script.async = true;
-      script.defer = true;
-      script.onload = renderRecaptcha;
-      document.head.appendChild(script);
-    } else {
-      renderRecaptcha();
-    }
-  }, []);
 
   // If submission is successful, show success message
   if (state.succeeded) {
@@ -176,11 +152,6 @@ const ContactForm = () => {
         />
         <ValidationError prefix="Message" field="message" errors={state.errors} />
       </div>
-
-      {/* reCAPTCHA tickbox */}
-      <div id="recaptcha-contact" className="g-recaptcha" />
-      {/* Hidden recaptcha token */}
-      <input type="hidden" name="recaptchaToken" value={recaptchaToken} />
 
       {/* Submit Button */}
       <div>

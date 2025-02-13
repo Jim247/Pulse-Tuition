@@ -27,7 +27,7 @@ const { post, url } = Astro.props;
     >
       <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
         <p>
-          <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 " />
+          <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5" />
           <time datetime={String(post.publishDate)} class="inline-block">{getFormattedDate(post.publishDate)}</time>
           {
             post.author && (
@@ -64,9 +64,7 @@ const { post, url } = Astro.props;
       >
         {post.title}
       </h1>
-      <p
-        class="max-w-3xl mx-auto mt-4 mb-8 px-4 sm:px-6 text-xl md:text-2xl text-black text-justify"
-      >
+      <p class="max-w-3xl mx-auto mt-4 mb-8 px-4 sm:px-6 text-xl md:text-2xl text-black text-justify">
         {post.excerpt}
       </p>
 
