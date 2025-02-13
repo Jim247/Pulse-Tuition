@@ -1,21 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 const JobApplicationForm = () => {
-  const [state, handleSubmit] = useForm('your-form-id'); // Replace 'your-form-id' with your Formspree form ID
-
-  useEffect(() => {
-    // Load reCAPTCHA script dynamically
-    const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/api.js?render=explicit`;
-    script.async = true;
-    script.onload = () => {
-      window.grecaptcha.render('recaptcha', {
-        sitekey: '6LeU7dUqAAAAANcKolkeZ7e43tVB5gLqQizDT-S0', // Replace with your actual reCAPTCHA site key
-      });
-    };
-    document.body.appendChild(script);
-  }, []);
+  const [state, handleSubmit] = useForm('your-form-id');
 
   if (state.succeeded) {
     return <p>Thanks for your submission!</p>;
@@ -24,7 +11,7 @@ const JobApplicationForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      action="https://formspree.io/f/your-form-id" // Replace with your Formspree form ID
+      action="https://formspree.io/f/mzzdrpqn"
       method="POST"
       className="space-y-6 bg-white p-6 rounded-lg shadow-md w-full md:w-2/3 lg:w-1/2 mx-auto"
     >
@@ -160,6 +147,17 @@ const JobApplicationForm = () => {
         </div>
       </div>
 
+      {/* Available Start Date */}
+      <div>
+        <label className="block text-sm font-medium mb-1">Available Start Date</label>
+        <input
+          type="text"
+          name="startDate"
+          placeholder="01/28/2025"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md"
+        />
+      </div>
+
       {/* Why you'd be a great fit */}
       <div>
         <label className="block text-sm font-medium mb-1">
@@ -168,10 +166,11 @@ const JobApplicationForm = () => {
         <textarea name="whyFit" rows={8} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
       </div>
 
+      
       {/* reCAPTCHA */}
-      <div id="recaptcha" className="mb-4"></div>
-
-      {/* Submit Button */}
+      <div id="recaptcha" className="g-recaptcha" data-sitekey="6LeU7dUqAAAAANcKolkeZ7e43tVB5gLqQizDT-S0"></div>
+      
+      {/* Submit */}
       <div>
         <button
           type="submit"
@@ -186,4 +185,5 @@ const JobApplicationForm = () => {
     </form>
   );
 };
+
 export default JobApplicationForm;

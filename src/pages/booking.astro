@@ -20,16 +20,10 @@ const metadata = {
   />
   <Divider />
   <div class="container flex justify-center lg:w-2/3 xl:w-1/2 mx-auto">
-    <ContactForm client:load />
-    <!-- Ensure it hydrates -->
-    <script>
-      if (document.querySelector('form')) {
-        const script = document.createElement('script');
-        script.src = 'https://www.google.com/recaptcha/api.js';
-        script.async = true;
-        script.defer = true;
-        document.head.appendChild(script);
-      }
-    </script>
+    <ContactForm />
+
   </div>
+
+  <!-- Replace the conditional script with a direct include -->
+  <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
 </Layout>
