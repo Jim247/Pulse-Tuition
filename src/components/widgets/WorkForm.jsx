@@ -1,16 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import ThankYouMessage from './ThankYouMessage';
 
 const JobApplicationForm = () => {
-  const [state, handleSubmit] = useForm('your-form-id');
+  const [state, handleSubmit] = useForm('mzzdrpqn');
+  const [showForm, setShowForm] = useState(true);
 
-  if (state.succeeded) {
-    return <p>Thanks for your submission!</p>;
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await handleSubmit(e);
+      setShowForm(false);
+      window.scrollTo(0, 0);
+    } catch (error) {
+      console.error('Submission error:', error);
+    }
+  };
+
+  const handleReset = () => {
+    setShowForm(true);
+    window.grecaptcha?.reset();
+  };
+
+  if (!showForm && state.succeeded) {
+    return (
+      <ThankYouMessage 
+        onReset={handleReset}
+        message="Thank you for your application!"
+      />
+    );
   }
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       action="https://formspree.io/f/mzzdrpqn"
       method="POST"
       className="space-y-6 bg-white p-6 rounded-lg shadow-md w-full md:w-2/3 lg:w-1/2 mx-auto"
