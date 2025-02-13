@@ -102,4 +102,3 @@ For any data protection queries, please contact:
 
 - Email: info@pulse-tuition.co.uk
 - Phone: 0782 7335222
-

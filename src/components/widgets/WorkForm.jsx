@@ -1,32 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 const JobApplicationForm = () => {
   const [state, handleSubmit] = useForm('your-form-id');
-  const [recaptchaToken, setRecaptchaToken] = useState('');
-
-  const handleRecaptcha = (token) => {
-    setRecaptchaToken(token);
-  };
-
-  useEffect(() => {
-    const renderRecaptcha = () => {
-      window.grecaptcha.render('recaptcha', {
-        sitekey: '6LcuC9YqAAAAAOeyLy0_GNHp4KZYSnWDzXZpUEaO', // Improvement: Store site key securely
-        callback: handleRecaptcha,
-      });
-    };
-    if (!window.grecaptcha) {
-      const script = document.createElement('script');
-      script.src = "https://www.google.com/recaptcha/api.js";
-      script.async = true;
-      script.defer = true;
-      script.onload = renderRecaptcha;
-      document.head.appendChild(script);
-    } else {
-      renderRecaptcha();
-    }
-  }, []);
 
   if (state.succeeded) {
     return <p>Thanks for your submission!</p>;
@@ -178,12 +154,6 @@ const JobApplicationForm = () => {
         </label>
         <textarea name="whyFit" rows={8} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
       </div>
-
-      {/* reCAPTCHA tickbox */}
-      <div id="recaptcha" className="g-recaptcha" />
-
-      {/* Hidden reCAPTCHA token */}
-      <input type="hidden" name="recaptchaToken" value={recaptchaToken} />
 
       {/* Submit Button */}
       <div>
