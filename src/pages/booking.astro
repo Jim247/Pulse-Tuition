@@ -1,6 +1,5 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-// import TutorSelect from '~/components/widgets/TutorSelect.jsx';//
 import Hero from '~/components/widgets/Hero.astro';
 import Divider from '~/components/ui/Divider.astro';
 import ContactForm from '~/components/widgets/ContactForm';
@@ -23,5 +22,14 @@ const metadata = {
   <div class="container flex justify-center lg:w-2/3 xl:w-1/2 mx-auto">
     <ContactForm client:load />
     <!-- Ensure it hydrates -->
+    <script>
+      if (document.querySelector('form')) {
+        const script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js';
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+      }
+    </script>
   </div>
 </Layout>
