@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 /**
@@ -7,6 +7,16 @@ import { useForm, ValidationError } from '@formspree/react';
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm('xpwzybyo'); // Replace with your Formspree form ID
+  const [recaptchaToken, setRecaptchaToken] = useState('');
+
+  useEffect(() => {
+    if (window.grecaptcha?.enterprise) {
+      window.grecaptcha.enterprise.ready(() => {
+        window.grecaptcha.enterprise.execute('6LeJUr4qAAAAAGipGf-IuSzHA0gCF-awE4WjvlHR', { action: 'submit' })
+          .then(token => setRecaptchaToken(token));
+      });
+    }
+  }, []);
 
   // If submission is successful, show success message
   if (state.succeeded) {
@@ -152,6 +162,9 @@ const ContactForm = () => {
         />
         <ValidationError prefix="Message" field="message" errors={state.errors} />
       </div>
+
+      {/* Hidden reCAPTCHA token */}
+      <input type="hidden" name="recaptchaToken" value={recaptchaToken} />
 
       {/* Submit Button */}
       <div>
