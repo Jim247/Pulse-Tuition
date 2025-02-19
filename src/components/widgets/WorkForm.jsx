@@ -1,40 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-import ThankYouMessage from './ThankYouMessage';
 
 const JobApplicationForm = () => {
-  const [state, handleSubmit] = useForm('mzzdrpqn');
-  const [showForm, setShowForm] = useState(true);
+  const [state, handleSubmit] = useForm('your-form-id'); // Replace 'your-form-id' with your Formspree form ID
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await handleSubmit(e);
-      setShowForm(false);
-      window.scrollTo(0, 0);
-    } catch (error) {
-      console.error('Submission error:', error);
-    }
-  };
+  useEffect(() => {
+    // Load reCAPTCHA script dynamically
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=explicit`;
+    script.async = true;
+    script.onload = () => {
+      window.grecaptcha.render('recaptcha', {
+        sitekey: '6LeU7dUqAAAAANcKolkeZ7e43tVB5gLqQizDT-S0', // Replace with your actual reCAPTCHA site key
+      });
+    };
+    document.body.appendChild(script);
+  }, []);
 
-  const handleReset = () => {
-    setShowForm(true);
-    window.grecaptcha?.reset();
-  };
-
-  if (!showForm && state.succeeded) {
-    return (
-      <ThankYouMessage 
-        onReset={handleReset}
-        message="Thank you for your application!"
-      />
-    );
+  if (state.succeeded) {
+    return <p>Thanks for your submission!</p>;
   }
 
   return (
     <form
-      onSubmit={onSubmit}
-      action="https://formspree.io/f/mzzdrpqn"
+      onSubmit={handleSubmit}
+      action="https://formspree.io/f/your-form-id" // Replace with your Formspree form ID
       method="POST"
       className="space-y-6 bg-white p-6 rounded-lg shadow-md w-full md:w-2/3 lg:w-1/2 mx-auto"
     >
@@ -179,9 +169,9 @@ const JobApplicationForm = () => {
       </div>
 
       {/* reCAPTCHA */}
-      <div id="recaptcha" className="g-recaptcha" data-sitekey="6LeU7dUqAAAAANcKolkeZ7e43tVB5gLqQizDT-S0"></div>
-      
-      {/* Submit */}
+      <div className="g-recaptcha" data-sitekey="6LeU7dUqAAAAANcKolkeZ7e43tVB5gLqQizDT-S0"></div>
+
+      {/* Submit Button */}
       <div>
         <button
           type="submit"
@@ -196,5 +186,4 @@ const JobApplicationForm = () => {
     </form>
   );
 };
-
 export default JobApplicationForm;
