@@ -15,7 +15,7 @@ const tutorsData = [
   {
     id: 'tutor-a',
     name: 'George',
-    teachingStartYear: 2018, // Replace boolean flags with start year
+    teachingStartYear: 2018,
     instruments: ['Acoustic Guitar', 'Electric Guitar', 'Bass Guitar', 'Piano/Keyboard'],
     Studio: 'BS3',
     mobile: null,
@@ -33,10 +33,12 @@ const tutorsData = [
     mobile: ['Available at additional cost'],
     online: true,
     hasDegree: true,
-    bio: 'Guitarist and music educator with a first-class BMus in Jazz, years of teaching experience, and a passion for helping students grow.',
-    photo: 'assets/images/tutors/tom-guitar.png',
+    bio: 'Guitarist and music educator with a first-class BMus in Jazz, and a passion for helping students grow.',
+    photo: '/assets/images/tutors/tom-guitar.png',
   },
 ];
+
+const Divider = () => <hr className="border-t border-gray-300 my-4" />;
 
 function Tutors() {
   const calculateExperienceYears = (startYear) => {
@@ -49,7 +51,7 @@ function Tutors() {
 
     if (years >= 10) {
       return (
-        <div className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full flex items-center gap-2 text-sm">
+        <div className="bg-amber-100 text-amber-800 px-2 py-1 rounded-full flex items-center gap-1 text-xs">
           <FaTrophy className="w-4 h-4" />
           <span>{years}+ Years Teaching</span>
         </div>
@@ -57,7 +59,7 @@ function Tutors() {
     }
     if (years >= 5) {
       return (
-        <div className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full flex items-center gap-2 text-sm">
+        <div className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full flex items-center gap-1 text-xs">
           <FaMedal className="w-4 h-4" />
           <span>{years}+ Years Teaching</span>
         </div>
@@ -67,68 +69,80 @@ function Tutors() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto py-8 px-4">
+    <section className="max-w-full mx-auto py-8 px-4">
       <h2 className="text-3xl text-center font-bold mb-6">Meet Our Tutors</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {tutorsData.map((tutor) => (
           <div
             key={tutor.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow"
+            className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-200"
           >
             {/* Tutor Photo */}
-            <img src={tutor.photo} alt={`${tutor.name} photo`} className="w-full h-64 object-cover object-center" />
+            <img 
+              src={tutor.photo} 
+              alt={`${tutor.name} photo`} 
+              className="w-full h-72 object-cover object-center" 
+            />
 
             {/* Tutor Details */}
-            <div className="p-4 flex flex-col flex-1">
+            <div className="p-6 flex flex-col flex-1">
               {/* Tutor Name and Badges */}
-              <div className="mb-3">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">{tutor.name}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {tutor.hasDegree && (
-                    <div className="bg-sky-100 text-sky-800 px-3 py-1 rounded-full flex items-center gap-2 text-sm">
-                      <FaGraduationCap className="w-4 h-4" />
-                      <span>Music Graduate</span>
-                    </div>
-                  )}
-                  {getExperienceBadge(tutor.teachingStartYear)}
-                </div>
+              <h3 className="text-2xl font-bold text-gray-900">{tutor.name}</h3>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {tutor.hasDegree && (
+                  <div className="flex items-center gap-1 bg-sky-100 text-sky-800 px-2 py-1 rounded-full text-xs">
+                    <FaGraduationCap className="w-4 h-4" />
+                    <span>Music Graduate</span>
+                  </div>
+                )}
+                {getExperienceBadge(tutor.teachingStartYear)}
               </div>
+              <Divider />
 
               {/* Tutor Bio */}
-              <p className="text-gray-600 text-sm mb-3 line-clamp-5">{tutor.bio}</p>
+              <p className="text-gray-600 text-sm mb-4 line-clamp-4">{tutor.bio}</p>
 
               {/* Instruments */}
-              <h4 className="text-sm font-medium text-gray-800 mb-1">
+              <h4 className="text-sm font-medium text-gray-800 mb-2">
                 <strong>Instruments:</strong>
               </h4>
-              <ul className="text-gray-600 text-sm list-none space-y-2 mb-4">
-                {tutor.instruments.map((instrument) => {
-                  const instrumentData = instruments.find((inst) => inst.title === instrument);
-                  return (
-                    <li key={instrument} className="flex items-center">
-                      {instrumentData && <img src={instrumentData.icon} alt={instrument} className="w-5 h-5 mr-2" />}
-                      {instrument}
-                    </li>
-                  );
+              <ul className="text-gray-600 text-sm list-none space-y-1 mb-4">
+                {Array.from({ length: 4 }).map((_, i) => {
+                  const instrument = tutor.instruments[i];
+                  if (instrument) {
+                    const instrumentData = instruments.find((inst) => inst.title === instrument);
+                    return (
+                      <li key={i} className="flex items-center gap-2">
+                        {instrumentData && (
+                          <img 
+                            src={instrumentData.icon} 
+                            alt={instrument} 
+                            className="w-5 h-5"
+                          />
+                        )}
+                        <span>{instrument}</span>
+                      </li>
+                    );
+                  }
+                  return null;
                 })}
               </ul>
+              <Divider />
 
-              {/* Studio and Coverage (Optional Fields) */}
-              <div className="mt-auto space-y-1">
-                {tutor.Studio && (
-                  <p className="text-sm text-gray-700">
-                    <strong> Studio: </strong> {tutor.Studio}
-                  </p>
-                )}
+              {/* Studio and Coverage */}
+              <div className="mt-auto">
+                <p className="text-sm text-gray-700">
+                  <strong>Studio:</strong> {tutor.Studio || 'N/A'}
+                </p>
                 {tutor.mobile && (
                   <p className="text-sm text-gray-700">
-                    <strong>Mobile Coverage: </strong> {tutor.mobile.join(', ')}
+                    <strong>Mobile Coverage:</strong> {tutor.mobile.join(', ')}
                   </p>
                 )}
                 {tutor.online && (
-                  <p className="text-sm text-green-600 flex items-center">
-                    <HiCursorArrowRays className="w-5 h-5 mr-2" />
-                    Online Available
+                  <p className="text-sm text-green-600 flex items-center gap-1">
+                    <HiCursorArrowRays className="w-5 h-5" />
+                    <span>Online Available</span>
                   </p>
                 )}
               </div>
