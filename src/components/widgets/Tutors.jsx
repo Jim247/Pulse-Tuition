@@ -117,12 +117,12 @@ function Tutors() {
               <div className="mt-auto space-y-1">
                 {tutor.Studio && (
                   <p className="text-sm text-gray-700">
-                    <strong> Studio:</strong> {tutor.Studio}
+                    <strong> Studio: </strong> {tutor.Studio}
                   </p>
                 )}
                 {tutor.mobile && (
                   <p className="text-sm text-gray-700">
-                    <strong>Mobile Coverage:</strong> {tutor.mobile.join(', ')}
+                    <strong>Mobile Coverage: </strong> {tutor.mobile.join(', ')}
                   </p>
                 )}
                 {tutor.online && (
