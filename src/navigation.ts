@@ -20,6 +20,10 @@ export const headerData = {
       ],
     },
     {
+      text: 'Our Tutors',
+      href: getPermalink('tutors'),
+    },
+    {
       text: 'Pricing',
       href: getPricingPermalink(),
     },

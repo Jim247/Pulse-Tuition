@@ -1,5 +1,6 @@
 import React from 'react';
 import { HiCursorArrowRays } from 'react-icons/hi2';
+import { FaGraduationCap, FaMedal, FaTrophy } from 'react-icons/fa';
 
 const instruments = [
   { icon: '/assets/images/custom-icons/microphone.png', title: 'Singing' },
@@ -14,26 +15,57 @@ const tutorsData = [
   {
     id: 'tutor-a',
     name: 'George',
+    teachingStartYear: 2018, // Replace boolean flags with start year
     instruments: ['Acoustic Guitar', 'Electric Guitar', 'Bass Guitar', 'Piano/Keyboard'],
     Studio: 'BS3',
     mobile: null,
     online: true,
-    bio: 'Experienced guitarist specializing in acoustic and rock styles.',
-    photo: '/assets/images/tutors/tutorA.jpg',
+    hasDegree: true,
+    bio: 'Experienced pianist and guitarist with a variety of skills and expertise.',
+    photo: '/assets/images/tutors/George-Guitar.png',
   },
   {
     id: 'tutor-b',
-    name: 'Tutor B',
-    instruments: ['Piano/Keyboard'],
+    name: 'Tom',
+    teachingStartYear: 2018,
+    instruments: ['Electric Guitar', 'Acoustic Guitar', 'Bass Guitar'],
     Studio: 'BS3',
-    mobile: ['BS3', 'BS5', 'BS6', 'BS7'],
+    mobile: ['Available at additional cost'],
     online: true,
-    bio: 'Classically trained pianist with a passion for modern pop.',
-    photo: 'assets/images/tutors/tutorB.jpg',
+    hasDegree: true,
+    bio: 'Guitarist and music educator with a first-class BMus in Jazz, years of teaching experience, and a passion for helping students grow.',
+    photo: 'assets/images/tutors/tom-guitar.png',
   },
 ];
 
 function Tutors() {
+  const calculateExperienceYears = (startYear) => {
+    const currentYear = new Date().getFullYear();
+    return currentYear - startYear;
+  };
+
+  const getExperienceBadge = (startYear) => {
+    const years = calculateExperienceYears(startYear);
+
+    if (years >= 10) {
+      return (
+        <div className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full flex items-center gap-2 text-sm">
+          <FaTrophy className="w-4 h-4" />
+          <span>{years}+ Years Teaching</span>
+        </div>
+      );
+    }
+    if (years >= 5) {
+      return (
+        <div className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full flex items-center gap-2 text-sm">
+          <FaMedal className="w-4 h-4" />
+          <span>{years}+ Years Teaching</span>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <section className="max-w-7xl mx-auto py-8 px-4">
       <h2 className="text-3xl text-center font-bold mb-6">Meet Our Tutors</h2>
@@ -44,18 +76,31 @@ function Tutors() {
             className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow"
           >
             {/* Tutor Photo */}
-            <img src={tutor.photo} alt={`${tutor.name} photo`} className="w-full h-48 object-cover object-center" />
+            <img src={tutor.photo} alt={`${tutor.name} photo`} className="w-full h-64 object-cover object-center" />
 
             {/* Tutor Details */}
             <div className="p-4 flex flex-col flex-1">
-              {/* Tutor Name */}
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{tutor.name}</h3>
+              {/* Tutor Name and Badges */}
+              <div className="mb-3">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{tutor.name}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {tutor.hasDegree && (
+                    <div className="bg-sky-100 text-sky-800 px-3 py-1 rounded-full flex items-center gap-2 text-sm">
+                      <FaGraduationCap className="w-4 h-4" />
+                      <span>Music Graduate</span>
+                    </div>
+                  )}
+                  {getExperienceBadge(tutor.teachingStartYear)}
+                </div>
+              </div>
 
               {/* Tutor Bio */}
-              <p className="text-gray-600 text-sm mb-3 line-clamp-3">{tutor.bio}</p>
+              <p className="text-gray-600 text-sm mb-3 line-clamp-5">{tutor.bio}</p>
 
               {/* Instruments */}
-              <h4 className="text-sm font-medium text-gray-800 mb-1">Instruments:</h4>
+              <h4 className="text-sm font-medium text-gray-800 mb-1">
+                <strong>Instruments:</strong>
+              </h4>
               <ul className="text-gray-600 text-sm list-none space-y-2 mb-4">
                 {tutor.instruments.map((instrument) => {
                   const instrumentData = instruments.find((inst) => inst.title === instrument);

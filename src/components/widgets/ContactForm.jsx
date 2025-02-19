@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-import ThankYouMessage from './ThankYouMessage';
 
 /**
  * Name attribute must be present in each input field
@@ -8,36 +7,15 @@ import ThankYouMessage from './ThankYouMessage';
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm('xpwzybyo'); // Replace with your Formspree form ID
-  const [showForm, setShowForm] = useState(true);
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await handleSubmit(e);
-      setShowForm(false);
-      window.scrollTo(0, 0);
-    } catch (error) {
-      console.error('Submission error:', error);
-    }
-  };
-
-  const handleReset = () => {
-    setShowForm(true);
-    window.grecaptcha?.reset();
-  };
-
-  if (!showForm && state.succeeded) {
-    return (
-      <ThankYouMessage 
-        onReset={handleReset}
-        message="Thank you for contacting us!"
-      />
-    );
+  // If submission is successful, show success message
+  if (state.succeeded) {
+    return <p>Thanks for your submission!</p>;
   }
 
   return (
     <form
-      onSubmit={onSubmit} // Use Formspree's handleSubmit directly
+      onSubmit={handleSubmit} // Use Formspree's handleSubmit directly
       action="https://formspree.io/f/xpwzybyo" // Set the Formspree URL
       method="POST" // Ensure the method is POST
       className="space-y-6 bg-white p-6 rounded-lg shadow-md w-full md:w-2/3 lg:w-1/2 mx-auto"
@@ -90,7 +68,6 @@ const ContactForm = () => {
           title="Enter a valid UK mobile number (e.g. 07123456789 or 0712 3456789)"
           required
         />
-
         <ValidationError prefix="Phone" field="phone" errors={state.errors} />
       </div>
 
@@ -109,7 +86,6 @@ const ContactForm = () => {
           title="Enter a valid Bristol postcode (e.g., BS1 1AA or BS10 1AB)"
           required
         />
-
         <ValidationError prefix="Postcode" field="postcode" errors={state.errors} />
       </div>
 
@@ -174,10 +150,8 @@ const ContactForm = () => {
         />
         <ValidationError prefix="Message" field="message" errors={state.errors} />
       </div>
-      
       {/* reCAPTCHA */}
-      <div id="recaptcha" className="g-recaptcha" data-sitekey="6LeU7dUqAAAAANcKolkeZ7e43tVB5gLqQizDT-S0"></div>
-      
+      <div className="g-recaptcha" data-sitekey="6LeU7dUqAAAAANcKolkeZ7e43tVB5gLqQizDT-S0"></div>
       {/* Submit Button */}
       <div>
         <button
