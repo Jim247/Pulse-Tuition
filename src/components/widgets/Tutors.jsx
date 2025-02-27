@@ -30,7 +30,7 @@ const tutorsData = [
     teachingStartYear: 2018,
     instruments: ['Electric Guitar', 'Acoustic Guitar', 'Bass Guitar'],
     Studio: 'BS3',
-    mobile: ['Within 4 Miles'],
+    mobile: ['Available'],
     online: true,
     hasDegree: true,
     bio: 'Guitarist and music educator with a first-class BMus in Jazz, years of teaching experience, and a passion for helping students grow.',
@@ -119,7 +119,7 @@ function Tutors() {
                   <div className="flex items-center text-sm text-gray-700">
                     <FaBuilding className="w-4 h-4 mr-2" />
                     <span>
-                      <strong>Studio:</strong> {tutor.Studio}
+                      <strong>Studio: </strong> {tutor.Studio}
                     </span>
                   </div>
                 )}
@@ -127,7 +127,7 @@ function Tutors() {
                   <div className="flex items-center text-sm text-gray-700">
                     <FaPhoneAlt className="w-4 h-4 mr-2" />
                     <span>
-                      <strong>Mobile Coverage:</strong> {tutor.mobile.join(', ')}
+                      <strong>Mobile: </strong> {tutor.mobile.join(', ')}
                     </span>
                   </div>
                 )}
