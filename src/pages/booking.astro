@@ -3,6 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Divider from '~/components/ui/Divider.astro';
 import ContactForm from '~/components/widgets/ContactForm';
+import PhoneWidget from '~/components/widgets/PhoneWidget';
 
 const metadata = {
   title: 'Make a Booking',
@@ -18,7 +19,13 @@ const metadata = {
     subtitle="Book a tutor today, please give us as much information as possible and we'll respond as soon as possible"
     image={{ src: '~/assets/images/piano-lesson.jpeg', alt: 'Hero Image' }}
   />
+  
   <Divider />
+
+  <div class="flex justify-center my-8"> 
+    <PhoneWidget />
+  </div>
+
   <div class="container flex justify-center lg:w-2/3 xl:w-1/2 mx-auto">
     <ContactForm />
   </div>
