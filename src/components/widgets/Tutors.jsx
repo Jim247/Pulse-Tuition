@@ -39,7 +39,7 @@ const tutorsData = [
   {
     id: 'tutor-c',
     name: 'Jake',
-    teachingStartYear: 2021,
+    teachingStartYear: 2020,
     instruments: ['Piano/Keyboard', 'Singing', 'Electric Guitar', 'Acoustic Guitar', 'Bass Guitar'],
     Studio: 'TBC',
     mobile: ['Available'],

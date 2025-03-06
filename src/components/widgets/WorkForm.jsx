@@ -147,7 +147,13 @@ const JobApplicationForm = () => {
         </div>
       </div>
 
-      {/* Why you'd be a great fit */}
+      {/* Years experience */}
+      <div>
+        <label className="block text-sm font-medium mb-1">
+          How many years of experience do you have teaching music?
+        </label>
+        <input type="text" name="yearsTeaching" rows={1} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
+      </div>
       <div>
         <label className="block text-sm font-medium mb-1">
           Please let us know why you'd be a great fit for Pulse...
