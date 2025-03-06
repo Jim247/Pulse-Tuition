@@ -15,7 +15,7 @@ const tutorsData = [
   {
     id: 'tutor-a',
     name: 'George',
-    teachingStartYear: 2018, // Replace boolean flags with start year
+    teachingStartYear: 2018,
     instruments: ['Acoustic Guitar', 'Electric Guitar', 'Bass Guitar', 'Piano/Keyboard'],
     Studio: 'BS3',
     mobile: null,
@@ -35,6 +35,18 @@ const tutorsData = [
     hasDegree: true,
     bio: 'Guitarist and music educator with a first-class BMus in Jazz, years of teaching experience, and a passion for helping students grow.',
     photo: 'assets/images/tutors/tom-guitar.png',
+  },
+  {
+    id: 'tutor-c',
+    name: 'Jake',
+    teachingStartYear: 2020,
+    instruments: ['Piano/Keyboard', 'Singing', 'Electric Guitar', 'Acoustic Guitar', 'Bass Guitar'],
+    Studio: 'TBC',
+    mobile: ['Available'],
+    online: true,
+    hasDegree: false,
+    bio: 'Multi-instrumentalist with 10 years of performance experience worldwide, offering insights in performance, recording, and production.',
+    photo: 'assets/images/tutors/Jake.jpeg',
   },
 ];
 
