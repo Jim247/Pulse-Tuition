@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 const JobApplicationForm = () => {
-  const [state, handleSubmit] = useForm('your-form-id');
+  const [state, handleSubmit] = useForm('mzzdrpqn');
 
   if (state.succeeded) {
     return <p>Thanks for your submission!</p>;
@@ -134,25 +134,36 @@ const JobApplicationForm = () => {
         <input type="text" name="instruments" className="w-full px-4 py-2 border border-gray-300 rounded-md" />
       </div>
 
-      {/* Enhanced DBS */}
+      {/* Mobile or not? */}
       <div>
-        <label className="block text-sm font-medium mb-1">Do you have an Enhanced DBS Certificate?</label>
-        <div className="mb-2">
-          <input type="radio" id="dbsYes" name="enhancedDBS" value="Yes" className="mr-2" />
-          <label htmlFor="dbsYes">Yes</label>
-        </div>
-        <div>
-          <input type="radio" id="dbsNo" name="enhancedDBS" value="No" className="mr-2" />
-          <label htmlFor="dbsNo">No, but I'm willing to secure one before starting</label>
-        </div>
+        <label className="block text-sm font-medium mb-1">
+          Will you offer mobile lessons, lessons at your space, or both?
+        </label>
+        <select name="travel" className="w-full px-4 py-2 border border-gray-300 rounded-md">
+          <option value="Studio">Lessons at my space</option>
+          <option value="Mobile">Mobile lessons</option>
+          <option value="Both">Both</option>
+        </select>
       </div>
 
-      {/* Years experience */}
+      {/* DBS */}
+      <div>
+        <label className="block text-sm font-medium mb-1">Do you have an Enhanced DBS Certificate?</label>
+        <select name="enhancedDBS" className="w-full px-4 py-2 border border-gray-300 rounded-md">
+          <option value="Yes">Yes</option>
+          <option value="No">No, but I'm willing to secure one before starting</option>
+        </select>
+      </div>
       <div>
         <label className="block text-sm font-medium mb-1">
           How many years of experience do you have teaching music?
         </label>
-        <input type="text" name="yearsTeaching" rows={1} className="w-full px-4 py-2 border border-gray-300 rounded-md" />
+        <input
+          type="text"
+          name="yearsTeaching"
+          rows={1}
+          className="w-full px-4 py-2 border border-gray-300 rounded-md"
+        />
       </div>
       <div>
         <label className="block text-sm font-medium mb-1">
@@ -163,7 +174,7 @@ const JobApplicationForm = () => {
 
       {/* reCAPTCHA */}
       <div id="recaptcha" className="g-recaptcha" data-sitekey="6LeU7dUqAAAAANcKolkeZ7e43tVB5gLqQizDT-S0"></div>
-      
+
       {/* Submit */}
       <div>
         <button
