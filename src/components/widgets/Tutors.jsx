@@ -58,7 +58,7 @@ const tutorsData = [
     online: true,
     hasDegree: false,
     bio: 'Professional vocalist with 15 years of performance experience and an engaging teaching style.',
-    photo: 'assets/images/tutors/Sharon.png',
+    photo: 'assets/images/tutors/Sharon.jpg',
   },
   {
     id: 'tutor-e',
