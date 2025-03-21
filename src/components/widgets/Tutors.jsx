@@ -52,7 +52,7 @@ const tutorsData = [
     id: 'tutor-d',
     name: 'Sharon',
     teachingStartYear: 2020,
-    instruments: ['Singing', 'Piano/Keyboard'],
+    instruments: ['Singing',],
     Studio: 'BS10',
     mobile: ['Available'],
     online: true,
