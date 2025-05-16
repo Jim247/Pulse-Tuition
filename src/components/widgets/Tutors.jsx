@@ -52,7 +52,7 @@ const tutorsData = [
     id: 'tutor-d',
     name: 'Sharon',
     teachingStartYear: 2020,
-    instruments: ['Singing',],
+    instruments: ['Singing'],
     Studio: 'BS10',
     mobile: ['Available'],
     online: true,
@@ -69,7 +69,7 @@ const tutorsData = [
     mobile: null,
     online: true,
     hasDegree: true,
-    bio: 'Master\'s qualified music educator and professional musician, with expertise in performance, composition and production.',
+    bio: "Master's qualified music educator and professional musician, with expertise in performance, composition and production.",
     photo: 'assets/images/tutors/Kali.jpg',
   },
 ];
@@ -113,11 +113,7 @@ function Tutors() {
           >
             {/* Tutor Photo */}
             <div className="w-full h-64 overflow-hidden">
-              <img
-                src={tutor.photo}
-                alt={tutor.name}
-                className="w-full h-full object-cover object-top"
-              />
+              <img src={tutor.photo} alt={tutor.name} className="w-full h-full object-cover object-top" />
             </div>
 
             {/* Tutor Details */}
