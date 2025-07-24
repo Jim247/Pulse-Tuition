@@ -1,0 +1,27 @@
+---
+// Get the current year
+const currentYear = new Date().getFullYear();
+---
+
+
+
+<div class="flex items-center justify-center gap-3 text-sm text-white dark:text-gray-400 pb-10">
+  <a 
+    href="https://www.miles-closer.co.uk" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="flex items-center group"
+    aria-label="Miles Closer Digital"
+  >
+    <img 
+      src="../assets/images/MC-pidgeon.svg"
+      alt="Miles Closer Logo" 
+      class="w-12 h-12 mr-2"
+    />
+    <div class="flex flex-col">
+      <span>Built by</span>
+      <span class="text-white underline group-hover:bg-lime-500 group-hover:text-black transition-colors duration-200">Miles Closer Digital</span>
+      <span class="opacity-70 mt-1">{currentYear}</span>
+    </div>
+  </a>
+</div>
